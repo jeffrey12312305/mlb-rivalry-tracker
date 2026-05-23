@@ -353,7 +353,7 @@ const games = [
         { player: "Mack", pos: "C", ab: 4, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".500" }
       ]
     }
-  }
+  },
   {
   id: 11,
   series: "Series 3",
@@ -430,7 +430,7 @@ const games = [
 
 function App() {
   const [selectedSeries, setSelectedSeries] = useState("All");
-  const [expandedGameId, setExpandedGameId] = useState(10);
+  const [expandedGameId, setExpandedGameId] = useState(12);
   const [showPlayerTotals, setShowPlayerTotals] = useState(false);
 
   const filteredGames = selectedSeries === "All" ? games : games.filter((game) => game.series === selectedSeries);
