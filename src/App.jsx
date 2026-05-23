@@ -353,7 +353,78 @@ const games = [
         { player: "Mack", pos: "C", ab: 4, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".500" }
       ]
     }
+  }{
+  id: 11,
+  series: "Series 3",
+  game: 2,
+  home: "Barbaros",
+  winner: "Heat",
+  barbaros: { runs: 3, hits: 6, errors: 0, hrs: 1, rbi: 3, strikeouts: 4 },
+  heat: { runs: 6, hits: 10, errors: 0, hrs: 3, rbi: 6, strikeouts: 5 },
+  mvp: "Jackson Chourio",
+  notes: "Heat won Series 3 Game 2, 6-3. Chourio hit 2 HRs and drove in 2. Simpson added a HR and 2 RBI. Delgado homered for Barbaros.",
+  playerBox: {
+    barbaros: [
+      { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+      { player: "De La Cruz", pos: "SS", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+      { player: "Rice", pos: "1B", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".333" },
+      { player: "Fernandez", pos: "PR-1B", ab: 1, r: 1, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+      { player: "Delgado", pos: "DH", ab: 4, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".500" },
+      { player: "Adell", pos: "LF", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+      { player: "Tatis Jr.", pos: "RF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+      { player: "Correa", pos: "3B", ab: 3, r: 0, h: 1, rbi: 1, bb: 0, so: 1, avg: ".333" },
+      { player: "Doerr", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+      { player: "Mackey", pos: "C", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+    ],
+    heat: [
+      { player: "Chourio", pos: "CF", ab: 5, r: 2, h: 3, rbi: 2, bb: 0, so: 1, avg: ".600" },
+      { player: "Bazzana", pos: "2B", ab: 4, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" },
+      { player: "Correa", pos: "3B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+      { player: "Trout", pos: "DH", ab: 4, r: 0, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" },
+      { player: "Harper", pos: "1B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+      { player: "Thompson", pos: "RF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+      { player: "Griffin", pos: "SS", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+      { player: "Simpson", pos: "LF", ab: 3, r: 1, h: 1, rbi: 2, bb: 1, so: 0, avg: ".333" },
+      { player: "Mack", pos: "C", ab: 3, r: 1, h: 0, rbi: 0, bb: 1, so: 1, avg: ".000" }
+    ]
   }
+},
+{
+  id: 12,
+  series: "Series 3",
+  game: 3,
+  home: "Barbaros",
+  winner: "Barbaros",
+  barbaros: { runs: 10, hits: 14, errors: 0, hrs: 2, rbi: 10, strikeouts: 3 },
+  heat: { runs: 6, hits: 10, errors: 0, hrs: 2, rbi: 6, strikeouts: 7 },
+  mvp: "Shohei Ohtani",
+  notes: "Barbaros won Series 3 Game 3, 10-6. Ohtani drove in 4. De La Cruz went 4-for-5 with a triple. Barbaros scored 7 runs in the first two innings.",
+  playerBox: {
+    barbaros: [
+      { player: "Crow-Armstrong", pos: "CF", ab: 5, r: 2, h: 2, rbi: 0, bb: 0, so: 1, avg: ".400" },
+      { player: "De La Cruz", pos: "SS", ab: 5, r: 3, h: 4, rbi: 0, bb: 0, so: 0, avg: ".800" },
+      { player: "Kurtz", pos: "1B", ab: 3, r: 2, h: 2, rbi: 2, bb: 1, so: 0, avg: ".667" },
+      { player: "Ohtani", pos: "DH", ab: 4, r: 1, h: 1, rbi: 4, bb: 0, so: 0, avg: ".250" },
+      { player: "Adell", pos: "LF", ab: 4, r: 0, h: 2, rbi: 2, bb: 0, so: 0, avg: ".500" },
+      { player: "Tatis Jr.", pos: "RF", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+      { player: "Guerrero Jr.", pos: "3B", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 2, avg: ".250" },
+      { player: "Doerr", pos: "2B", ab: 4, r: 0, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+      { player: "Mackey", pos: "C", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+    ],
+    heat: [
+      { player: "Simpson", pos: "LF", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".400" },
+      { player: "Bazzana", pos: "2B", ab: 3, r: 0, h: 0, rbi: 1, bb: 0, so: 1, avg: ".000" },
+      { player: "Correa", pos: "3B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+      { player: "Trout", pos: "DH", ab: 4, r: 1, h: 2, rbi: 1, bb: 0, so: 1, avg: ".500" },
+      { player: "Harper", pos: "1B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+      { player: "Chourio", pos: "CF", ab: 4, r: 2, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" },
+      { player: "Griffin", pos: "SS", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+      { player: "Gwynn", pos: "RF", ab: 4, r: 2, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" },
+      { player: "Mack", pos: "C", ab: 3, r: 0, h: 2, rbi: 1, bb: 0, so: 1, avg: ".667" },
+      { player: "Roberts", pos: "PR", ab: 0, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+    ]
+  }
+}
 ];
 
 function App() {
