@@ -353,7 +353,8 @@ const games = [
         { player: "Mack", pos: "C", ab: 4, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".500" }
       ]
     }
-  }{
+  }
+  {
   id: 11,
   series: "Series 3",
   game: 2,
