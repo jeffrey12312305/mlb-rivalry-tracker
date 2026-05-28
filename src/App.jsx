@@ -426,6 +426,44 @@ const games = [
     ]
   }
 }
+  ,
+  {
+    id: 13,
+    series: "Series 3",
+    game: 4,
+    home: "Barbaros",
+    winner: "Heat",
+    barbaros: { runs: 3, hits: 11, errors: 0, hrs: 1, rbi: 3, strikeouts: 3 },
+    heat: { runs: 7, hits: 11, errors: 0, hrs: 5, rbi: 7, strikeouts: 5 },
+    mvp: "Travis Bazzana",
+    notes: "Heat won Series 3 Game 4, 7-3, and closed the series 3-1. Heat hit five home runs: Bazzana, Correa, Trout, Griffin, and Mack. Barbaros had 11 hits but only scored 3 runs.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "De La Cruz", pos: "SS", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Kurtz", pos: "1B", ab: 4, r: 0, h: 1, rbi: 1, bb: 0, so: 1, avg: ".250" },
+        { player: "Ohtani", pos: "DH", ab: 4, r: 1, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Adell", pos: "LF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Tatis Jr.", pos: "RF", ab: 4, r: 0, h: 2, rbi: 0, bb: 0, so: 1, avg: ".500" },
+        { player: "Guerrero Jr.", pos: "3B", ab: 3, r: 0, h: 2, rbi: 1, bb: 0, so: 0, avg: ".667" },
+        { player: "Fernandez", pos: "PR-3B", ab: 1, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Doerr", pos: "2B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Mackey", pos: "C", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" }
+      ],
+      heat: [
+        { player: "Chourio", pos: "CF", ab: 5, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Bazzana", pos: "2B", ab: 5, r: 2, h: 3, rbi: 1, bb: 0, so: 0, avg: ".600" },
+        { player: "Correa", pos: "3B", ab: 5, r: 1, h: 1, rbi: 2, bb: 0, so: 2, avg: ".200" },
+        { player: "Trout", pos: "DH", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 1, avg: ".250" },
+        { player: "Murakami", pos: "1B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Taylor", pos: "LF", ab: 4, r: 1, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Griffin", pos: "SS", ab: 4, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".500" },
+        { player: "Jones", pos: "RF", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Mack", pos: "C", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" }
+      ]
+    }
+  }
+
 ];
 
 function App() {
