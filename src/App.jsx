@@ -463,12 +463,85 @@ const games = [
       ]
     }
   }
+,
+  {
+    id: 14,
+    series: "Series 4",
+    game: 1,
+    home: "Heat",
+    winner: "Heat",
+    barbaros: { runs: 1, hits: 11, errors: 0, hrs: 0, rbi: 1, strikeouts: 6 },
+    heat: { runs: 3, hits: 6, errors: 0, hrs: 3, rbi: 3, strikeouts: 5 },
+    mvp: "Darren O'Day",
+    notes: "Heat opened Series 4 with a 3-1 win. Heat scored all 3 runs on solo HRs by Baez, Jones, and Mack. Barbaros outhit Heat 11-6 but only scored once.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "De La Cruz", pos: "SS", ab: 4, r: 1, h: 3, rbi: 0, bb: 0, so: 0, avg: ".750" },
+        { player: "Kurtz", pos: "1B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Ortiz", pos: "DH", ab: 4, r: 0, h: 3, rbi: 1, bb: 0, so: 0, avg: ".750" },
+        { player: "Eaton", pos: "PR", ab: 0, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Adell", pos: "LF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 2, avg: ".250" },
+        { player: "Tatis Jr.", pos: "RF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 3, avg: ".000" },
+        { player: "Guerrero Jr.", pos: "3B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Doerr", pos: "2B", ab: 4, r: 0, h: 3, rbi: 0, bb: 0, so: 0, avg: ".750" },
+        { player: "Mackey", pos: "C", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+      ],
+      heat: [
+        { player: "Chourio", pos: "CF", ab: 4, r: 0, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Bazzana", pos: "2B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Baez", pos: "3B", ab: 3, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".333" },
+        { player: "Trout", pos: "DH", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Murakami", pos: "1B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Taylor", pos: "LF", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+        { player: "Griffin", pos: "SS", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Jones", pos: "RF", ab: 3, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".667" },
+        { player: "Mack", pos: "C", ab: 3, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".333" }
+      ]
+    }
+  },
+  {
+    id: 15,
+    series: "Series 4",
+    game: 2,
+    home: "Heat",
+    winner: "Heat",
+    barbaros: { runs: 2, hits: 7, errors: 0, hrs: 0, rbi: 2, strikeouts: 2 },
+    heat: { runs: 4, hits: 7, errors: 0, hrs: 2, rbi: 4, strikeouts: 5 },
+    mvp: "Mike Trout",
+    notes: "Heat took a 2-0 Series 4 lead with a 4-2 win. Barbaros scored first with 2 in the 7th, but Heat answered with 2 in the 7th and 2 more in the 8th. HRs: Trout and Lindor.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Lindor", pos: "SS", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Tatis Jr.", pos: "RF", ab: 4, r: 1, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Judge", pos: "DH", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Bellinger", pos: "LF", ab: 4, r: 1, h: 2, rbi: 0, bb: 0, so: 1, avg: ".500" },
+        { player: "Kurtz", pos: "1B", ab: 3, r: 0, h: 2, rbi: 2, bb: 0, so: 1, avg: ".667" },
+        { player: "Emerson", pos: "3B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Doerr", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Mackey", pos: "C", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" }
+      ],
+      heat: [
+        { player: "McGee", pos: "CF", ab: 3, r: 0, h: 1, rbi: 0, bb: 1, so: 0, avg: ".333" },
+        { player: "Bazzana", pos: "2B", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Baez", pos: "3B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Trout", pos: "DH", ab: 3, r: 1, h: 2, rbi: 2, bb: 0, so: 1, avg: ".667" },
+        { player: "Murakami", pos: "1B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Taylor", pos: "LF", ab: 3, r: 1, h: 2, rbi: 0, bb: 0, so: 0, avg: ".667" },
+        { player: "Lindor", pos: "SS", ab: 3, r: 1, h: 1, rbi: 2, bb: 0, so: 0, avg: ".333" },
+        { player: "Jones", pos: "RF", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Mack", pos: "C", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" }
+      ]
+    }
+  }
+
 
 ];
 
 function App() {
   const [selectedSeries, setSelectedSeries] = useState("All");
-  const [expandedGameId, setExpandedGameId] = useState(12);
+  const [expandedGameId, setExpandedGameId] = useState(15);
   const [showPlayerTotals, setShowPlayerTotals] = useState(false);
 
   const filteredGames = selectedSeries === "All" ? games : games.filter((game) => game.series === selectedSeries);
@@ -544,7 +617,7 @@ function App() {
 
       <h2 style={styles.sectionTitle}>Game Log</h2>
       <select value={selectedSeries} onChange={(event) => setSelectedSeries(event.target.value)} style={styles.select}>
-        <option>All</option><option>Series 1</option><option>Series 2</option><option>Series 3</option>
+        <option>All</option><option>Series 1</option><option>Series 2</option><option>Series 3</option><option>Series 4</option>
       </select>
 
       <div style={styles.gameList}>
