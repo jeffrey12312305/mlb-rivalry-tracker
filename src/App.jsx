@@ -1,5 +1,4 @@
 import { useMemo, useState } from "react";
-import Twemoji from "twemoji-react";
 
 const games = [
   {
@@ -1117,14 +1116,28 @@ function App() {
       </main>
     </div>
   );
+}
+
 function teamLabel(team) {
   return team === "Barbaros" ? (
     <>
-      Barbaros <Twemoji>🇩🇴</Twemoji>
+      Barbaros
+      <img
+        src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1e9-1f1f4.svg"
+        alt="Dominican Republic"
+        width="18"
+        style={{ marginLeft: "6px", verticalAlign: "middle" }}
+      />
     </>
   ) : (
     <>
-      Heat <Twemoji>🇵🇷</Twemoji>
+      Heat
+      <img
+        src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1f5-1f1f7.svg"
+        alt="Puerto Rico"
+        width="18"
+        style={{ marginLeft: "6px", verticalAlign: "middle" }}
+      />
     </>
   );
 }
@@ -1132,9 +1145,31 @@ function teamLabel(team) {
 function formatTeam(team) {
   switch (team) {
     case "Barbaros":
-      return "Barbaros 🇩🇴";
+      return (
+        <>
+          Barbaros
+          <img
+            src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1e9-1f1f4.svg"
+            alt="Dominican Republic"
+            width="18"
+            style={{ marginLeft: "6px", verticalAlign: "middle" }}
+          />
+        </>
+      );
+
     case "Heat":
-      return "Heat 🇵🇷";
+      return (
+        <>
+          Heat
+          <img
+            src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1f5-1f1f7.svg"
+            alt="Puerto Rico"
+            width="18"
+            style={{ marginLeft: "6px", verticalAlign: "middle" }}
+          />
+        </>
+      );
+
     default:
       return team;
   }
