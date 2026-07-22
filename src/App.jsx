@@ -822,7 +822,7 @@ const games = [
 
 ];
 
-function App() {
+function App() {}
   const [selectedSeries, setSelectedSeries] = useState("All");
   const [expandedGameId, setExpandedGameId] = useState(23);
   const [showPlayerTotals, setShowPlayerTotals] = useState(false);
@@ -1116,16 +1116,39 @@ function App() {
       </main>
     </div>
   );
-}
-
 function teamLabel(team) {
   return team === "Barbaros" ? "Barbaros 🇩🇴" : "Heat 🇵🇷";
 }
 
+function formatTeam(team) {
+  switch (team) {
+    case "Barbaros":
+      return "Barbaros 🇩🇴";
+    case "Heat":
+      return "Heat 🇵🇷";
+    default:
+      return team;
+  }
+}
+
 function emptyTotals() {
   return {
-    barbaros: { runs: 0, hits: 0, errors: 0, hrs: 0, rbi: 0, strikeouts: 0 },
-    heat: { runs: 0, hits: 0, errors: 0, hrs: 0, rbi: 0, strikeouts: 0 },
+    "Barbaros 🇩🇴": {
+      runs: 0,
+      hits: 0,
+      errors: 0,
+      hrs: 0,
+      rbi: 0,
+      strikeouts: 0,
+    },
+    "Heat 🇵🇷": {
+      runs: 0,
+      hits: 0,
+      errors: 0,
+      hrs: 0,
+      rbi: 0,
+      strikeouts: 0,
+    },
   };
 }
 
@@ -1167,21 +1190,21 @@ function TeamTable({ stats }) {
       <tbody>
         <tr>
           <td style={styles.teamCell}>Barbaros 🇩🇴</td>
-          <td>{stats.barbaros.runs}</td>
-          <td>{stats.barbaros.hits}</td>
-          <td>{stats.barbaros.errors}</td>
-          <td>{stats.barbaros.hrs}</td>
-          <td>{stats.barbaros.rbi}</td>
-          <td>{stats.barbaros.strikeouts}</td>
+          <td>{stats["Barbaros 🇩🇴"].runs}</td>
+          <td>{stats["Barbaros 🇩🇴"].hits}</td>
+          <td>{stats["Barbaros 🇩🇴"].errors}</td>
+          <td>{stats["Barbaros 🇩🇴"].hrs}</td>
+          <td>{stats["Barbaros 🇩🇴"].rbi}</td>
+          <td>{stats["Barbaros 🇩🇴"].strikeouts}</td>
         </tr>
         <tr>
           <td style={styles.teamCell}>Heat 🇵🇷</td>
-          <td>{stats.heat.runs}</td>
-          <td>{stats.heat.hits}</td>
-          <td>{stats.heat.errors}</td>
-          <td>{stats.heat.hrs}</td>
-          <td>{stats.heat.rbi}</td>
-          <td>{stats.heat.strikeouts}</td>
+          <td>{stats["Heat 🇵🇷"].runs}</td>
+          <td>{stats["Heat 🇵🇷"].hits}</td>
+          <td>{stats["Heat 🇵🇷"].errors}</td>
+          <td>{stats["Heat 🇵🇷"].hrs}</td>
+          <td>{stats["Heat 🇵🇷"].rbi}</td>
+          <td>{stats["Heat 🇵🇷"].strikeouts}</td>
         </tr>
       </tbody>
     </table>
@@ -1246,21 +1269,21 @@ function GameTeamTable({ game }) {
       <tbody>
         <tr>
           <td style={styles.teamCell}>Barbaros 🇩🇴</td>
-          <td>{game.barbaros.runs}</td>
-          <td>{game.barbaros.hits}</td>
-          <td>{game.barbaros.errors}</td>
-          <td>{game.barbaros.hrs}</td>
-          <td>{game.barbaros.rbi}</td>
-          <td>{game.barbaros.strikeouts}</td>
+          <td>{game["Barbaros 🇩🇴"].runs}</td>
+          <td>{game["Barbaros 🇩🇴"].hits}</td>
+          <td>{game["Barbaros 🇩🇴"].errors}</td>
+          <td>{game["Barbaros 🇩🇴"].hrs}</td>
+          <td>{game["Barbaros 🇩🇴"].rbi}</td>
+          <td>{game["Barbaros 🇩🇴"].strikeouts}</td>
         </tr>
         <tr>
           <td style={styles.teamCell}>Heat 🇵🇷</td>
-          <td>{game.heat.runs}</td>
-          <td>{game.heat.hits}</td>
-          <td>{game.heat.errors}</td>
-          <td>{game.heat.hrs}</td>
-          <td>{game.heat.rbi}</td>
-          <td>{game.heat.strikeouts}</td>
+          <td>{game["Heat 🇵🇷"].runs}</td>
+          <td>{game["Heat 🇵🇷"].hits}</td>
+          <td>{game["Heat 🇵🇷"].errors}</td>
+          <td>{game["Heat 🇵🇷"].hrs}</td>
+          <td>{game["Heat 🇵🇷"].rbi}</td>
+          <td>{game["Heat 🇵🇷"].strikeouts}</td>
         </tr>
       </tbody>
     </table>
