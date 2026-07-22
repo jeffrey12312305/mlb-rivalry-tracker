@@ -572,12 +572,259 @@ const games = [
     }
   }
 
+,
+  {
+    id: 17,
+    series: "Series 4",
+    game: 4,
+    home: "Heat",
+    winner: "Barbaros",
+    barbaros: { runs: 6, hits: 11, errors: 0, hrs: 1, rbi: 6, strikeouts: 5 },
+    heat: { runs: 2, hits: 8, errors: 0, hrs: 1, rbi: 2, strikeouts: 4 },
+    mvp: "Pete Crow-Armstrong",
+    notes: "Barbaros tied Series 4 at 2-2 with a 6-2 win. Crow-Armstrong homered and drove in 2. Mackey collected 3 hits, and Tatis Jr. tripled.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 5, r: 1, h: 2, rbi: 2, bb: 0, so: 1, avg: ".400" },
+        { player: "Lindor", pos: "SS", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 1, avg: ".250" },
+        { player: "Tatis Jr.", pos: "RF", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Judge", pos: "DH", ab: 3, r: 0, h: 0, rbi: 1, bb: 0, so: 1, avg: ".000" },
+        { player: "Bellinger", pos: "LF", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Kurtz", pos: "1B", ab: 4, r: 0, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Emerson", pos: "3B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Doerr", pos: "2B", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Mackey", pos: "C", ab: 4, r: 1, h: 3, rbi: 0, bb: 0, so: 0, avg: ".750" }
+      ],
+      heat: [
+        { player: "McGee", pos: "CF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Arroyo", pos: "2B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Baez", pos: "3B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Trout", pos: "DH", ab: 4, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" },
+        { player: "Bellinger", pos: "1B", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 1, avg: ".250" },
+        { player: "Taylor", pos: "LF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Lindor", pos: "SS", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" },
+        { player: "Jones", pos: "RF", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".333" },
+        { player: "Carrigg", pos: "C", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+      ]
+    }
+  },
+  {
+    id: 18,
+    series: "Series 4",
+    game: 5,
+    home: "Barbaros",
+    winner: "Heat",
+    barbaros: { runs: 2, hits: 5, errors: 0, hrs: 1, rbi: 2, strikeouts: 6 },
+    heat: { runs: 3, hits: 8, errors: 0, hrs: 1, rbi: 3, strikeouts: 6 },
+    mvp: "Ozzie Smith",
+    notes: "Heat won Series 4 in five games with a 3-2 victory. Ozzie Smith homered, while Bellinger supplied both Barbaros runs with a 2-run homer.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Lindor", pos: "SS", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Tatis Jr.", pos: "RF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Judge", pos: "DH", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Bellinger", pos: "LF", ab: 4, r: 1, h: 1, rbi: 2, bb: 0, so: 1, avg: ".250" },
+        { player: "Kurtz", pos: "1B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Emerson", pos: "3B", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" },
+        { player: "Doerr", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Mackey", pos: "C", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" }
+      ],
+      heat: [
+        { player: "McGee", pos: "CF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Arroyo", pos: "2B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Baez", pos: "3B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Trout", pos: "DH", ab: 3, r: 0, h: 0, rbi: 0, bb: 1, so: 0, avg: ".000" },
+        { player: "Taylor", pos: "LF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Lindor", pos: "SS", ab: 4, r: 2, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Smith", pos: "RF", ab: 4, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" },
+        { player: "Jones", pos: "1B", ab: 3, r: 0, h: 0, rbi: 1, bb: 0, so: 1, avg: ".000" },
+        { player: "Carrigg", pos: "C", ab: 3, r: 0, h: 0, rbi: 1, bb: 0, so: 1, avg: ".000" }
+      ]
+    }
+  },
+  {
+    id: 19,
+    series: "Series 5",
+    game: 1,
+    home: "Barbaros",
+    winner: "Heat",
+    barbaros: { runs: 3, hits: 7, errors: 1, hrs: 1, rbi: 3, strikeouts: 6 },
+    heat: { runs: 9, hits: 11, errors: 1, hrs: 1, rbi: 9, strikeouts: 6 },
+    mvp: "Taylor",
+    notes: "Heat opened Series 5 with a 9-3 win. Taylor homered and drove in 3. Heat scored early and Gaylord Perry finished four scoreless innings.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 1, h: 1, rbi: 2, bb: 0, so: 1, avg: ".250" },
+        { player: "Lindor", pos: "SS", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Judge", pos: "RF", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Anthony", pos: "DH", ab: 4, r: 0, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Kurtz", pos: "1B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Tatis Jr.", pos: "LF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Emerson", pos: "3B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Doerr", pos: "2B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Mackey", pos: "C", ab: 3, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" }
+      ],
+      heat: [
+        { player: "Smith", pos: "SS", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".200" },
+        { player: "Carrigg", pos: "C", ab: 5, r: 2, h: 2, rbi: 0, bb: 0, so: 1, avg: ".400" },
+        { player: "Baez", pos: "3B", ab: 5, r: 1, h: 1, rbi: 3, bb: 0, so: 1, avg: ".200" },
+        { player: "Trout", pos: "DH", ab: 5, r: 1, h: 2, rbi: 2, bb: 0, so: 1, avg: ".400" },
+        { player: "Freeman", pos: "1B", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Taylor", pos: "LF", ab: 4, r: 2, h: 2, rbi: 3, bb: 0, so: 1, avg: ".500" },
+        { player: "Montgomery", pos: "RF", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Lindor", pos: "2B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Arroyo", pos: "CF", ab: 3, r: 0, h: 0, rbi: 1, bb: 0, so: 1, avg: ".000" }
+      ]
+    }
+  },
+  {
+    id: 20,
+    series: "Series 5",
+    game: 2,
+    home: "Heat",
+    winner: "Barbaros",
+    barbaros: { runs: 7, hits: 13, errors: 0, hrs: 1, rbi: 7, strikeouts: 5 },
+    heat: { runs: 6, hits: 13, errors: 1, hrs: 4, rbi: 6, strikeouts: 5 },
+    mvp: "Colt Emerson",
+    notes: "Barbaros won 7-6 in 10 innings to tie Series 5. Emerson homered and drove in 3. Barbaros erased a late deficit and Tyler Rogers earned the win.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 5, r: 1, h: 2, rbi: 0, bb: 0, so: 1, avg: ".400" },
+        { player: "Lindor", pos: "SS", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 1, avg: ".400" },
+        { player: "Judge", pos: "RF", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Anthony", pos: "DH", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".400" },
+        { player: "Freeman", pos: "1B", ab: 5, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".400" },
+        { player: "Tatis Jr.", pos: "LF", ab: 5, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Emerson", pos: "3B", ab: 4, r: 1, h: 2, rbi: 3, bb: 0, so: 0, avg: ".500" },
+        { player: "Doerr", pos: "2B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Mackey", pos: "C", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" }
+      ],
+      heat: [
+        { player: "Smith", pos: "SS", ab: 5, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".200" },
+        { player: "Carrigg", pos: "C", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Baez", pos: "3B", ab: 5, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".400" },
+        { player: "Trout", pos: "DH", ab: 5, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Freeman", pos: "1B", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".400" },
+        { player: "Taylor", pos: "LF", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Montgomery", pos: "RF", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 1, avg: ".400" },
+        { player: "Lindor", pos: "2B", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".400" },
+        { player: "Acuna Jr.", pos: "CF", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 1, avg: ".250" }
+      ]
+    }
+  },
+  {
+    id: 21,
+    series: "Series 5",
+    game: 3,
+    home: "Barbaros",
+    winner: "Heat",
+    barbaros: { runs: 7, hits: 11, errors: 0, hrs: 2, rbi: 7, strikeouts: 5 },
+    heat: { runs: 11, hits: 16, errors: 0, hrs: 4, rbi: 11, strikeouts: 4 },
+    mvp: "Ronald Acuna Jr.",
+    notes: "Heat took a 2-1 Series 5 lead with an 11-7 win. Acuna Jr. went 3-for-3 with a homer, 3 runs, and 2 RBI. Arroyo drove in 3.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 5, r: 2, h: 3, rbi: 2, bb: 0, so: 0, avg: ".600" },
+        { player: "Lindor", pos: "SS", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Judge", pos: "RF", ab: 5, r: 1, h: 1, rbi: 1, bb: 0, so: 1, avg: ".200" },
+        { player: "Anthony", pos: "DH", ab: 5, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Freeman", pos: "1B", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Tatis Jr.", pos: "LF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Emerson", pos: "3B", ab: 4, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".500" },
+        { player: "Doerr", pos: "2B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Mackey", pos: "C", ab: 4, r: 1, h: 1, rbi: 2, bb: 0, so: 0, avg: ".250" }
+      ],
+      heat: [
+        { player: "Smith", pos: "SS", ab: 5, r: 1, h: 2, rbi: 0, bb: 0, so: 0, avg: ".400" },
+        { player: "Carrigg", pos: "C", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Baez", pos: "3B", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 1, avg: ".400" },
+        { player: "Trout", pos: "DH", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Freeman", pos: "1B", ab: 5, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".400" },
+        { player: "Taylor", pos: "LF", ab: 5, r: 1, h: 3, rbi: 1, bb: 0, so: 0, avg: ".600" },
+        { player: "Montgomery", pos: "RF", ab: 4, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".500" },
+        { player: "Arroyo", pos: "2B", ab: 4, r: 2, h: 2, rbi: 3, bb: 0, so: 1, avg: ".500" },
+        { player: "Acuna Jr.", pos: "CF", ab: 3, r: 3, h: 3, rbi: 2, bb: 0, so: 0, avg: "1.000" }
+      ]
+    }
+  },
+  {
+    id: 22,
+    series: "Series 5",
+    game: 4,
+    home: "Heat",
+    winner: "Barbaros",
+    barbaros: { runs: 5, hits: 7, errors: 0, hrs: 3, rbi: 5, strikeouts: 6 },
+    heat: { runs: 1, hits: 4, errors: 1, hrs: 1, rbi: 1, strikeouts: 4 },
+    mvp: "Pete Crow-Armstrong",
+    notes: "Barbaros forced Game 5 with a 5-1 win. Crow-Armstrong homered and drove in 3. Tatis Jr. and Emerson also homered.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 1, h: 1, rbi: 3, bb: 0, so: 1, avg: ".250" },
+        { player: "Lindor", pos: "SS", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Judge", pos: "RF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Anthony", pos: "DH", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Freeman", pos: "1B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Tatis Jr.", pos: "LF", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Emerson", pos: "3B", ab: 3, r: 2, h: 2, rbi: 1, bb: 0, so: 0, avg: ".667" },
+        { player: "Doerr", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Mackey", pos: "C", ab: 3, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".333" }
+      ],
+      heat: [
+        { player: "Smith", pos: "SS", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Carrigg", pos: "C", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Baez", pos: "3B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Trout", pos: "DH", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Freeman", pos: "1B", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" },
+        { player: "Taylor", pos: "LF", ab: 3, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".333" },
+        { player: "Montgomery", pos: "RF", ab: 3, r: 0, h: 1, rbi: 1, bb: 0, so: 0, avg: ".333" },
+        { player: "Arroyo", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Acuna Jr.", pos: "CF", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" }
+      ]
+    }
+  },
+  {
+    id: 23,
+    series: "Series 5",
+    game: 5,
+    home: "Barbaros",
+    winner: "Barbaros",
+    barbaros: { runs: 8, hits: 17, errors: 0, hrs: 3, rbi: 8, strikeouts: 4 },
+    heat: { runs: 1, hits: 6, errors: 0, hrs: 1, rbi: 1, strikeouts: 6 },
+    mvp: "Andy Ruiz",
+    notes: "Barbaros won Series 5, 3-2, with an 8-1 Game 5 victory. Ruiz hit two homers and drove in 3. Freeman added a homer and 3 RBI.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 5, r: 1, h: 2, rbi: 0, bb: 0, so: 1, avg: ".400" },
+        { player: "Lindor", pos: "SS", ab: 5, r: 1, h: 2, rbi: 0, bb: 0, so: 1, avg: ".400" },
+        { player: "Ruiz", pos: "RF", ab: 5, r: 2, h: 3, rbi: 3, bb: 0, so: 0, avg: ".600" },
+        { player: "Anthony", pos: "DH", ab: 4, r: 0, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Freeman", pos: "1B", ab: 4, r: 2, h: 3, rbi: 3, bb: 0, so: 0, avg: ".750" },
+        { player: "Tatis Jr.", pos: "LF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Emerson", pos: "3B", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Doerr", pos: "2B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Mackey", pos: "C", ab: 4, r: 1, h: 3, rbi: 1, bb: 0, so: 0, avg: ".750" }
+      ],
+      heat: [
+        { player: "Smith", pos: "SS", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Carrigg", pos: "C", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Baez", pos: "3B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Trout", pos: "DH", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Freeman", pos: "1B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Taylor", pos: "LF", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 1, avg: ".250" },
+        { player: "Montgomery", pos: "RF", ab: 4, r: 0, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Arroyo", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Acuna Jr.", pos: "CF", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+      ]
+    }
+  }
+
 
 ];
 
 function App() {
   const [selectedSeries, setSelectedSeries] = useState("All");
-  const [expandedGameId, setExpandedGameId] = useState(16);
+  const [expandedGameId, setExpandedGameId] = useState(23);
   const [showPlayerTotals, setShowPlayerTotals] = useState(false);
 
   const filteredGames = selectedSeries === "All" ? games : games.filter((game) => game.series === selectedSeries);
@@ -653,7 +900,7 @@ function App() {
 
       <h2 style={styles.sectionTitle}>Game Log</h2>
       <select value={selectedSeries} onChange={(event) => setSelectedSeries(event.target.value)} style={styles.select}>
-        <option>All</option><option>Series 1</option><option>Series 2</option><option>Series 3</option><option>Series 4</option>
+        <option>All</option><option>Series 1</option><option>Series 2</option><option>Series 3</option><option>Series 4</option><option>Series 5</option>
       </select>
 
       <div style={styles.gameList}>
