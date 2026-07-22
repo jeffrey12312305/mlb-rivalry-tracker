@@ -127,13 +127,18 @@ button { -webkit-tap-highlight-color: transparent; }
 .hero__title {
   position: relative;
   z-index: 1;
+
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+
   align-items: center;
   justify-content: center;
-  gap: clamp(16px, 3vw, 42px);
+
+  gap: 12px;
+
   margin: 0;
-  line-height: 0.95;
+
+  line-height: 0.9;
 }
 
 .hero__team {
@@ -151,7 +156,7 @@ button { -webkit-tap-highlight-color: transparent; }
   color: transparent;
   -webkit-text-fill-color: transparent;
 
-  font-size: clamp(3.3rem, 8vw, 5rem);
+  font-size: clamp(3.8rem, 9vw, 5.8rem);
   font-weight: 900;
   font-style: italic;
   letter-spacing: -0.055em;
@@ -192,9 +197,10 @@ button { -webkit-tap-highlight-color: transparent; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 76px;
-  min-height: 76px;
+  min-width: 90px;
+  min-height: 90px;
   padding: 0 14px;
+  margin: 6px 0;
   border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 999px;
 
