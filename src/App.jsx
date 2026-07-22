@@ -827,7 +827,10 @@ function App() {
   const [expandedGameId, setExpandedGameId] = useState(23);
   const [showPlayerTotals, setShowPlayerTotals] = useState(false);
 
-  const filteredGames = selectedSeries === "All" ? games : games.filter((game) => game.series === selectedSeries);
+  const filteredGames =
+    selectedSeries === "All"
+      ? games
+      : games.filter((game) => game.series === selectedSeries);
 
   const stats = useMemo(() => {
     const barbarosWins = games.filter((game) => game.winner === "Barbaros").length;
@@ -850,8 +853,18 @@ function App() {
         game.playerBox[team].forEach((p) => {
           const key = `${team}-${p.player}`;
           if (!playerTotals[key]) {
-            playerTotals[key] = { team: team === "barbaros" ? "Barbaros" : "Heat", player: p.player, ab: 0, r: 0, h: 0, rbi: 0, bb: 0, so: 0 };
+            playerTotals[key] = {
+              team: team === "barbaros" ? "Barbaros" : "Heat",
+              player: p.player,
+              ab: 0,
+              r: 0,
+              h: 0,
+              rbi: 0,
+              bb: 0,
+              so: 0,
+            };
           }
+
           playerTotals[key].ab += p.ab;
           playerTotals[key].r += p.r;
           playerTotals[key].h += p.h;
@@ -862,77 +875,317 @@ function App() {
       });
     });
 
-    return { barbarosWins, heatWins, totals, series, playerTotals: Object.values(playerTotals) };
+    return {
+      barbarosWins,
+      heatWins,
+      totals,
+      series,
+      playerTotals: Object.values(playerTotals),
+    };
   }, []);
 
   return (
     <div style={styles.page}>
-      <h1 style={styles.title}>MLB Rivalry Tracker</h1>
-      <p style={styles.subtitle}>Barbaros vs Loiza Heat</p>
-
-      <div style={styles.grid}>
-        <StatCard title="Game Record" value={`Barbaros ${stats.barbarosWins} - ${stats.heatWins} Heat`} />
-        <StatCard title="Run Differential" value={stats.totals.barbaros.runs - stats.totals.heat.runs} />
-        <StatCard title="Barbaros Runs" value={stats.totals.barbaros.runs} />
-        <StatCard title="Heat Runs" value={stats.totals.heat.runs} />
-      </div>
-
-      <h2 style={styles.sectionTitle}>Series</h2>
-      <div style={styles.seriesGrid}>
-        {Object.entries(stats.series).map(([series, record]) => (
-          <div key={series} style={styles.card}>
-            <h3>{series}</h3>
-            <p>Barbaros: {record.barbaros}</p>
-            <p>Heat: {record.heat}</p>
-            <p>Status: {record.barbaros === 3 ? "Barbaros won" : record.heat === 3 ? "Heat won" : "In progress"}</p>
+      <style>{`
+        * { box-sizing: border-box; }
+        body { margin: 0; background: #f5f5f3; }
+        table th {
+          padding: 12px 14px;
+          border-bottom: 1px solid #dededb;
+          color: #777;
+          font-size: 11px;
+          font-weight: 900;
+          letter-spacing: .07em;
+          text-transform: uppercase;
+          text-align: right;
+          white-space: nowrap;
+        }
+        table td {
+          padding: 12px 14px;
+          border-bottom: 1px solid #ececea;
+          text-align: right;
+          white-space: nowrap;
+        }
+        table tbody tr:last-child td { border-bottom: 0; }
+        table tbody tr:hover { background: #fafaf8; }
+        button, select { font: inherit; }
+        @media (max-width: 640px) {
+          table th, table td { padding: 10px 9px; }
+        }
+      `}</style>
+      <header style={styles.topBar}>
+        <div style={styles.topBarInner}>
+          <div style={styles.brand}>RIVALRY TRACKER</div>
+          <div style={styles.topRecord}>
+            <span>Barbaros 🇩🇴 {stats.barbarosWins}</span>
+            <span style={styles.recordDivider}>–</span>
+            <span>{stats.heatWins} Heat 🇵🇷</span>
           </div>
-        ))}
-      </div>
+        </div>
+      </header>
 
-      <h2 style={styles.sectionTitle}>Team Totals</h2>
-      <div style={styles.tableWrap}><TeamTable stats={stats.totals} /></div>
+      <main style={styles.container}>
+        <section style={styles.hero}>
+          <p style={styles.eyebrow}>MLB THE SHOW</p>
+          <h1 style={styles.title}>Barbaros 🇩🇴 vs Heat 🇵🇷</h1>
+          <p style={styles.subtitle}>
+            Complete head-to-head results, series records, team totals, and box scores.
+          </p>
+        </section>
 
-      <h2 style={styles.sectionTitle}>Player Totals From Added Box Scores</h2>
-      <button style={styles.button} onClick={() => setShowPlayerTotals(!showPlayerTotals)}>
-        {showPlayerTotals ? "Hide Player Totals" : "Show Player Totals"}
-      </button>
-      {showPlayerTotals && <div style={styles.tableWrap}><PlayerTotals players={stats.playerTotals} /></div>}
+        <section style={styles.summaryGrid}>
+          <StatCard title="Overall Record" value={`${stats.barbarosWins}-${stats.heatWins}`} />
+          <StatCard
+            title="Run Differential"
+            value={
+              stats.totals.barbaros.runs - stats.totals.heat.runs > 0
+                ? `+${stats.totals.barbaros.runs - stats.totals.heat.runs}`
+                : stats.totals.barbaros.runs - stats.totals.heat.runs
+            }
+          />
+          <StatCard title="Barbaros 🇩🇴 Runs" value={stats.totals.barbaros.runs} />
+          <StatCard title="Heat 🇵🇷 Runs" value={stats.totals.heat.runs} />
+        </section>
 
-      <h2 style={styles.sectionTitle}>Game Log</h2>
-      <select value={selectedSeries} onChange={(event) => setSelectedSeries(event.target.value)} style={styles.select}>
-        <option>All</option><option>Series 1</option><option>Series 2</option><option>Series 3</option><option>Series 4</option><option>Series 5</option>
-      </select>
-
-      <div style={styles.gameList}>
-        {filteredGames.map((game) => {
-          const expanded = expandedGameId === game.id;
-          return (
-            <div key={game.id} style={styles.gameCard}>
-              <h3>{game.series}, Game {game.game}</h3>
-              <p style={styles.score}>Barbaros {game.barbaros.runs} - {game.heat.runs} Heat</p>
-              <p>Winner: {game.winner}</p><p>Home Team: {game.home}</p><p>MVP: {game.mvp}</p>
-              <GameTeamTable game={game} />
-              <button style={styles.button} onClick={() => setExpandedGameId(expanded ? null : game.id)}>
-                {expanded ? "Hide Full Box Score" : "Show Full Box Score"}
-              </button>
-              {expanded && <div style={styles.playerBoxGrid}><PlayerBox title="Barbaros Batting" players={game.playerBox.barbaros} /><PlayerBox title="Heat Batting" players={game.playerBox.heat} /></div>}
-              <p style={styles.notes}>{game.notes}</p>
+        <section style={styles.section}>
+          <div style={styles.sectionHeader}>
+            <div>
+              <p style={styles.sectionEyebrow}>HEAD-TO-HEAD</p>
+              <h2 style={styles.sectionTitle}>Series Results</h2>
             </div>
-          );
-        })}
-      </div>
+          </div>
+
+          <div style={styles.seriesGrid}>
+            {Object.entries(stats.series).map(([seriesName, record]) => {
+              const barbarosWon = record.barbaros === 3;
+              const heatWon = record.heat === 3;
+              const winnerLabel = barbarosWon
+                ? "Barbaros 🇩🇴 won"
+                : heatWon
+                  ? "Heat 🇵🇷 won"
+                  : "In progress";
+
+              return (
+                <article key={seriesName} style={styles.seriesCard}>
+                  <div style={styles.seriesCardTop}>
+                    <span style={styles.finalBadge}>
+                      {barbarosWon || heatWon ? "FINAL" : "ACTIVE"}
+                    </span>
+                    <span style={styles.seriesName}>{seriesName}</span>
+                  </div>
+
+                  <TeamScoreRow
+                    team="Barbaros 🇩🇴"
+                    score={record.barbaros}
+                    winner={barbarosWon}
+                  />
+                  <TeamScoreRow
+                    team="Heat 🇵🇷"
+                    score={record.heat}
+                    winner={heatWon}
+                  />
+
+                  <p style={styles.seriesStatus}>{winnerLabel}</p>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+
+        <section style={styles.section}>
+          <div style={styles.sectionHeader}>
+            <div>
+              <p style={styles.sectionEyebrow}>COMBINED RESULTS</p>
+              <h2 style={styles.sectionTitle}>Team Totals</h2>
+            </div>
+          </div>
+          <div style={styles.tableCard}>
+            <TeamTable stats={stats.totals} />
+          </div>
+        </section>
+
+        <section style={styles.section}>
+          <div style={styles.sectionHeader}>
+            <div>
+              <p style={styles.sectionEyebrow}>PLAYER DATA</p>
+              <h2 style={styles.sectionTitle}>Player Totals</h2>
+            </div>
+            <button
+              style={styles.secondaryButton}
+              onClick={() => setShowPlayerTotals(!showPlayerTotals)}
+            >
+              {showPlayerTotals ? "Hide totals" : "Show totals"}
+            </button>
+          </div>
+
+          {showPlayerTotals && (
+            <div style={styles.tableCard}>
+              <PlayerTotals players={stats.playerTotals} />
+            </div>
+          )}
+        </section>
+
+        <section style={styles.section}>
+          <div style={styles.sectionHeader}>
+            <div>
+              <p style={styles.sectionEyebrow}>FINAL SCORES</p>
+              <h2 style={styles.sectionTitle}>Game Log</h2>
+            </div>
+
+            <select
+              value={selectedSeries}
+              onChange={(event) => setSelectedSeries(event.target.value)}
+              style={styles.select}
+              aria-label="Filter games by series"
+            >
+              <option>All</option>
+              <option>Series 1</option>
+              <option>Series 2</option>
+              <option>Series 3</option>
+              <option>Series 4</option>
+              <option>Series 5</option>
+            </select>
+          </div>
+
+          <div style={styles.gameList}>
+            {[...filteredGames].reverse().map((game) => {
+              const expanded = expandedGameId === game.id;
+              const barbarosWon = game.winner === "Barbaros";
+              const heatWon = game.winner === "Heat";
+
+              return (
+                <article key={game.id} style={styles.gameCard}>
+                  <div style={styles.gameCardHeader}>
+                    <div>
+                      <span style={styles.finalBadge}>FINAL</span>
+                      <p style={styles.gameMeta}>
+                        {game.series} · Game {game.game}
+                      </p>
+                    </div>
+                    <span style={styles.homeLabel}>Home: {teamLabel(game.home)}</span>
+                  </div>
+
+                  <div style={styles.scoreboard}>
+                    <TeamScoreRow
+                      team="Barbaros 🇩🇴"
+                      score={game.barbaros.runs}
+                      winner={barbarosWon}
+                    />
+                    <TeamScoreRow
+                      team="Heat 🇵🇷"
+                      score={game.heat.runs}
+                      winner={heatWon}
+                    />
+                  </div>
+
+                  <div style={styles.gameInfo}>
+                    <span><strong>Winner:</strong> {teamLabel(game.winner)}</span>
+                    <span><strong>MVP:</strong> {game.mvp}</span>
+                  </div>
+
+                  <div style={styles.compactTableCard}>
+                    <GameTeamTable game={game} />
+                  </div>
+
+                  <button
+                    style={styles.boxScoreButton}
+                    onClick={() => setExpandedGameId(expanded ? null : game.id)}
+                  >
+                    {expanded ? "Hide full box score" : "View full box score"}
+                  </button>
+
+                  {expanded && (
+                    <div style={styles.playerBoxGrid}>
+                      <PlayerBox
+                        title="Barbaros 🇩🇴 Batting"
+                        players={game.playerBox.barbaros}
+                      />
+                      <PlayerBox
+                        title="Heat 🇵🇷 Batting"
+                        players={game.playerBox.heat}
+                      />
+                    </div>
+                  )}
+
+                  <p style={styles.notes}>{game.notes}</p>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
 
-function emptyTotals() {
-  return { barbaros: { runs: 0, hits: 0, errors: 0, hrs: 0, rbi: 0, strikeouts: 0 }, heat: { runs: 0, hits: 0, errors: 0, hrs: 0, rbi: 0, strikeouts: 0 } };
+function teamLabel(team) {
+  return team === "Barbaros" ? "Barbaros 🇩🇴" : "Heat 🇵🇷";
 }
 
-function StatCard({ title, value }) { return <div style={styles.statCard}><p style={styles.statTitle}>{title}</p><p style={styles.statValue}>{value}</p></div>; }
+function emptyTotals() {
+  return {
+    barbaros: { runs: 0, hits: 0, errors: 0, hrs: 0, rbi: 0, strikeouts: 0 },
+    heat: { runs: 0, hits: 0, errors: 0, hrs: 0, rbi: 0, strikeouts: 0 },
+  };
+}
+
+function StatCard({ title, value }) {
+  return (
+    <div style={styles.statCard}>
+      <p style={styles.statTitle}>{title}</p>
+      <p style={styles.statValue}>{value}</p>
+    </div>
+  );
+}
+
+function TeamScoreRow({ team, score, winner }) {
+  return (
+    <div style={styles.teamScoreRow}>
+      <div style={styles.teamNameWrap}>
+        <span style={winner ? styles.winnerDot : styles.loserDot} />
+        <span style={winner ? styles.winnerTeam : styles.teamName}>{team}</span>
+      </div>
+      <span style={winner ? styles.winnerScore : styles.teamScore}>{score}</span>
+    </div>
+  );
+}
 
 function TeamTable({ stats }) {
-  return <table style={styles.table}><thead><tr><th>Team</th><th>Runs</th><th>Hits</th><th>Errors</th><th>HR</th><th>RBI</th><th>Strikeouts</th></tr></thead><tbody><tr><td>Barbaros</td><td>{stats.barbaros.runs}</td><td>{stats.barbaros.hits}</td><td>{stats.barbaros.errors}</td><td>{stats.barbaros.hrs}</td><td>{stats.barbaros.rbi}</td><td>{stats.barbaros.strikeouts}</td></tr><tr><td>Heat</td><td>{stats.heat.runs}</td><td>{stats.heat.hits}</td><td>{stats.heat.errors}</td><td>{stats.heat.hrs}</td><td>{stats.heat.rbi}</td><td>{stats.heat.strikeouts}</td></tr></tbody></table>;
+  return (
+    <table style={styles.table}>
+      <thead>
+        <tr>
+          <th style={styles.leftHeader}>Team</th>
+          <th>Runs</th>
+          <th>Hits</th>
+          <th>Errors</th>
+          <th>HR</th>
+          <th>RBI</th>
+          <th>Strikeouts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style={styles.teamCell}>Barbaros 🇩🇴</td>
+          <td>{stats.barbaros.runs}</td>
+          <td>{stats.barbaros.hits}</td>
+          <td>{stats.barbaros.errors}</td>
+          <td>{stats.barbaros.hrs}</td>
+          <td>{stats.barbaros.rbi}</td>
+          <td>{stats.barbaros.strikeouts}</td>
+        </tr>
+        <tr>
+          <td style={styles.teamCell}>Heat 🇵🇷</td>
+          <td>{stats.heat.runs}</td>
+          <td>{stats.heat.hits}</td>
+          <td>{stats.heat.errors}</td>
+          <td>{stats.heat.hrs}</td>
+          <td>{stats.heat.rbi}</td>
+          <td>{stats.heat.strikeouts}</td>
+        </tr>
+      </tbody>
+    </table>
+  );
 }
 
 function PlayerTotals({ players }) {
@@ -941,36 +1194,423 @@ function PlayerTotals({ players }) {
     const avgB = b.ab ? b.h / b.ab : 0;
     return avgB - avgA;
   });
-  return <table style={styles.table}><thead><tr><th>Team</th><th>Player</th><th>AB</th><th>R</th><th>H</th><th>RBI</th><th>BB</th><th>SO</th><th>AVG</th></tr></thead><tbody>{sorted.map((p) => <tr key={`${p.team}-${p.player}`}><td>{p.team}</td><td>{p.player}</td><td>{p.ab}</td><td>{p.r}</td><td>{p.h}</td><td>{p.rbi}</td><td>{p.bb}</td><td>{p.so}</td><td>{p.ab ? (p.h / p.ab).toFixed(3).replace("0.", ".") : ".000"}</td></tr>)}</tbody></table>;
+
+  return (
+    <table style={styles.table}>
+      <thead>
+        <tr>
+          <th style={styles.leftHeader}>Team</th>
+          <th style={styles.leftHeader}>Player</th>
+          <th>AB</th>
+          <th>R</th>
+          <th>H</th>
+          <th>RBI</th>
+          <th>BB</th>
+          <th>SO</th>
+          <th>AVG</th>
+        </tr>
+      </thead>
+      <tbody>
+        {sorted.map((p) => (
+          <tr key={`${p.team}-${p.player}`}>
+            <td style={styles.teamCell}>{teamLabel(p.team)}</td>
+            <td style={styles.playerCell}>{p.player}</td>
+            <td>{p.ab}</td>
+            <td>{p.r}</td>
+            <td>{p.h}</td>
+            <td>{p.rbi}</td>
+            <td>{p.bb}</td>
+            <td>{p.so}</td>
+            <td>{p.ab ? (p.h / p.ab).toFixed(3).replace("0.", ".") : ".000"}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
 }
 
-function GameTeamTable({ game }) { return <table style={styles.smallTable}><thead><tr><th>Team</th><th>R</th><th>H</th><th>E</th><th>HR</th><th>RBI</th><th>SO</th></tr></thead><tbody><tr><td>Barbaros</td><td>{game.barbaros.runs}</td><td>{game.barbaros.hits}</td><td>{game.barbaros.errors}</td><td>{game.barbaros.hrs}</td><td>{game.barbaros.rbi}</td><td>{game.barbaros.strikeouts}</td></tr><tr><td>Heat</td><td>{game.heat.runs}</td><td>{game.heat.hits}</td><td>{game.heat.errors}</td><td>{game.heat.hrs}</td><td>{game.heat.rbi}</td><td>{game.heat.strikeouts}</td></tr></tbody></table>; }
+function GameTeamTable({ game }) {
+  return (
+    <table style={styles.smallTable}>
+      <thead>
+        <tr>
+          <th style={styles.leftHeader}>Team</th>
+          <th>R</th>
+          <th>H</th>
+          <th>E</th>
+          <th>HR</th>
+          <th>RBI</th>
+          <th>SO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style={styles.teamCell}>Barbaros 🇩🇴</td>
+          <td>{game.barbaros.runs}</td>
+          <td>{game.barbaros.hits}</td>
+          <td>{game.barbaros.errors}</td>
+          <td>{game.barbaros.hrs}</td>
+          <td>{game.barbaros.rbi}</td>
+          <td>{game.barbaros.strikeouts}</td>
+        </tr>
+        <tr>
+          <td style={styles.teamCell}>Heat 🇵🇷</td>
+          <td>{game.heat.runs}</td>
+          <td>{game.heat.hits}</td>
+          <td>{game.heat.errors}</td>
+          <td>{game.heat.hrs}</td>
+          <td>{game.heat.rbi}</td>
+          <td>{game.heat.strikeouts}</td>
+        </tr>
+      </tbody>
+    </table>
+  );
+}
 
-function PlayerBox({ title, players }) { return <div style={styles.playerBox}><h4>{title}</h4>{players.length === 0 ? <p style={styles.muted}>Player box score not added yet.</p> : <table style={styles.smallTable}><thead><tr><th>Player</th><th>POS</th><th>AB</th><th>R</th><th>H</th><th>RBI</th><th>BB</th><th>SO</th><th>AVG</th></tr></thead><tbody>{players.map((p, index) => <tr key={index}><td>{p.player}</td><td>{p.pos}</td><td>{p.ab}</td><td>{p.r}</td><td>{p.h}</td><td>{p.rbi}</td><td>{p.bb}</td><td>{p.so}</td><td>{p.avg}</td></tr>)}</tbody></table>}</div>; }
+function PlayerBox({ title, players }) {
+  return (
+    <div style={styles.playerBox}>
+      <h4 style={styles.playerBoxTitle}>{title}</h4>
+      {players.length === 0 ? (
+        <p style={styles.muted}>Player box score not added yet.</p>
+      ) : (
+        <table style={styles.smallTable}>
+          <thead>
+            <tr>
+              <th style={styles.leftHeader}>Player</th>
+              <th>POS</th>
+              <th>AB</th>
+              <th>R</th>
+              <th>H</th>
+              <th>RBI</th>
+              <th>BB</th>
+              <th>SO</th>
+              <th>AVG</th>
+            </tr>
+          </thead>
+          <tbody>
+            {players.map((p, index) => (
+              <tr key={`${p.player}-${index}`}>
+                <td style={styles.playerCell}>{p.player}</td>
+                <td>{p.pos}</td>
+                <td>{p.ab}</td>
+                <td>{p.r}</td>
+                <td>{p.h}</td>
+                <td>{p.rbi}</td>
+                <td>{p.bb}</td>
+                <td>{p.so}</td>
+                <td>{p.avg}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
+  );
+}
 
 const styles = {
-  page: { minHeight: "100vh", background: "#0f172a", color: "#e5e7eb", fontFamily: "Arial, sans-serif", padding: "32px" },
-  title: { fontSize: "48px", margin: "0", textAlign: "center" },
-  subtitle: { textAlign: "center", fontSize: "20px", color: "#94a3b8", marginBottom: "32px" },
-  grid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "16px", marginBottom: "32px" },
-  statCard: { background: "#111827", border: "1px solid #334155", borderRadius: "14px", padding: "20px", textAlign: "center" },
-  statTitle: { color: "#94a3b8", margin: "0 0 8px 0" },
-  statValue: { fontSize: "28px", fontWeight: "bold", margin: "0" },
-  sectionTitle: { marginTop: "32px", borderBottom: "1px solid #334155", paddingBottom: "8px" },
-  seriesGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "16px" },
-  card: { background: "#111827", border: "1px solid #334155", borderRadius: "14px", padding: "18px" },
-  tableWrap: { overflowX: "auto" },
-  table: { width: "100%", borderCollapse: "collapse", background: "#111827", borderRadius: "12px", overflow: "hidden" },
-  smallTable: { width: "100%", borderCollapse: "collapse", marginTop: "12px", fontSize: "14px" },
-  select: { padding: "10px", borderRadius: "8px", marginBottom: "16px" },
-  gameList: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))", gap: "16px" },
-  gameCard: { background: "#111827", border: "1px solid #334155", borderRadius: "14px", padding: "18px" },
-  score: { fontSize: "22px", fontWeight: "bold" },
-  notes: { color: "#cbd5e1", lineHeight: "1.5" },
-  button: { marginTop: "14px", padding: "10px 14px", borderRadius: "10px", border: "1px solid #64748b", background: "#1e293b", color: "#e5e7eb", cursor: "pointer" },
-  playerBoxGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "12px", marginTop: "12px" },
-  playerBox: { background: "#0f172a", border: "1px solid #334155", borderRadius: "12px", padding: "12px", overflowX: "auto" },
-  muted: { color: "#94a3b8" }
+  page: {
+    minHeight: "100vh",
+    background: "#f5f5f3",
+    color: "#171717",
+    fontFamily:
+      'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+  },
+  topBar: {
+    background: "#111111",
+    color: "#ffffff",
+    borderBottom: "1px solid #262626",
+    position: "sticky",
+    top: 0,
+    zIndex: 20,
+  },
+  topBarInner: {
+    maxWidth: "1180px",
+    margin: "0 auto",
+    padding: "14px 22px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: "20px",
+    flexWrap: "wrap",
+  },
+  brand: {
+    fontWeight: 900,
+    letterSpacing: "0.08em",
+    fontSize: "15px",
+  },
+  topRecord: {
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+    fontSize: "14px",
+    fontWeight: 700,
+  },
+  recordDivider: { color: "#737373" },
+  container: {
+    maxWidth: "1180px",
+    margin: "0 auto",
+    padding: "34px 22px 72px",
+  },
+  hero: {
+    background: "#ffffff",
+    border: "1px solid #dededb",
+    borderRadius: "18px",
+    padding: "34px",
+    marginBottom: "18px",
+    boxShadow: "0 8px 30px rgba(0,0,0,0.04)",
+  },
+  eyebrow: {
+    margin: "0 0 10px",
+    fontSize: "12px",
+    fontWeight: 900,
+    letterSpacing: "0.14em",
+    color: "#737373",
+  },
+  title: {
+    fontSize: "clamp(34px, 6vw, 62px)",
+    lineHeight: 1,
+    letterSpacing: "-0.045em",
+    margin: 0,
+    fontWeight: 900,
+  },
+  subtitle: {
+    maxWidth: "700px",
+    margin: "16px 0 0",
+    fontSize: "17px",
+    lineHeight: 1.55,
+    color: "#606060",
+  },
+  summaryGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+    gap: "12px",
+    marginBottom: "38px",
+  },
+  statCard: {
+    background: "#ffffff",
+    border: "1px solid #dededb",
+    borderRadius: "14px",
+    padding: "20px",
+  },
+  statTitle: {
+    color: "#737373",
+    fontSize: "12px",
+    fontWeight: 800,
+    letterSpacing: "0.08em",
+    textTransform: "uppercase",
+    margin: "0 0 10px",
+  },
+  statValue: {
+    fontSize: "30px",
+    fontWeight: 900,
+    letterSpacing: "-0.03em",
+    margin: 0,
+  },
+  section: { marginTop: "38px" },
+  sectionHeader: {
+    display: "flex",
+    alignItems: "flex-end",
+    justifyContent: "space-between",
+    gap: "18px",
+    marginBottom: "14px",
+    flexWrap: "wrap",
+  },
+  sectionEyebrow: {
+    color: "#858585",
+    fontSize: "11px",
+    fontWeight: 900,
+    letterSpacing: "0.14em",
+    margin: "0 0 5px",
+  },
+  sectionTitle: {
+    fontSize: "28px",
+    lineHeight: 1.1,
+    letterSpacing: "-0.03em",
+    margin: 0,
+  },
+  seriesGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+    gap: "12px",
+  },
+  seriesCard: {
+    background: "#ffffff",
+    border: "1px solid #dededb",
+    borderRadius: "14px",
+    padding: "18px",
+  },
+  seriesCardTop: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: "14px",
+  },
+  finalBadge: {
+    display: "inline-flex",
+    alignItems: "center",
+    minHeight: "22px",
+    padding: "0 8px",
+    borderRadius: "999px",
+    background: "#eeeeeb",
+    color: "#555555",
+    fontSize: "10px",
+    fontWeight: 900,
+    letterSpacing: "0.1em",
+  },
+  seriesName: { fontSize: "13px", fontWeight: 800, color: "#5e5e5e" },
+  seriesStatus: {
+    margin: "14px 0 0",
+    paddingTop: "12px",
+    borderTop: "1px solid #ececea",
+    color: "#6a6a6a",
+    fontSize: "13px",
+    fontWeight: 700,
+  },
+  teamScoreRow: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: "18px",
+    minHeight: "42px",
+  },
+  teamNameWrap: { display: "flex", alignItems: "center", gap: "10px", minWidth: 0 },
+  winnerDot: {
+    width: "7px",
+    height: "7px",
+    borderRadius: "999px",
+    background: "#111111",
+    flexShrink: 0,
+  },
+  loserDot: {
+    width: "7px",
+    height: "7px",
+    borderRadius: "999px",
+    background: "#c8c8c5",
+    flexShrink: 0,
+  },
+  teamName: { color: "#676767", fontWeight: 650 },
+  winnerTeam: { color: "#111111", fontWeight: 900 },
+  teamScore: { color: "#777777", fontSize: "24px", fontWeight: 750 },
+  winnerScore: { color: "#111111", fontSize: "28px", fontWeight: 950 },
+  tableCard: {
+    background: "#ffffff",
+    border: "1px solid #dededb",
+    borderRadius: "14px",
+    overflowX: "auto",
+  },
+  compactTableCard: {
+    borderTop: "1px solid #ececea",
+    borderBottom: "1px solid #ececea",
+    overflowX: "auto",
+    marginTop: "14px",
+  },
+  table: {
+    width: "100%",
+    borderCollapse: "collapse",
+    fontSize: "14px",
+  },
+  smallTable: {
+    width: "100%",
+    borderCollapse: "collapse",
+    fontSize: "13px",
+  },
+  leftHeader: { textAlign: "left" },
+  teamCell: { textAlign: "left", fontWeight: 800, whiteSpace: "nowrap" },
+  playerCell: { textAlign: "left", fontWeight: 750, whiteSpace: "nowrap" },
+  select: {
+    minWidth: "150px",
+    padding: "10px 36px 10px 12px",
+    borderRadius: "9px",
+    border: "1px solid #cacac6",
+    background: "#ffffff",
+    color: "#171717",
+    fontSize: "14px",
+    fontWeight: 750,
+  },
+  secondaryButton: {
+    padding: "10px 14px",
+    borderRadius: "9px",
+    border: "1px solid #222222",
+    background: "#ffffff",
+    color: "#111111",
+    cursor: "pointer",
+    fontWeight: 800,
+  },
+  gameList: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 430px), 1fr))",
+    gap: "14px",
+  },
+  gameCard: {
+    background: "#ffffff",
+    border: "1px solid #dededb",
+    borderRadius: "16px",
+    padding: "19px",
+    boxShadow: "0 5px 18px rgba(0,0,0,0.035)",
+  },
+  gameCardHeader: {
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "space-between",
+    gap: "16px",
+    marginBottom: "10px",
+  },
+  gameMeta: {
+    color: "#777777",
+    fontSize: "13px",
+    fontWeight: 750,
+    margin: "8px 0 0",
+  },
+  homeLabel: {
+    color: "#858585",
+    fontSize: "12px",
+    textAlign: "right",
+  },
+  scoreboard: {
+    padding: "4px 0 8px",
+  },
+  gameInfo: {
+    display: "flex",
+    alignItems: "center",
+    gap: "18px",
+    flexWrap: "wrap",
+    marginTop: "10px",
+    color: "#5e5e5e",
+    fontSize: "13px",
+  },
+  boxScoreButton: {
+    marginTop: "14px",
+    padding: "10px 0",
+    border: 0,
+    borderBottom: "2px solid #111111",
+    background: "transparent",
+    color: "#111111",
+    cursor: "pointer",
+    fontWeight: 900,
+  },
+  playerBoxGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 360px), 1fr))",
+    gap: "12px",
+    marginTop: "16px",
+  },
+  playerBox: {
+    border: "1px solid #dededb",
+    borderRadius: "12px",
+    padding: "12px",
+    overflowX: "auto",
+    background: "#fafaf8",
+  },
+  playerBoxTitle: { margin: "2px 0 10px", fontSize: "15px" },
+  notes: {
+    color: "#666666",
+    lineHeight: 1.55,
+    margin: "16px 0 0",
+    fontSize: "13px",
+  },
+  muted: { color: "#888888" },
 };
 
 export default App;
