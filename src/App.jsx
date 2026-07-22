@@ -917,9 +917,15 @@ function App() {
         <div style={styles.topBarInner}>
           <div style={styles.brand}>RIVALRY TRACKER</div>
           <div style={styles.topRecord}>
-            <span>Barbaros 🇩🇴 {stats.barbarosWins}</span>
+            <span style={styles.inlineTeamRecord}>
+              <TeamLabel team="Barbaros" flagSize={14} />
+              <span>{stats.barbarosWins}</span>
+            </span>
             <span style={styles.recordDivider}>–</span>
-            <span>{stats.heatWins} Heat 🇵🇷</span>
+            <span style={styles.inlineTeamRecord}>
+              <span>{stats.heatWins}</span>
+              <TeamLabel team="Heat" flagSize={14} />
+            </span>
           </div>
         </div>
       </header>
@@ -927,7 +933,13 @@ function App() {
       <main style={styles.container}>
         <section style={styles.hero}>
           <p style={styles.eyebrow}>MLB THE SHOW</p>
-          <h1 style={styles.title}>Barbaros 🇩🇴 vs Heat 🇵🇷</h1>
+          <h1 style={styles.title}>
+            <span style={styles.heroMatchup}>
+              <TeamLabel team="Barbaros" flagSize={34} />
+              <span>vs</span>
+              <TeamLabel team="Heat" flagSize={34} />
+            </span>
+          </h1>
           <p style={styles.subtitle}>
             Complete head-to-head results, series records, team totals, and box scores.
           </p>
@@ -943,8 +955,14 @@ function App() {
                 : stats.totals.barbaros.runs - stats.totals.heat.runs
             }
           />
-          <StatCard title="Barbaros 🇩🇴 Runs" value={stats.totals.barbaros.runs} />
-          <StatCard title="Heat 🇵🇷 Runs" value={stats.totals.heat.runs} />
+          <StatCard
+            title={<><TeamLabel team="Barbaros" flagSize={13} /> Runs</>}
+            value={stats.totals.barbaros.runs}
+          />
+          <StatCard
+            title={<><TeamLabel team="Heat" flagSize={13} /> Runs</>}
+            value={stats.totals.heat.runs}
+          />
         </section>
 
         <section style={styles.section}>
@@ -960,10 +978,10 @@ function App() {
               const barbarosWon = record.barbaros === 3;
               const heatWon = record.heat === 3;
               const winnerLabel = barbarosWon
-                ? "Barbaros 🇩🇴 won"
+                ? "Barbaros"
                 : heatWon
-                  ? "Heat 🇵🇷 won"
-                  : "In progress";
+                  ? "Heat"
+                  : null;
 
               return (
                 <article key={seriesName} style={styles.seriesCard}>
@@ -975,17 +993,25 @@ function App() {
                   </div>
 
                   <TeamScoreRow
-                    team="Barbaros 🇩🇴"
+                    team="Barbaros"
                     score={record.barbaros}
                     winner={barbarosWon}
                   />
                   <TeamScoreRow
-                    team="Heat 🇵🇷"
+                    team="Heat"
                     score={record.heat}
                     winner={heatWon}
                   />
 
-                  <p style={styles.seriesStatus}>{winnerLabel}</p>
+                  <p style={styles.seriesStatus}>
+                    {winnerLabel ? (
+                      <>
+                        <TeamLabel team={winnerLabel} flagSize={14} /> won
+                      </>
+                    ) : (
+                      "In progress"
+                    )}
+                  </p>
                 </article>
               );
             })}
@@ -1067,12 +1093,12 @@ function App() {
 
                   <div style={styles.scoreboard}>
                     <TeamScoreRow
-                      team="Barbaros 🇩🇴"
+                      team="Barbaros"
                       score={game.barbaros.runs}
                       winner={barbarosWon}
                     />
                     <TeamScoreRow
-                      team="Heat 🇵🇷"
+                      team="Heat"
                       score={game.heat.runs}
                       winner={heatWon}
                     />
@@ -1097,11 +1123,11 @@ function App() {
                   {expanded && (
                     <div style={styles.playerBoxGrid}>
                       <PlayerBox
-                        title="Barbaros 🇩🇴 Batting"
+                        title={<><TeamLabel team="Barbaros" flagSize={16} /> Batting</>}
                         players={game.playerBox.barbaros}
                       />
                       <PlayerBox
-                        title="Heat 🇵🇷 Batting"
+                        title={<><TeamLabel team="Heat" flagSize={16} /> Batting</>}
                         players={game.playerBox.heat}
                       />
                     </div>
@@ -1118,81 +1144,60 @@ function App() {
   );
 }
 
-function teamLabel(team) {
-  return team === "Barbaros" ? (
-    <>
-      Barbaros
-      <img
-        src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1e9-1f1f4.svg"
-        alt="Dominican Republic"
-        width="18"
-        style={{ marginLeft: "6px", verticalAlign: "middle" }}
-      />
-    </>
-  ) : (
-    <>
-      Heat
-      <img
-        src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1f5-1f1f7.svg"
-        alt="Puerto Rico"
-        width="18"
-        style={{ marginLeft: "6px", verticalAlign: "middle" }}
-      />
-    </>
+const FLAG_URLS = {
+  Barbaros:
+    "https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1e9-1f1f4.svg",
+  Heat:
+    "https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1f5-1f1f7.svg",
+};
+
+function TeamLabel({ team, flagPosition = "after", flagSize = 18 }) {
+  const normalizedTeam =
+    team === "barbaros" || team?.startsWith("Barbaros")
+      ? "Barbaros"
+      : team === "heat" || team?.startsWith("Heat")
+        ? "Heat"
+        : team;
+
+  const flagUrl = FLAG_URLS[normalizedTeam];
+
+  if (!flagUrl) return <>{team}</>;
+
+  const flag = (
+    <img
+      src={flagUrl}
+      alt={normalizedTeam === "Barbaros" ? "Dominican Republic flag" : "Puerto Rico flag"}
+      width={flagSize}
+      height={flagSize}
+      loading="lazy"
+      style={{
+        display: "inline-block",
+        width: flagSize,
+        height: flagSize,
+        objectFit: "contain",
+        verticalAlign: "middle",
+        flexShrink: 0,
+      }}
+    />
+  );
+
+  return (
+    <span style={styles.teamLabel}>
+      {flagPosition === "before" && flag}
+      <span>{normalizedTeam}</span>
+      {flagPosition === "after" && flag}
+    </span>
   );
 }
 
-function formatTeam(team) {
-  switch (team) {
-    case "Barbaros":
-      return (
-        <>
-          Barbaros
-          <img
-            src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1e9-1f1f4.svg"
-            alt="Dominican Republic"
-            width="18"
-            style={{ marginLeft: "6px", verticalAlign: "middle" }}
-          />
-        </>
-      );
-
-    case "Heat":
-      return (
-        <>
-          Heat
-          <img
-            src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1f5-1f1f7.svg"
-            alt="Puerto Rico"
-            width="18"
-            style={{ marginLeft: "6px", verticalAlign: "middle" }}
-          />
-        </>
-      );
-
-    default:
-      return team;
-  }
+function teamLabel(team) {
+  return <TeamLabel team={team} />;
 }
 
 function emptyTotals() {
   return {
-    barbaros: {
-      runs: 0,
-      hits: 0,
-      errors: 0,
-      hrs: 0,
-      rbi: 0,
-      strikeouts: 0,
-    },
-    heat: {
-      runs: 0,
-      hits: 0,
-      errors: 0,
-      hrs: 0,
-      rbi: 0,
-      strikeouts: 0,
-    },
+    barbaros: { runs: 0, hits: 0, errors: 0, hrs: 0, rbi: 0, strikeouts: 0 },
+    heat: { runs: 0, hits: 0, errors: 0, hrs: 0, rbi: 0, strikeouts: 0 },
   };
 }
 
@@ -1210,7 +1215,9 @@ function TeamScoreRow({ team, score, winner }) {
     <div style={styles.teamScoreRow}>
       <div style={styles.teamNameWrap}>
         <span style={winner ? styles.winnerDot : styles.loserDot} />
-        <span style={winner ? styles.winnerTeam : styles.teamName}>{team}</span>
+        <span style={winner ? styles.winnerTeam : styles.teamName}>
+          <TeamLabel team={team} flagSize={16} />
+        </span>
       </div>
       <span style={winner ? styles.winnerScore : styles.teamScore}>{score}</span>
     </div>
@@ -1231,10 +1238,9 @@ function TeamTable({ stats }) {
           <th>Strikeouts</th>
         </tr>
       </thead>
-
       <tbody>
         <tr>
-          <td style={styles.teamCell}>Barbaros 🇩🇴</td>
+          <td style={styles.teamCell}><TeamLabel team="Barbaros" flagSize={17} /></td>
           <td>{stats.barbaros.runs}</td>
           <td>{stats.barbaros.hits}</td>
           <td>{stats.barbaros.errors}</td>
@@ -1242,9 +1248,8 @@ function TeamTable({ stats }) {
           <td>{stats.barbaros.rbi}</td>
           <td>{stats.barbaros.strikeouts}</td>
         </tr>
-
         <tr>
-          <td style={styles.teamCell}>Heat 🇵🇷</td>
+          <td style={styles.teamCell}><TeamLabel team="Heat" flagSize={17} /></td>
           <td>{stats.heat.runs}</td>
           <td>{stats.heat.hits}</td>
           <td>{stats.heat.errors}</td>
@@ -1314,7 +1319,7 @@ function GameTeamTable({ game }) {
       </thead>
       <tbody>
         <tr>
-          <td style={styles.teamCell}>Barbaros 🇩🇴</td>
+          <td style={styles.teamCell}><TeamLabel team="Barbaros" flagSize={17} /></td>
           <td>{game.barbaros.runs}</td>
           <td>{game.barbaros.hits}</td>
           <td>{game.barbaros.errors}</td>
@@ -1323,7 +1328,7 @@ function GameTeamTable({ game }) {
           <td>{game.barbaros.strikeouts}</td>
         </tr>
         <tr>
-          <td style={styles.teamCell}>Heat 🇵🇷</td>
+          <td style={styles.teamCell}><TeamLabel team="Heat" flagSize={17} /></td>
           <td>{game.heat.runs}</td>
           <td>{game.heat.hits}</td>
           <td>{game.heat.errors}</td>
@@ -1384,7 +1389,7 @@ const styles = {
     background: "#f5f5f3",
     color: "#171717",
     fontFamily:
-      'system-ui, "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif',
+      'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
   },
   topBar: {
     background: "#111111",
@@ -1443,7 +1448,6 @@ const styles = {
     letterSpacing: "-0.045em",
     margin: 0,
     fontWeight: 900,
-    color: "#252525",
   },
   subtitle: {
     maxWidth: "700px",
@@ -1550,14 +1554,14 @@ const styles = {
     width: "7px",
     height: "7px",
     borderRadius: "999px",
-    background: "#1ba300",
+    background: "#111111",
     flexShrink: 0,
   },
   loserDot: {
     width: "7px",
     height: "7px",
     borderRadius: "999px",
-    background: "#c50000",
+    background: "#c8c8c5",
     flexShrink: 0,
   },
   teamName: { color: "#676767", fontWeight: 650 },
@@ -1679,6 +1683,24 @@ const styles = {
     lineHeight: 1.55,
     margin: "16px 0 0",
     fontSize: "13px",
+  },
+  teamLabel: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 6,
+    whiteSpace: "nowrap",
+  },
+  inlineTeamRecord: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 5,
+  },
+  heroMatchup: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexWrap: "wrap",
+    gap: 10,
   },
   muted: { color: "#888888" },
 };
