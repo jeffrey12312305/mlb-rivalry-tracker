@@ -823,7 +823,7 @@ const games = [
 
 ];
 
-function App() {}
+function App() {
   const [selectedSeries, setSelectedSeries] = useState("All");
   const [expandedGameId, setExpandedGameId] = useState(23);
   const [showPlayerTotals, setShowPlayerTotals] = useState(false);
