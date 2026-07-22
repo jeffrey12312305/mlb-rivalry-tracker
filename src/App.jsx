@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import Twemoji from "twemoji-react";
 
 const games = [
   {
@@ -1117,7 +1118,15 @@ function App() {}
     </div>
   );
 function teamLabel(team) {
-  return team === "Barbaros" ? "Barbaros 🇩🇴" : "Heat 🇵🇷";
+  return team === "Barbaros" ? (
+    <>
+      Barbaros <Twemoji>🇩🇴</Twemoji>
+    </>
+  ) : (
+    <>
+      Heat <Twemoji>🇵🇷</Twemoji>
+    </>
+  );
 }
 
 function formatTeam(team) {
@@ -1338,7 +1347,7 @@ const styles = {
     background: "#f5f5f3",
     color: "#171717",
     fontFamily:
-      'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+      'system-ui, "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif',
   },
   topBar: {
     background: "#111111",
