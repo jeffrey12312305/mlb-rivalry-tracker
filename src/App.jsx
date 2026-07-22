@@ -1177,7 +1177,7 @@ function formatTeam(team) {
 
 function emptyTotals() {
   return {
-    "Barbaros 🇩🇴": {
+    barbaros: {
       runs: 0,
       hits: 0,
       errors: 0,
@@ -1185,7 +1185,7 @@ function emptyTotals() {
       rbi: 0,
       strikeouts: 0,
     },
-    "Heat 🇵🇷": {
+    heat: {
       runs: 0,
       hits: 0,
       errors: 0,
@@ -1231,24 +1231,26 @@ function TeamTable({ stats }) {
           <th>Strikeouts</th>
         </tr>
       </thead>
+
       <tbody>
         <tr>
           <td style={styles.teamCell}>Barbaros 🇩🇴</td>
-          <td>{stats["Barbaros 🇩🇴"].runs}</td>
-          <td>{stats["Barbaros 🇩🇴"].hits}</td>
-          <td>{stats["Barbaros 🇩🇴"].errors}</td>
-          <td>{stats["Barbaros 🇩🇴"].hrs}</td>
-          <td>{stats["Barbaros 🇩🇴"].rbi}</td>
-          <td>{stats["Barbaros 🇩🇴"].strikeouts}</td>
+          <td>{stats.barbaros.runs}</td>
+          <td>{stats.barbaros.hits}</td>
+          <td>{stats.barbaros.errors}</td>
+          <td>{stats.barbaros.hrs}</td>
+          <td>{stats.barbaros.rbi}</td>
+          <td>{stats.barbaros.strikeouts}</td>
         </tr>
+
         <tr>
           <td style={styles.teamCell}>Heat 🇵🇷</td>
-          <td>{stats["Heat 🇵🇷"].runs}</td>
-          <td>{stats["Heat 🇵🇷"].hits}</td>
-          <td>{stats["Heat 🇵🇷"].errors}</td>
-          <td>{stats["Heat 🇵🇷"].hrs}</td>
-          <td>{stats["Heat 🇵🇷"].rbi}</td>
-          <td>{stats["Heat 🇵🇷"].strikeouts}</td>
+          <td>{stats.heat.runs}</td>
+          <td>{stats.heat.hits}</td>
+          <td>{stats.heat.errors}</td>
+          <td>{stats.heat.hrs}</td>
+          <td>{stats.heat.rbi}</td>
+          <td>{stats.heat.strikeouts}</td>
         </tr>
       </tbody>
     </table>
@@ -1313,21 +1315,21 @@ function GameTeamTable({ game }) {
       <tbody>
         <tr>
           <td style={styles.teamCell}>Barbaros 🇩🇴</td>
-          <td>{game["Barbaros 🇩🇴"].runs}</td>
-          <td>{game["Barbaros 🇩🇴"].hits}</td>
-          <td>{game["Barbaros 🇩🇴"].errors}</td>
-          <td>{game["Barbaros 🇩🇴"].hrs}</td>
-          <td>{game["Barbaros 🇩🇴"].rbi}</td>
-          <td>{game["Barbaros 🇩🇴"].strikeouts}</td>
+          <td>{game.barbaros.runs}</td>
+          <td>{game.barbaros.hits}</td>
+          <td>{game.barbaros.errors}</td>
+          <td>{game.barbaros.hrs}</td>
+          <td>{game.barbaros.rbi}</td>
+          <td>{game.barbaros.strikeouts}</td>
         </tr>
         <tr>
           <td style={styles.teamCell}>Heat 🇵🇷</td>
-          <td>{game["Heat 🇵🇷"].runs}</td>
-          <td>{game["Heat 🇵🇷"].hits}</td>
-          <td>{game["Heat 🇵🇷"].errors}</td>
-          <td>{game["Heat 🇵🇷"].hrs}</td>
-          <td>{game["Heat 🇵🇷"].rbi}</td>
-          <td>{game["Heat 🇵🇷"].strikeouts}</td>
+          <td>{game.heat.runs}</td>
+          <td>{game.heat.hits}</td>
+          <td>{game.heat.errors}</td>
+          <td>{game.heat.hrs}</td>
+          <td>{game.heat.rbi}</td>
+          <td>{game.heat.strikeouts}</td>
         </tr>
       </tbody>
     </table>
