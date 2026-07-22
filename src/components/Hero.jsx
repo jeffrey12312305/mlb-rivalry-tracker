@@ -1,10 +1,8 @@
-import TeamLabel from "./TeamLabel";
 
 export default function Hero() {
   return (
     <section className="hero">
       <div className="hero__glow" aria-hidden="true" />
-      <p className="eyebrow">MLB THE SHOW</p>
       <h1 className="hero__title">
   <span className="hero__team">
     <span className="team-title team-title--barbaros">
