@@ -801,14 +801,14 @@ body::before {
   gap: 5px;
 
   border-top: 1px solid rgba(69, 107, 159, 0.32);
-  color: var(--text-soft);
+  color: #ffffff;
 
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 900;
 }
 
 .team-score-row__team {
-  color: #b1bfd1;
+  color: #7f8da1;
   font-weight: 700;
 }
 
@@ -819,7 +819,7 @@ body::before {
 }
 
 .team-score-row__score {
-  color: #a8b6c9;
+  color: #7a8799;
   font-size: 23px;
   font-weight: 800;
 }
