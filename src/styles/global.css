@@ -814,7 +814,8 @@ body::before {
 
 .team-score-row__team--winner {
   color: #ffffff;
-  font-weight: 900;
+  font-size: 1.08rem;
+  font-weight: 950;
 }
 
 .team-score-row__score {
@@ -825,6 +826,7 @@ body::before {
 
 .team-score-row__score--winner {
   color: #ffffff;
+  font-size: 27px;
   font-weight: 950;
   text-shadow: 0 0 18px rgba(255, 255, 255, 0.14);
 }
