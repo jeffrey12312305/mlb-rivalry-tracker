@@ -1,0 +1,1836 @@
+
+==================================================
+src/styles/theme.js
+==================================================
+export const teamTheme = {
+  Barbaros: {
+    key: "barbaros",
+    country: "Dominican Republic",
+    flagUrl:
+      "https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1e9-1f1f4.svg",
+    titleClass: "team-title--barbaros",
+  },
+  Heat: {
+    key: "heat",
+    country: "Puerto Rico",
+    flagUrl:
+      "https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1f5-1f1f7.svg",
+    titleClass: "team-title--heat",
+  },
+};
+
+export const statKeys = ["runs", "hits", "errors", "hrs", "rbi", "strikeouts"];
+
+==================================================
+src/styles/global.css
+==================================================
+:root {
+  --page-bg: #08111f;
+  --page-bg-alt: #0b1728;
+
+  --surface: #10213a;
+  --surface-alt: #162944;
+  --surface-hover: #1d3557;
+
+  --border: #2b456d;
+  --border-bright: #456b9f;
+
+  --text: #f8fafc;
+  --text-muted: #cbd5e1;
+  --text-soft: #94a3b8;
+
+  --barbaros-red: #ce1126;
+  --heat-blue: #0038a8;
+
+  --color-bg: var(--page-bg);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-alt);
+  --color-text: var(--text);
+  --color-text-soft: var(--text-soft);
+  --color-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-border-soft: #243b5d;
+
+  --color-topbar: #060b14;
+  --color-winner: #22c55e;
+  --color-loser: #ef4444;
+
+  --color-dr-red: #ce1126;
+  --color-dr-blue: #002d62;
+  --color-pr-blue: #0050f0;
+  --color-pr-red: #ed0000;
+
+  --shadow-card: 0 16px 40px rgba(0, 0, 0, 0.28);
+  --shadow-hero: 0 24px 60px rgba(2, 8, 23, 0.3);
+
+  --radius-sm: 9px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --content-width: 1180px;
+
+  --font-display:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+* { box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(59, 130, 246, 0.12),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      var(--page-bg-alt) 0%,
+      var(--page-bg) 100%
+    );
+
+  color: var(--text);
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+
+
+button, select { font: inherit; }
+button { -webkit-tap-highlight-color: transparent; }
+
+.app-shell .app {
+  min-height: 100vh;
+  background: transparent;
+  color: var(--text);
+}
+.page-container { width: min(calc(100% - 32px), var(--content-width)); margin: 0 auto; padding: 32px 0 64px; }
+
+.top-bar { position: sticky; top: 0; z-index: 20; background: rgba(17, 17, 17, 0.97); color: white; backdrop-filter: blur(12px); }
+.top-bar__inner { width: min(calc(100% - 32px), var(--content-width)); min-height: 52px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.top-bar__brand { font-size: 14px; font-weight: 950; letter-spacing: .09em; }
+.top-bar__record, .top-bar__team-record { display: inline-flex; align-items: center; gap: 6px; }
+.top-bar__record { font-size: 12px; font-weight: 850; }
+.top-bar__divider { color: #929292; }
+
+.team-label { display: inline-flex; align-items: center; gap: .38em; white-space: nowrap; }
+.team-label__flag { display: inline-block; object-fit: contain; flex: 0 0 auto; vertical-align: middle; }
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  min-height: 330px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 28px 64px;
+  text-align: center;
+  border-radius: 28px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 10, 25, 0.9) 0%,
+      rgba(8, 20, 42, 0.94) 55%,
+      rgba(3, 10, 25, 0.98) 100%
+    );
+  box-shadow:
+    0 24px 60px rgba(2, 8, 23, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Stadium field and overhead-light effect */
+.hero__stadium {
+  position: absolute;
+  z-index: -3;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 15% -10%,
+      rgba(255, 255, 255, 0.3) 0,
+      rgba(255, 255, 255, 0.06) 10%,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% -10%,
+      rgba(255, 255, 255, 0.3) 0,
+      rgba(255, 255, 255, 0.06) 10%,
+      transparent 30%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.018) 0,
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px,
+      transparent 78px
+    ),
+    linear-gradient(
+      180deg,
+      rgba(15, 23, 42, 0.35),
+      rgba(2, 6, 23, 0.8)
+    );
+}
+
+/* Soft spotlight behind the matchup */
+.hero__glow {
+  position: absolute;
+  z-index: -2;
+  top: 35%;
+  left: 50%;
+  width: min(780px, 92%);
+  height: 260px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(59, 130, 246, 0.22) 0%,
+      rgba(220, 38, 38, 0.1) 42%,
+      transparent 72%
+    );
+  filter: blur(8px);
+}
+
+.hero__title {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin: 0;
+
+  line-height: 0.9;
+}
+
+.hero__team {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-title {
+  display: inline-block;
+  background-size: 220% 100%;
+  background-position: 0% 50%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  font-size: clamp(3.8rem, 9vw, 5.8rem);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.055em;
+  text-transform: none;
+
+  filter:
+    drop-shadow(0 3px 0 rgba(0, 0, 0, 0.4))
+    drop-shadow(0 10px 18px rgba(0, 0, 0, 0.32));
+
+  animation: team-gradient-shimmer 7s ease-in-out infinite;
+}
+
+.team-title--barbaros {
+  background-image: linear-gradient(
+    110deg,
+    #ce1126 0%,
+    #ce1126 22%,
+    #ffffff 43%,
+    #ffffff 56%,
+    #0038a8 78%,
+    #ce1126 100%
+  );
+}
+
+.team-title--heat {
+  background-image: linear-gradient(
+    110deg,
+    #0038a8 0%,
+    #0038a8 22%,
+    #ffffff 43%,
+    #ffffff 56%,
+    #ce1126 78%,
+    #0038a8 100%
+  );
+}
+
+.hero__vs {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px;
+  min-height: 90px;
+  padding: 0 14px;
+  margin: 6px 0;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 0%,
+      #b8bec8 30%,
+      #f8fafc 48%,
+      #737b88 72%,
+      #eef2f7 100%
+    );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  font-size: clamp(1.35rem, 3vw, 2.15rem);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 10px 28px rgba(0, 0, 0, 0.3);
+
+  filter:
+    drop-shadow(0 2px 0 rgba(0, 0, 0, 0.7))
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.12));
+}
+
+.hero__subtitle {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 30px auto 0;
+  color: rgba(226, 232, 240, 0.82);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-weight: 500;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+}
+
+@keyframes team-gradient-shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 290px;
+    padding: 56px 18px 48px;
+    border-radius: 22px;
+  }
+
+  .hero__title {
+    gap: 12px 18px;
+  }
+
+  .hero__vs {
+    min-width: 56px;
+    min-height: 56px;
+    padding: 0 10px;
+  }
+
+  .hero__subtitle {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__title {
+    flex-direction: column;
+  }
+
+  .hero__vs {
+    min-width: auto;
+    min-height: auto;
+    padding: 5px 18px;
+    border-radius: 999px;
+  }
+}
+
+/* Respect accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+  .team-title {
+    animation: none;
+    background-position: 50% 50%;
+  }
+}
+
+.summary-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+.stat-card { min-height: 112px; display: grid; place-items: center; align-content: center; padding: 18px; text-align: center; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); transition: transform .18s ease, box-shadow .18s ease; }
+.stat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-card); }
+.stat-card__title { margin: 0 0 8px; color: #707070; font-size: 11px; font-weight: 950; letter-spacing: .08em; text-transform: uppercase; }
+.stat-card__value { margin: 0; font-size: clamp(25px, 3vw, 32px); font-weight: 950; letter-spacing: -.04em; }
+
+.content-section { margin-top: 38px; }
+.section-header { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 16px; }
+.section-title { margin: 5px 0 0; font-size: clamp(24px, 3vw, 34px); line-height: 1.1; letter-spacing: -.035em; }
+.series-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; }
+.series-card, .game-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); box-shadow: var(--shadow-card); }
+.series-card { padding: 16px; }
+.series-card__top, .game-card__header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.series-card__top { margin-bottom: 10px; }
+.status-badge { display: inline-flex; align-items: center; min-height: 23px; padding: 0 8px; border-radius: 999px; background: #efefed; color: #444; font-size: 9px; font-weight: 950; letter-spacing: .09em; }
+.series-card__name { font-size: 12px; font-weight: 900; }
+.series-card__status { min-height: 34px; margin: 14px 0 0; padding-top: 13px; display: flex; align-items: center; justify-content: center; gap: 5px; border-top: 1px solid var(--color-border-soft); color: #666; font-size: 12px; font-weight: 800; }
+
+.team-score-row { min-height: 38px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.team-score-row__name-wrap { display: flex; align-items: center; gap: 9px; min-width: 0; }
+.result-dot { width: 7px; height: 7px; border-radius: 50%; flex: 0 0 auto; }
+.result-dot--winner { background: var(--color-winner); }
+.result-dot--loser { background: var(--color-loser); }
+.team-score-row__team { color: #666; font-weight: 700; }
+.team-score-row__team--winner { color: #111; font-weight: 900; }
+.team-score-row__score { color: #777; font-size: 22px; font-weight: 800; }
+.team-score-row__score--winner { color: #111; font-weight: 950; }
+
+.table-card { overflow-x: auto; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+.table-card--compact { margin-top: 14px; border-left: 0; border-right: 0; border-radius: 0; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.data-table--small { font-size: 13px; }
+.data-table th { padding: 12px 14px; border-bottom: 1px solid var(--color-border); color: #777; font-size: 11px; font-weight: 950; letter-spacing: .07em; text-align: right; text-transform: uppercase; white-space: nowrap; }
+.data-table td { padding: 12px 14px; border-bottom: 1px solid var(--color-border-soft); text-align: right; white-space: nowrap; }
+.data-table tbody tr:last-child td { border-bottom: 0; }
+.data-table tbody tr:hover { background: var(--color-surface-soft); }
+.table__left { text-align: left !important; }
+.table__team-cell, .table__player-cell { font-weight: 800; }
+
+.secondary-button, .series-select { min-height: 42px; border-radius: var(--radius-sm); border: 1px solid #bdbdb8; background: white; color: #171717; font-weight: 800; }
+.secondary-button { padding: 0 15px; cursor: pointer; transition: background .15s ease, color .15s ease, border-color .15s ease; }
+.secondary-button:hover { background: #111; border-color: #111; color: white; }
+.series-select { min-width: 150px; padding: 0 36px 0 12px; }
+
+.game-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 430px), 1fr)); gap: 14px; }
+.game-card { padding: 19px; }
+.game-card__meta { margin: 8px 0 0; color: #777; font-size: 13px; font-weight: 750; }
+.game-card__home { display: inline-flex; align-items: center; gap: 5px; color: var(--color-muted); font-size: 12px; text-align: right; }
+.scoreboard { padding: 7px 0 8px; }
+.game-card__info { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 10px; color: #5e5e5e; font-size: 13px; }
+.game-card__info > span { display: inline-flex; align-items: center; gap: 5px; }
+.box-score-button { margin-top: 14px; padding: 10px 0; border: 0; border-bottom: 2px solid #111; background: transparent; color: #111; cursor: pointer; font-weight: 950; }
+.box-score-button:hover { border-color: var(--color-pr-blue); color: var(--color-pr-blue); }
+.player-box-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 12px; margin-top: 16px; }
+.player-box { overflow-x: auto; padding: 12px; background: var(--color-surface-soft); border: 1px solid var(--color-border); border-radius: 12px; }
+.player-box__title { display: flex; align-items: center; gap: 6px; margin: 2px 0 10px; font-size: 15px; }
+.game-card__notes { margin: 16px 0 0; color: var(--color-text-soft); font-size: 13px; line-height: 1.55; }
+
+@media (max-width: 900px) {
+  .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero { min-height: 245px; padding-block: 44px; }
+}
+
+@media (max-width: 640px) {
+  .page-container, .top-bar__inner { width: min(calc(100% - 20px), var(--content-width)); }
+  .page-container { padding-top: 20px; }
+  .top-bar__brand { font-size: 12px; }
+  .top-bar__record { font-size: 11px; }
+  .hero { min-height: 230px; padding: 38px 14px; }
+  .hero__title { gap: 8px 12px; }
+  .hero__team .team-label__flag { width: 28px; height: 28px; }
+  .summary-grid { gap: 9px; }
+  .stat-card { min-height: 96px; padding: 13px 8px; }
+  .section-header { align-items: stretch; flex-direction: column; }
+  .secondary-button, .series-select { width: 100%; }
+  .data-table th, .data-table td { padding: 10px 9px; }
+  .game-card { padding: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+}
+
+==================================================
+src/App.jsx
+==================================================
+import { useMemo, useState } from "react";
+import { games } from "./data/games";
+import { calculateStats } from "./utils/stats";
+import TopBar from "./components/TopBar";
+import Hero from "./components/Hero";
+import StatCard from "./components/StatCard";
+import SeriesCard from "./components/SeriesCard";
+import GameCard from "./components/GameCard";
+import TeamLabel from "./components/TeamLabel";
+import { PlayerTotals, TeamTable } from "./components/Tables";
+import "./styles/global.css";
+
+export default function App() {
+  const [selectedSeries, setSelectedSeries] = useState("All");
+  const [expandedGameId, setExpandedGameId] = useState(23);
+  const [showPlayerTotals, setShowPlayerTotals] = useState(false);
+
+  const stats = useMemo(() => calculateStats(games), []);
+  const seriesNames = useMemo(() => Object.keys(stats.series), [stats.series]);
+  const filteredGames = selectedSeries === "All" ? games : games.filter((game) => game.series === selectedSeries);
+  const runDifferential = stats.totals.barbaros.runs - stats.totals.heat.runs;
+
+  return (
+    <div className="app-shell">
+      <TopBar barbarosWins={stats.barbarosWins} heatWins={stats.heatWins} />
+      <main className="page-container">
+        <Hero />
+
+        <section className="summary-grid" aria-label="Rivalry summary">
+          <StatCard title="Overall Record" value={`${stats.barbarosWins}-${stats.heatWins}`} />
+          <StatCard title="Run Differential" value={runDifferential > 0 ? `+${runDifferential}` : runDifferential} />
+          <StatCard title={<><TeamLabel team="Barbaros" flagSize={13} /> Runs</>} value={stats.totals.barbaros.runs} />
+          <StatCard title={<><TeamLabel team="Heat" flagSize={13} /> Runs</>} value={stats.totals.heat.runs} />
+        </section>
+
+        <section className="content-section">
+          <div className="section-header"><div><p className="section-eyebrow">HEAD-TO-HEAD</p><h2 className="section-title">Series Results</h2></div></div>
+          <div className="series-grid">{Object.entries(stats.series).map(([name, record]) => <SeriesCard key={name} seriesName={name} record={record} />)}</div>
+        </section>
+
+        <section className="content-section">
+          <div className="section-header"><div><p className="section-eyebrow">COMBINED RESULTS</p><h2 className="section-title">Team Totals</h2></div></div>
+          <div className="table-card"><TeamTable stats={stats.totals} /></div>
+        </section>
+
+        <section className="content-section">
+          <div className="section-header">
+            <div><p className="section-eyebrow">PLAYER DATA</p><h2 className="section-title">Player Totals</h2></div>
+            <button className="secondary-button" onClick={() => setShowPlayerTotals((shown) => !shown)}>{showPlayerTotals ? "Hide totals" : "Show totals"}</button>
+          </div>
+          {showPlayerTotals && <div className="table-card"><PlayerTotals players={stats.playerTotals} /></div>}
+        </section>
+
+        <section className="content-section">
+          <div className="section-header">
+            <div><p className="section-eyebrow">FINAL SCORES</p><h2 className="section-title">Game Log</h2></div>
+            <select className="series-select" value={selectedSeries} onChange={(event) => setSelectedSeries(event.target.value)} aria-label="Filter games by series">
+              <option value="All">All series</option>
+              {seriesNames.map((series) => <option key={series} value={series}>{series}</option>)}
+            </select>
+          </div>
+          <div className="game-list">{[...filteredGames].reverse().map((game) => <GameCard key={game.id} game={game} expanded={expandedGameId === game.id} onToggle={() => setExpandedGameId((current) => current === game.id ? null : game.id)} />)}</div>
+        </section>
+      </main>
+    </div>
+  );
+}
+
+==================================================
+src/index.css
+==================================================
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
+
+==================================================
+src/main.jsx
+==================================================
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+
+==================================================
+src/data/games.js
+==================================================
+export const games = [
+  {
+    id: 1,
+    series: "Series 1",
+    game: 1,
+    home: "Barbaros",
+    winner: "Heat",
+    barbaros: { runs: 3, hits: 11, errors: 0, hrs: 2, rbi: 3, strikeouts: 6 },
+    heat: { runs: 5, hits: 12, errors: 0, hrs: 3, rbi: 5, strikeouts: 11 },
+    mvp: "Ahn",
+    notes: "Heat opened the real series with a 5-3 win. HRs: Heat: Harper, Ramirez, Ahn. Barbaros: Jones, Schwarber.",
+    playerBox: {
+      barbaros: [
+        { player: "Willits", pos: "SS", ab: 5, r: 1, h: 2, rbi: 0, bb: 0, so: 1, avg: ".400" },
+        { player: "Buxton", pos: "CF", ab: 4, r: 0, h: 2, rbi: 0, bb: 0, so: 2, avg: ".500" },
+        { player: "Machado", pos: "3B", ab: 4, r: 0, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Jones", pos: "RF", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 3, avg: ".250" },
+        { player: "Muzik", pos: "1B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Antonacci", pos: "2B", ab: 4, r: 0, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Schwarber", pos: "DH", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "De Paula", pos: "LF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Jensen", pos: "C", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+      ],
+      heat: [
+        { player: "Chourio", pos: "CF", ab: 5, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Bazzana", pos: "2B", ab: 5, r: 0, h: 2, rbi: 0, bb: 0, so: 1, avg: ".400" },
+        { player: "Arenado", pos: "3B", ab: 5, r: 0, h: 1, rbi: 0, bb: 0, so: 2, avg: ".200" },
+        { player: "Arozarena", pos: "LF", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 2, avg: ".200" },
+        { player: "Harper", pos: "1B", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Gregorius", pos: "DH", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 3, avg: ".000" },
+        { player: "Ramirez", pos: "SS", ab: 4, r: 1, h: 1, rbi: 2, bb: 0, so: 2, avg: ".250" },
+        { player: "Ahn", pos: "RF", ab: 4, r: 2, h: 3, rbi: 2, bb: 0, so: 0, avg: ".750" },
+        { player: "Kirk", pos: "C", ab: 3, r: 0, h: 2, rbi: 0, bb: 1, so: 0, avg: ".667" }
+      ]
+    }
+  },
+  {
+    id: 2,
+    series: "Series 1",
+    game: 2,
+    home: "Barbaros",
+    winner: "Barbaros",
+    barbaros: { runs: 3, hits: 4, errors: 0, hrs: 2, rbi: 3, strikeouts: 3 },
+    heat: { runs: 1, hits: 7, errors: 0, hrs: 0, rbi: 1, strikeouts: 6 },
+    mvp: "Eduardo Rodriguez",
+    notes: "Barbaros won a low-scoring game behind strong pitching. HRs: Schwarber, Jensen.",
+    playerBox: {
+      barbaros: [
+        { player: "De Vries", pos: "SS", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Buxton", pos: "CF", ab: 3, r: 0, h: 1, rbi: 1, bb: 0, so: 0, avg: ".333" },
+        { player: "Machado", pos: "3B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Jones", pos: "RF", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Muzik", pos: "1B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Antonacci", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Schwarber", pos: "DH", ab: 3, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".333" },
+        { player: "De Paula", pos: "LF", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Jensen", pos: "C", ab: 3, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".333" }
+      ],
+      heat: [
+        { player: "Chourio", pos: "CF", ab: 4, r: 1, h: 2, rbi: 0, bb: 0, so: 1, avg: ".500" },
+        { player: "Bazzana", pos: "2B", ab: 3, r: 0, h: 1, rbi: 1, bb: 1, so: 0, avg: ".333" },
+        { player: "Arenado", pos: "3B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Arozarena", pos: "LF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+        { player: "Harper", pos: "1B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Gregorius", pos: "DH", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Ramirez", pos: "SS", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Ahn", pos: "RF", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Kirk", pos: "C", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" }
+      ]
+    }
+  },
+  {
+    id: 3,
+    series: "Series 1",
+    game: 3,
+    home: "Barbaros",
+    winner: "Barbaros",
+    barbaros: { runs: 3, hits: 8, errors: 0, hrs: 3, rbi: 3, strikeouts: 4 },
+    heat: { runs: 2, hits: 6, errors: 0, hrs: 1, rbi: 2, strikeouts: 6 },
+    mvp: "D. Jones",
+    notes: "Barbaros took a 2-1 series lead. HRs: Barbaros: De Vries, Clark, Jones. Heat: Arenado.",
+    playerBox: {
+      barbaros: [
+        { player: "De Vries", pos: "SS", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Clark", pos: "CF", ab: 4, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" },
+        { player: "Okamoto", pos: "3B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Jones", pos: "RF", ab: 4, r: 1, h: 3, rbi: 1, bb: 0, so: 0, avg: ".750" },
+        { player: "Muzik", pos: "1B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Antonacci", pos: "2B", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".333" },
+        { player: "Schwarber", pos: "DH", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".333" },
+        { player: "De Paula", pos: "LF", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Jensen", pos: "C", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+      ],
+      heat: [
+        { player: "Chourio", pos: "CF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Bazzana", pos: "2B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Arenado", pos: "3B", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Arozarena", pos: "LF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+        { player: "Harper", pos: "1B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+        { player: "Gregorius", pos: "DH", ab: 3, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" },
+        { player: "Ramirez", pos: "SS", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Ahn", pos: "RF", ab: 3, r: 0, h: 2, rbi: 1, bb: 0, so: 0, avg: ".667" },
+        { player: "Kirk", pos: "C", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" }
+      ]
+    }
+  },
+  {
+    id: 4,
+    series: "Series 1",
+    game: 4,
+    home: "Barbaros",
+    winner: "Heat",
+    barbaros: { runs: 7, hits: 13, errors: 0, hrs: 1, rbi: 7, strikeouts: 6 },
+    heat: { runs: 8, hits: 10, errors: 0, hrs: 3, rbi: 8, strikeouts: 4 },
+    mvp: "Randy Arozarena",
+    notes: "Heat tied the series 2-2 in a high-scoring one-run game. HRs: Heat: Arozarena x2, Kirk. Barbaros: Bazzana.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 5, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+        { player: "Willits", pos: "SS", ab: 5, r: 1, h: 2, rbi: 0, bb: 0, so: 1, avg: ".400" },
+        { player: "Harper", pos: "1B", ab: 4, r: 1, h: 3, rbi: 1, bb: 0, so: 1, avg: ".750" },
+        { player: "Soler", pos: "DH", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Bellinger", pos: "LF", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Crawford", pos: "RF", ab: 4, r: 1, h: 3, rbi: 1, bb: 0, so: 1, avg: ".750" },
+        { player: "Arenado", pos: "3B", ab: 4, r: 1, h: 1, rbi: 2, bb: 0, so: 0, avg: ".250" },
+        { player: "Bazzana", pos: "2B", ab: 4, r: 1, h: 2, rbi: 2, bb: 0, so: 1, avg: ".500" },
+        { player: "Varitek", pos: "C", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+      ],
+      heat: [
+        { player: "Chourio", pos: "CF", ab: 5, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Bazzana", pos: "2B", ab: 4, r: 1, h: 1, rbi: 1, bb: 1, so: 0, avg: ".250" },
+        { player: "Arenado", pos: "3B", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 2, avg: ".200" },
+        { player: "Arozarena", pos: "LF", ab: 3, r: 3, h: 2, rbi: 3, bb: 2, so: 0, avg: ".667" },
+        { player: "Harper", pos: "1B", ab: 5, r: 0, h: 2, rbi: 2, bb: 0, so: 0, avg: ".400" },
+        { player: "Gregorius", pos: "DH", ab: 4, r: 0, h: 0, rbi: 0, bb: 1, so: 1, avg: ".000" },
+        { player: "Ramirez", pos: "SS", ab: 4, r: 2, h: 2, rbi: 0, bb: 0, so: 1, avg: ".500" },
+        { player: "Ahn", pos: "RF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Kirk", pos: "C", ab: 3, r: 1, h: 1, rbi: 2, bb: 0, so: 0, avg: ".333" }
+      ]
+    }
+  },
+  {
+    id: 5,
+    series: "Series 1",
+    game: 5,
+    home: "Heat",
+    winner: "Heat",
+    barbaros: { runs: 6, hits: 15, errors: 0, hrs: 2, rbi: 6, strikeouts: 6 },
+    heat: { runs: 8, hits: 12, errors: 0, hrs: 3, rbi: 8, strikeouts: 6 },
+    mvp: "A. Ramirez",
+    notes: "Heat won Series 1, 3-2. Barbaros had more hits, but Heat turned chances into runs.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 5, r: 2, h: 1, rbi: 1, bb: 0, so: 2, avg: ".200" },
+        { player: "Willits", pos: "SS", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 2, avg: ".200" },
+        { player: "Harper", pos: "1B", ab: 5, r: 1, h: 3, rbi: 1, bb: 0, so: 1, avg: ".600" },
+        { player: "Soler", pos: "DH", ab: 5, r: 0, h: 1, rbi: 1, bb: 0, so: 0, avg: ".200" },
+        { player: "Bellinger", pos: "LF", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".400" },
+        { player: "Tatis Jr.", pos: "RF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Arenado", pos: "3B", ab: 4, r: 0, h: 4, rbi: 1, bb: 0, so: 0, avg: "1.000" },
+        { player: "Bazzana", pos: "2B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Varitek", pos: "C", ab: 4, r: 1, h: 3, rbi: 1, bb: 0, so: 1, avg: ".750" },
+        { player: "Teel", pos: "PR-C", ab: 0, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+      ],
+      heat: [
+        { player: "Chourio", pos: "CF", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Bazzana", pos: "2B", ab: 4, r: 1, h: 2, rbi: 2, bb: 0, so: 1, avg: ".500" },
+        { player: "Arenado", pos: "3B", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Arozarena", pos: "LF", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 2, avg: ".250" },
+        { player: "Harper", pos: "1B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Griffin", pos: "DH", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Ramirez", pos: "SS", ab: 4, r: 2, h: 3, rbi: 4, bb: 0, so: 0, avg: ".750" },
+        { player: "Ahn", pos: "RF", ab: 4, r: 1, h: 2, rbi: 2, bb: 0, so: 1, avg: ".500" },
+        { player: "Kirk", pos: "C", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" }
+      ]
+    }
+  },
+  {
+    id: 6,
+    series: "Series 2",
+    game: 1,
+    home: "Heat",
+    winner: "Heat",
+    barbaros: { runs: 4, hits: 7, errors: 2, hrs: 0, rbi: 4, strikeouts: 7 },
+    heat: { runs: 6, hits: 12, errors: 0, hrs: 2, rbi: 6, strikeouts: 6 },
+    mvp: "Bryce Harper",
+    notes: "Heat opened Series 2 with a 6-4 win. A 5-run 3rd inning swung the game.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Willits", pos: "SS", ab: 4, r: 2, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Harper", pos: "1B", ab: 4, r: 1, h: 3, rbi: 2, bb: 0, so: 0, avg: ".750" },
+        { player: "Soler", pos: "DH", ab: 4, r: 1, h: 1, rbi: 2, bb: 0, so: 3, avg: ".250" },
+        { player: "Bellinger", pos: "LF", ab: 3, r: 0, h: 0, rbi: 0, bb: 1, so: 0, avg: ".000" },
+        { player: "Tatis Jr.", pos: "RF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Arenado", pos: "3B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Bazzana", pos: "2B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+        { player: "Varitek", pos: "C", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+      ],
+      heat: [
+        { player: "Chourio", pos: "CF", ab: 5, r: 0, h: 2, rbi: 0, bb: 0, so: 0, avg: ".400" },
+        { player: "Bazzana", pos: "2B", ab: 5, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".200" },
+        { player: "Arenado", pos: "3B", ab: 4, r: 1, h: 1, rbi: 0, bb: 1, so: 2, avg: ".250" },
+        { player: "Arozarena", pos: "LF", ab: 4, r: 1, h: 2, rbi: 1, bb: 1, so: 0, avg: ".500" },
+        { player: "Harper", pos: "1B", ab: 4, r: 1, h: 1, rbi: 3, bb: 0, so: 0, avg: ".250" },
+        { player: "Griffin", pos: "DH", ab: 4, r: 1, h: 2, rbi: 0, bb: 0, so: 1, avg: ".500" },
+        { player: "Ramirez", pos: "SS", ab: 4, r: 0, h: 2, rbi: 1, bb: 0, so: 1, avg: ".500" },
+        { player: "Ahn", pos: "RF", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Kirk", pos: "C", ab: 3, r: 0, h: 2, rbi: 3, bb: 0, so: 0, avg: ".667" }
+      ]
+    }
+  },
+  {
+    id: 7,
+    series: "Series 2",
+    game: 2,
+    home: "Heat",
+    winner: "Barbaros",
+    barbaros: { runs: 13, hits: 19, errors: 0, hrs: 5, rbi: 13, strikeouts: 6 },
+    heat: { runs: 6, hits: 9, errors: 1, hrs: 3, rbi: 6, strikeouts: 4 },
+    mvp: "Barbaros Offense",
+    notes: "Barbaros evened Series 2 with a 13-6 blowout. Barbaros had 19 hits and scored in six different innings.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 6, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Willits", pos: "SS", ab: 5, r: 3, h: 3, rbi: 1, bb: 0, so: 1, avg: ".600" },
+        { player: "Harper", pos: "1B", ab: 5, r: 0, h: 1, rbi: 2, bb: 0, so: 0, avg: ".200" },
+        { player: "Soler", pos: "DH", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 2, avg: ".400" },
+        { player: "Adell", pos: "LF", ab: 5, r: 2, h: 2, rbi: 0, bb: 0, so: 1, avg: ".400" },
+        { player: "Tatis Jr.", pos: "RF", ab: 5, r: 3, h: 3, rbi: 2, bb: 0, so: 0, avg: ".600" },
+        { player: "Arenado", pos: "3B", ab: 3, r: 2, h: 2, rbi: 0, bb: 0, so: 1, avg: ".667" },
+        { player: "Fernandez", pos: "3B", ab: 2, r: 0, h: 1, rbi: 1, bb: 0, so: 0, avg: ".500" },
+        { player: "Bazzana", pos: "2B", ab: 5, r: 1, h: 2, rbi: 3, bb: 0, so: 1, avg: ".400" },
+        { player: "Smith", pos: "C", ab: 5, r: 1, h: 3, rbi: 3, bb: 0, so: 0, avg: ".600" }
+      ],
+      heat: [
+        { player: "Chourio", pos: "CF", ab: 5, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Bazzana", pos: "2B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Arenado", pos: "3B", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Arozarena", pos: "LF", ab: 4, r: 1, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Harper", pos: "1B", ab: 4, r: 1, h: 1, rbi: 3, bb: 0, so: 0, avg: ".250" },
+        { player: "Griffin", pos: "DH", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 2, avg: ".250" },
+        { player: "Ramirez", pos: "SS", ab: 4, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" },
+        { player: "Ahn", pos: "RF", ab: 4, r: 2, h: 2, rbi: 2, bb: 0, so: 0, avg: ".500" },
+        { player: "Kirk", pos: "C", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" }
+      ]
+    }
+  },
+  {
+    id: 8,
+    series: "Series 2",
+    game: 3,
+    home: "Heat",
+    winner: "Barbaros",
+    barbaros: { runs: 9, hits: 9, errors: 0, hrs: 4, rbi: 9, strikeouts: 5 },
+    heat: { runs: 2, hits: 4, errors: 0, hrs: 2, rbi: 2, strikeouts: 12 },
+    mvp: "Justin Verlander",
+    notes: "Barbaros took control with a 9-2 win. Verlander struck out 12.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 3, r: 2, h: 2, rbi: 1, bb: 0, so: 0, avg: ".667" },
+        { player: "Willits", pos: "SS", ab: 3, r: 2, h: 3, rbi: 1, bb: 0, so: 0, avg: "1.000" },
+        { player: "Harper", pos: "1B", ab: 1, r: 1, h: 0, rbi: 0, bb: 2, so: 1, avg: ".000" },
+        { player: "Soler", pos: "DH", ab: 2, r: 0, h: 0, rbi: 1, bb: 0, so: 1, avg: ".000" },
+        { player: "Adell", pos: "LF", ab: 2, r: 0, h: 0, rbi: 1, bb: 0, so: 1, avg: ".000" },
+        { player: "Tatis Jr.", pos: "RF", ab: 3, r: 2, h: 2, rbi: 1, bb: 0, so: 1, avg: ".667" },
+        { player: "Correa", pos: "3B", ab: 3, r: 1, h: 1, rbi: 2, bb: 0, so: 1, avg: ".333" },
+        { player: "Bazzana", pos: "2B", ab: 3, r: 1, h: 1, rbi: 2, bb: 0, so: 0, avg: ".333" },
+        { player: "Smith", pos: "C", ab: 2, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+      ],
+      heat: [
+        { player: "Chourio", pos: "CF", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 2, avg: ".333" },
+        { player: "Bazzana", pos: "2B", ab: 2, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Arenado", pos: "3B", ab: 2, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+        { player: "Arozarena", pos: "LF", ab: 2, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+        { player: "Harper", pos: "1B", ab: 2, r: 1, h: 1, rbi: 1, bb: 0, so: 1, avg: ".500" },
+        { player: "Griffin", pos: "DH", ab: 2, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+        { player: "Ramirez", pos: "SS", ab: 2, r: 1, h: 1, rbi: 1, bb: 0, so: 1, avg: ".500" },
+        { player: "Ahn", pos: "RF", ab: 2, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".500" },
+        { player: "Kirk", pos: "C", ab: 2, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" }
+      ]
+    }
+  },
+  {
+    id: 9,
+    series: "Series 2",
+    game: 4,
+    home: "Heat",
+    winner: "Barbaros",
+    barbaros: { runs: 6, hits: 10, errors: 0, hrs: 3, rbi: 6, strikeouts: 7 },
+    heat: { runs: 3, hits: 5, errors: 0, hrs: 1, rbi: 3, strikeouts: 7 },
+    mvp: "Justin Verlander",
+    notes: "Barbaros closed Series 2 with a 6-3 win. Heat tied it 3-3 in the 5th, but Barbaros answered late.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 5, r: 1, h: 1, rbi: 1, bb: 0, so: 3, avg: ".200" },
+        { player: "Willits", pos: "SS", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".200" },
+        { player: "Harper", pos: "1B", ab: 4, r: 2, h: 2, rbi: 3, bb: 0, so: 0, avg: ".500" },
+        { player: "Soler", pos: "DH", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Adell", pos: "LF", ab: 3, r: 0, h: 1, rbi: 0, bb: 1, so: 0, avg: ".333" },
+        { player: "Tatis Jr.", pos: "RF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Correa", pos: "3B", ab: 4, r: 1, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Bazzana", pos: "2B", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 3, avg: ".250" },
+        { player: "Smith", pos: "C", ab: 4, r: 0, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" }
+      ],
+      heat: [
+        { player: "Chourio", pos: "CF", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" },
+        { player: "Bazzana", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 1, so: 1, avg: ".000" },
+        { player: "Arenado", pos: "3B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Arozarena", pos: "LF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Harper", pos: "1B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+        { player: "Griffin", pos: "DH", ab: 4, r: 1, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Ramirez", pos: "SS", ab: 3, r: 1, h: 0, rbi: 0, bb: 1, so: 1, avg: ".000" },
+        { player: "Ahn", pos: "RF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Mack", pos: "C", ab: 3, r: 1, h: 2, rbi: 3, bb: 0, so: 0, avg: ".667" }
+      ]
+    }
+  },
+  {
+    id: 10,
+    series: "Series 3",
+    game: 1,
+    home: "Barbaros",
+    winner: "Heat",
+    barbaros: { runs: 2, hits: 7, errors: 0, hrs: 1, rbi: 2, strikeouts: 4 },
+    heat: { runs: 7, hits: 13, errors: 0, hrs: 3, rbi: 7, strikeouts: 2 },
+    mvp: "Eduardo Rodriguez",
+    notes: "Heat opened Series 3 with a 7-2 win. Heat scored 3 in the 1st and added 3 more in the 7th.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Willits", pos: "SS", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Harper", pos: "1B", ab: 4, r: 0, h: 2, rbi: 1, bb: 0, so: 1, avg: ".500" },
+        { player: "Fernandez", pos: "PR", ab: 0, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Soler", pos: "DH", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Adell", pos: "LF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Tatis Jr.", pos: "RF", ab: 3, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".667" },
+        { player: "Correa", pos: "3B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Doerr", pos: "2B", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" },
+        { player: "Mackey", pos: "C", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" }
+      ],
+      heat: [
+        { player: "Chourio", pos: "CF", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".400" },
+        { player: "Bazzana", pos: "2B", ab: 5, r: 1, h: 2, rbi: 2, bb: 0, so: 1, avg: ".400" },
+        { player: "Correa", pos: "3B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Trout", pos: "DH", ab: 4, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" },
+        { player: "Harper", pos: "1B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Arozarena", pos: "LF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Ramirez", pos: "SS", ab: 4, r: 1, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Thompson", pos: "RF", ab: 4, r: 2, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" },
+        { player: "Mack", pos: "C", ab: 4, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".500" }
+      ]
+    }
+  },
+  {
+  id: 11,
+  series: "Series 3",
+  game: 2,
+  home: "Barbaros",
+  winner: "Heat",
+  barbaros: { runs: 3, hits: 6, errors: 0, hrs: 1, rbi: 3, strikeouts: 4 },
+  heat: { runs: 6, hits: 10, errors: 0, hrs: 3, rbi: 6, strikeouts: 5 },
+  mvp: "Jackson Chourio",
+  notes: "Heat won Series 3 Game 2, 6-3. Chourio hit 2 HRs and drove in 2. Simpson added a HR and 2 RBI. Delgado homered for Barbaros.",
+  playerBox: {
+    barbaros: [
+      { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+      { player: "De La Cruz", pos: "SS", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+      { player: "Rice", pos: "1B", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".333" },
+      { player: "Fernandez", pos: "PR-1B", ab: 1, r: 1, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+      { player: "Delgado", pos: "DH", ab: 4, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".500" },
+      { player: "Adell", pos: "LF", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+      { player: "Tatis Jr.", pos: "RF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+      { player: "Correa", pos: "3B", ab: 3, r: 0, h: 1, rbi: 1, bb: 0, so: 1, avg: ".333" },
+      { player: "Doerr", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+      { player: "Mackey", pos: "C", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+    ],
+    heat: [
+      { player: "Chourio", pos: "CF", ab: 5, r: 2, h: 3, rbi: 2, bb: 0, so: 1, avg: ".600" },
+      { player: "Bazzana", pos: "2B", ab: 4, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" },
+      { player: "Correa", pos: "3B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+      { player: "Trout", pos: "DH", ab: 4, r: 0, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" },
+      { player: "Harper", pos: "1B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+      { player: "Thompson", pos: "RF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+      { player: "Griffin", pos: "SS", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+      { player: "Simpson", pos: "LF", ab: 3, r: 1, h: 1, rbi: 2, bb: 1, so: 0, avg: ".333" },
+      { player: "Mack", pos: "C", ab: 3, r: 1, h: 0, rbi: 0, bb: 1, so: 1, avg: ".000" }
+    ]
+  }
+},
+{
+  id: 12,
+  series: "Series 3",
+  game: 3,
+  home: "Barbaros",
+  winner: "Barbaros",
+  barbaros: { runs: 10, hits: 14, errors: 0, hrs: 2, rbi: 10, strikeouts: 3 },
+  heat: { runs: 6, hits: 10, errors: 0, hrs: 2, rbi: 6, strikeouts: 7 },
+  mvp: "Shohei Ohtani",
+  notes: "Barbaros won Series 3 Game 3, 10-6. Ohtani drove in 4. De La Cruz went 4-for-5 with a triple. Barbaros scored 7 runs in the first two innings.",
+  playerBox: {
+    barbaros: [
+      { player: "Crow-Armstrong", pos: "CF", ab: 5, r: 2, h: 2, rbi: 0, bb: 0, so: 1, avg: ".400" },
+      { player: "De La Cruz", pos: "SS", ab: 5, r: 3, h: 4, rbi: 0, bb: 0, so: 0, avg: ".800" },
+      { player: "Kurtz", pos: "1B", ab: 3, r: 2, h: 2, rbi: 2, bb: 1, so: 0, avg: ".667" },
+      { player: "Ohtani", pos: "DH", ab: 4, r: 1, h: 1, rbi: 4, bb: 0, so: 0, avg: ".250" },
+      { player: "Adell", pos: "LF", ab: 4, r: 0, h: 2, rbi: 2, bb: 0, so: 0, avg: ".500" },
+      { player: "Tatis Jr.", pos: "RF", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+      { player: "Guerrero Jr.", pos: "3B", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 2, avg: ".250" },
+      { player: "Doerr", pos: "2B", ab: 4, r: 0, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+      { player: "Mackey", pos: "C", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+    ],
+    heat: [
+      { player: "Simpson", pos: "LF", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".400" },
+      { player: "Bazzana", pos: "2B", ab: 3, r: 0, h: 0, rbi: 1, bb: 0, so: 1, avg: ".000" },
+      { player: "Correa", pos: "3B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+      { player: "Trout", pos: "DH", ab: 4, r: 1, h: 2, rbi: 1, bb: 0, so: 1, avg: ".500" },
+      { player: "Harper", pos: "1B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+      { player: "Chourio", pos: "CF", ab: 4, r: 2, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" },
+      { player: "Griffin", pos: "SS", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+      { player: "Gwynn", pos: "RF", ab: 4, r: 2, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" },
+      { player: "Mack", pos: "C", ab: 3, r: 0, h: 2, rbi: 1, bb: 0, so: 1, avg: ".667" },
+      { player: "Roberts", pos: "PR", ab: 0, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+    ]
+  }
+}
+  ,
+  {
+    id: 13,
+    series: "Series 3",
+    game: 4,
+    home: "Barbaros",
+    winner: "Heat",
+    barbaros: { runs: 3, hits: 11, errors: 0, hrs: 1, rbi: 3, strikeouts: 3 },
+    heat: { runs: 7, hits: 11, errors: 0, hrs: 5, rbi: 7, strikeouts: 5 },
+    mvp: "Travis Bazzana",
+    notes: "Heat won Series 3 Game 4, 7-3, and closed the series 3-1. Heat hit five home runs: Bazzana, Correa, Trout, Griffin, and Mack. Barbaros had 11 hits but only scored 3 runs.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "De La Cruz", pos: "SS", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Kurtz", pos: "1B", ab: 4, r: 0, h: 1, rbi: 1, bb: 0, so: 1, avg: ".250" },
+        { player: "Ohtani", pos: "DH", ab: 4, r: 1, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Adell", pos: "LF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Tatis Jr.", pos: "RF", ab: 4, r: 0, h: 2, rbi: 0, bb: 0, so: 1, avg: ".500" },
+        { player: "Guerrero Jr.", pos: "3B", ab: 3, r: 0, h: 2, rbi: 1, bb: 0, so: 0, avg: ".667" },
+        { player: "Fernandez", pos: "PR-3B", ab: 1, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Doerr", pos: "2B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Mackey", pos: "C", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" }
+      ],
+      heat: [
+        { player: "Chourio", pos: "CF", ab: 5, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Bazzana", pos: "2B", ab: 5, r: 2, h: 3, rbi: 1, bb: 0, so: 0, avg: ".600" },
+        { player: "Correa", pos: "3B", ab: 5, r: 1, h: 1, rbi: 2, bb: 0, so: 2, avg: ".200" },
+        { player: "Trout", pos: "DH", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 1, avg: ".250" },
+        { player: "Murakami", pos: "1B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Taylor", pos: "LF", ab: 4, r: 1, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Griffin", pos: "SS", ab: 4, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".500" },
+        { player: "Jones", pos: "RF", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Mack", pos: "C", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" }
+      ]
+    }
+  }
+,
+  {
+    id: 14,
+    series: "Series 4",
+    game: 1,
+    home: "Heat",
+    winner: "Heat",
+    barbaros: { runs: 1, hits: 11, errors: 0, hrs: 0, rbi: 1, strikeouts: 6 },
+    heat: { runs: 3, hits: 6, errors: 0, hrs: 3, rbi: 3, strikeouts: 5 },
+    mvp: "Darren O'Day",
+    notes: "Heat opened Series 4 with a 3-1 win. Heat scored all 3 runs on solo HRs by Baez, Jones, and Mack. Barbaros outhit Heat 11-6 but only scored once.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "De La Cruz", pos: "SS", ab: 4, r: 1, h: 3, rbi: 0, bb: 0, so: 0, avg: ".750" },
+        { player: "Kurtz", pos: "1B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Ortiz", pos: "DH", ab: 4, r: 0, h: 3, rbi: 1, bb: 0, so: 0, avg: ".750" },
+        { player: "Eaton", pos: "PR", ab: 0, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Adell", pos: "LF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 2, avg: ".250" },
+        { player: "Tatis Jr.", pos: "RF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 3, avg: ".000" },
+        { player: "Guerrero Jr.", pos: "3B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Doerr", pos: "2B", ab: 4, r: 0, h: 3, rbi: 0, bb: 0, so: 0, avg: ".750" },
+        { player: "Mackey", pos: "C", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+      ],
+      heat: [
+        { player: "Chourio", pos: "CF", ab: 4, r: 0, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Bazzana", pos: "2B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Baez", pos: "3B", ab: 3, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".333" },
+        { player: "Trout", pos: "DH", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Murakami", pos: "1B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Taylor", pos: "LF", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+        { player: "Griffin", pos: "SS", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Jones", pos: "RF", ab: 3, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".667" },
+        { player: "Mack", pos: "C", ab: 3, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".333" }
+      ]
+    }
+  },
+  {
+    id: 15,
+    series: "Series 4",
+    game: 2,
+    home: "Heat",
+    winner: "Heat",
+    barbaros: { runs: 2, hits: 7, errors: 0, hrs: 0, rbi: 2, strikeouts: 2 },
+    heat: { runs: 4, hits: 7, errors: 0, hrs: 2, rbi: 4, strikeouts: 5 },
+    mvp: "Mike Trout",
+    notes: "Heat took a 2-0 Series 4 lead with a 4-2 win. Barbaros scored first with 2 in the 7th, but Heat answered with 2 in the 7th and 2 more in the 8th. HRs: Trout and Lindor.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Lindor", pos: "SS", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Tatis Jr.", pos: "RF", ab: 4, r: 1, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Judge", pos: "DH", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Bellinger", pos: "LF", ab: 4, r: 1, h: 2, rbi: 0, bb: 0, so: 1, avg: ".500" },
+        { player: "Kurtz", pos: "1B", ab: 3, r: 0, h: 2, rbi: 2, bb: 0, so: 1, avg: ".667" },
+        { player: "Emerson", pos: "3B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Doerr", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Mackey", pos: "C", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" }
+      ],
+      heat: [
+        { player: "McGee", pos: "CF", ab: 3, r: 0, h: 1, rbi: 0, bb: 1, so: 0, avg: ".333" },
+        { player: "Bazzana", pos: "2B", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Baez", pos: "3B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Trout", pos: "DH", ab: 3, r: 1, h: 2, rbi: 2, bb: 0, so: 1, avg: ".667" },
+        { player: "Murakami", pos: "1B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Taylor", pos: "LF", ab: 3, r: 1, h: 2, rbi: 0, bb: 0, so: 0, avg: ".667" },
+        { player: "Lindor", pos: "SS", ab: 3, r: 1, h: 1, rbi: 2, bb: 0, so: 0, avg: ".333" },
+        { player: "Jones", pos: "RF", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Mack", pos: "C", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" }
+      ]
+    }
+  }
+,
+  {
+    id: 16,
+    series: "Series 4",
+    game: 3,
+    home: "Heat",
+    winner: "Barbaros",
+    barbaros: { runs: 11, hits: 13, errors: 0, hrs: 4, rbi: 11, strikeouts: 3 },
+    heat: { runs: 0, hits: 3, errors: 0, hrs: 0, rbi: 0, strikeouts: 2 },
+    mvp: "Cody Bellinger",
+    notes: "Barbaros won Series 4 Game 3, 11-0. Barbaros jumped out fast with 1 in the 1st, 2 in the 2nd, 3 in the 3rd, and 5 in the 4th. HRs: Crow-Armstrong, Tatis Jr., Judge, Bellinger. Jimenez threw 4 shutout innings and allowed only 3 hits.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 3, r: 1, h: 1, rbi: 1, bb: 0, so: 1, avg: ".333" },
+        { player: "Lindor", pos: "SS", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Tatis Jr.", pos: "RF", ab: 3, r: 3, h: 3, rbi: 1, bb: 0, so: 0, avg: "1.000" },
+        { player: "Judge", pos: "DH", ab: 2, r: 2, h: 1, rbi: 2, bb: 1, so: 0, avg: ".500" },
+        { player: "Bellinger", pos: "LF", ab: 3, r: 3, h: 3, rbi: 3, bb: 0, so: 0, avg: "1.000" },
+        { player: "Kurtz", pos: "1B", ab: 3, r: 2, h: 3, rbi: 1, bb: 0, so: 0, avg: "1.000" },
+        { player: "Emerson", pos: "3B", ab: 3, r: 0, h: 1, rbi: 2, bb: 0, so: 0, avg: ".333" },
+        { player: "Doerr", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Mackey", pos: "C", ab: 2, r: 0, h: 1, rbi: 1, bb: 0, so: 1, avg: ".500" }
+      ],
+      heat: [
+        { player: "McGee", pos: "CF", ab: 2, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Arroyo", pos: "2B", ab: 2, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Baez", pos: "3B", ab: 2, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Trout", pos: "DH", ab: 2, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Bellinger", pos: "1B", ab: 2, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Taylor", pos: "LF", ab: 2, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Lindor", pos: "SS", ab: 1, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Jones", pos: "RF", ab: 1, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: "1.000" },
+        { player: "Carrigg", pos: "C", ab: 1, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" }
+      ]
+    }
+  }
+
+,
+  {
+    id: 17,
+    series: "Series 4",
+    game: 4,
+    home: "Heat",
+    winner: "Barbaros",
+    barbaros: { runs: 6, hits: 11, errors: 0, hrs: 1, rbi: 6, strikeouts: 5 },
+    heat: { runs: 2, hits: 8, errors: 0, hrs: 1, rbi: 2, strikeouts: 4 },
+    mvp: "Pete Crow-Armstrong",
+    notes: "Barbaros tied Series 4 at 2-2 with a 6-2 win. Crow-Armstrong homered and drove in 2. Mackey collected 3 hits, and Tatis Jr. tripled.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 5, r: 1, h: 2, rbi: 2, bb: 0, so: 1, avg: ".400" },
+        { player: "Lindor", pos: "SS", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 1, avg: ".250" },
+        { player: "Tatis Jr.", pos: "RF", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Judge", pos: "DH", ab: 3, r: 0, h: 0, rbi: 1, bb: 0, so: 1, avg: ".000" },
+        { player: "Bellinger", pos: "LF", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Kurtz", pos: "1B", ab: 4, r: 0, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Emerson", pos: "3B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Doerr", pos: "2B", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Mackey", pos: "C", ab: 4, r: 1, h: 3, rbi: 0, bb: 0, so: 0, avg: ".750" }
+      ],
+      heat: [
+        { player: "McGee", pos: "CF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Arroyo", pos: "2B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Baez", pos: "3B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Trout", pos: "DH", ab: 4, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" },
+        { player: "Bellinger", pos: "1B", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 1, avg: ".250" },
+        { player: "Taylor", pos: "LF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Lindor", pos: "SS", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" },
+        { player: "Jones", pos: "RF", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".333" },
+        { player: "Carrigg", pos: "C", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+      ]
+    }
+  },
+  {
+    id: 18,
+    series: "Series 4",
+    game: 5,
+    home: "Barbaros",
+    winner: "Heat",
+    barbaros: { runs: 2, hits: 5, errors: 0, hrs: 1, rbi: 2, strikeouts: 6 },
+    heat: { runs: 3, hits: 8, errors: 0, hrs: 1, rbi: 3, strikeouts: 6 },
+    mvp: "Ozzie Smith",
+    notes: "Heat won Series 4 in five games with a 3-2 victory. Ozzie Smith homered, while Bellinger supplied both Barbaros runs with a 2-run homer.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Lindor", pos: "SS", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Tatis Jr.", pos: "RF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Judge", pos: "DH", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Bellinger", pos: "LF", ab: 4, r: 1, h: 1, rbi: 2, bb: 0, so: 1, avg: ".250" },
+        { player: "Kurtz", pos: "1B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Emerson", pos: "3B", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" },
+        { player: "Doerr", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Mackey", pos: "C", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" }
+      ],
+      heat: [
+        { player: "McGee", pos: "CF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Arroyo", pos: "2B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Baez", pos: "3B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Trout", pos: "DH", ab: 3, r: 0, h: 0, rbi: 0, bb: 1, so: 0, avg: ".000" },
+        { player: "Taylor", pos: "LF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Lindor", pos: "SS", ab: 4, r: 2, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Smith", pos: "RF", ab: 4, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" },
+        { player: "Jones", pos: "1B", ab: 3, r: 0, h: 0, rbi: 1, bb: 0, so: 1, avg: ".000" },
+        { player: "Carrigg", pos: "C", ab: 3, r: 0, h: 0, rbi: 1, bb: 0, so: 1, avg: ".000" }
+      ]
+    }
+  },
+  {
+    id: 19,
+    series: "Series 5",
+    game: 1,
+    home: "Barbaros",
+    winner: "Heat",
+    barbaros: { runs: 3, hits: 7, errors: 1, hrs: 1, rbi: 3, strikeouts: 6 },
+    heat: { runs: 9, hits: 11, errors: 1, hrs: 1, rbi: 9, strikeouts: 6 },
+    mvp: "Taylor",
+    notes: "Heat opened Series 5 with a 9-3 win. Taylor homered and drove in 3. Heat scored early and Gaylord Perry finished four scoreless innings.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 1, h: 1, rbi: 2, bb: 0, so: 1, avg: ".250" },
+        { player: "Lindor", pos: "SS", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Judge", pos: "RF", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Anthony", pos: "DH", ab: 4, r: 0, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Kurtz", pos: "1B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Tatis Jr.", pos: "LF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Emerson", pos: "3B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Doerr", pos: "2B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Mackey", pos: "C", ab: 3, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" }
+      ],
+      heat: [
+        { player: "Smith", pos: "SS", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".200" },
+        { player: "Carrigg", pos: "C", ab: 5, r: 2, h: 2, rbi: 0, bb: 0, so: 1, avg: ".400" },
+        { player: "Baez", pos: "3B", ab: 5, r: 1, h: 1, rbi: 3, bb: 0, so: 1, avg: ".200" },
+        { player: "Trout", pos: "DH", ab: 5, r: 1, h: 2, rbi: 2, bb: 0, so: 1, avg: ".400" },
+        { player: "Freeman", pos: "1B", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Taylor", pos: "LF", ab: 4, r: 2, h: 2, rbi: 3, bb: 0, so: 1, avg: ".500" },
+        { player: "Montgomery", pos: "RF", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Lindor", pos: "2B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Arroyo", pos: "CF", ab: 3, r: 0, h: 0, rbi: 1, bb: 0, so: 1, avg: ".000" }
+      ]
+    }
+  },
+  {
+    id: 20,
+    series: "Series 5",
+    game: 2,
+    home: "Heat",
+    winner: "Barbaros",
+    barbaros: { runs: 7, hits: 13, errors: 0, hrs: 1, rbi: 7, strikeouts: 5 },
+    heat: { runs: 6, hits: 13, errors: 1, hrs: 4, rbi: 6, strikeouts: 5 },
+    mvp: "Colt Emerson",
+    notes: "Barbaros won 7-6 in 10 innings to tie Series 5. Emerson homered and drove in 3. Barbaros erased a late deficit and Tyler Rogers earned the win.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 5, r: 1, h: 2, rbi: 0, bb: 0, so: 1, avg: ".400" },
+        { player: "Lindor", pos: "SS", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 1, avg: ".400" },
+        { player: "Judge", pos: "RF", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Anthony", pos: "DH", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".400" },
+        { player: "Freeman", pos: "1B", ab: 5, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".400" },
+        { player: "Tatis Jr.", pos: "LF", ab: 5, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Emerson", pos: "3B", ab: 4, r: 1, h: 2, rbi: 3, bb: 0, so: 0, avg: ".500" },
+        { player: "Doerr", pos: "2B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Mackey", pos: "C", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" }
+      ],
+      heat: [
+        { player: "Smith", pos: "SS", ab: 5, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".200" },
+        { player: "Carrigg", pos: "C", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Baez", pos: "3B", ab: 5, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".400" },
+        { player: "Trout", pos: "DH", ab: 5, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Freeman", pos: "1B", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".400" },
+        { player: "Taylor", pos: "LF", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Montgomery", pos: "RF", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 1, avg: ".400" },
+        { player: "Lindor", pos: "2B", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".400" },
+        { player: "Acuna Jr.", pos: "CF", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 1, avg: ".250" }
+      ]
+    }
+  },
+  {
+    id: 21,
+    series: "Series 5",
+    game: 3,
+    home: "Barbaros",
+    winner: "Heat",
+    barbaros: { runs: 7, hits: 11, errors: 0, hrs: 2, rbi: 7, strikeouts: 5 },
+    heat: { runs: 11, hits: 16, errors: 0, hrs: 4, rbi: 11, strikeouts: 4 },
+    mvp: "Ronald Acuna Jr.",
+    notes: "Heat took a 2-1 Series 5 lead with an 11-7 win. Acuna Jr. went 3-for-3 with a homer, 3 runs, and 2 RBI. Arroyo drove in 3.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 5, r: 2, h: 3, rbi: 2, bb: 0, so: 0, avg: ".600" },
+        { player: "Lindor", pos: "SS", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Judge", pos: "RF", ab: 5, r: 1, h: 1, rbi: 1, bb: 0, so: 1, avg: ".200" },
+        { player: "Anthony", pos: "DH", ab: 5, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Freeman", pos: "1B", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Tatis Jr.", pos: "LF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Emerson", pos: "3B", ab: 4, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".500" },
+        { player: "Doerr", pos: "2B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Mackey", pos: "C", ab: 4, r: 1, h: 1, rbi: 2, bb: 0, so: 0, avg: ".250" }
+      ],
+      heat: [
+        { player: "Smith", pos: "SS", ab: 5, r: 1, h: 2, rbi: 0, bb: 0, so: 0, avg: ".400" },
+        { player: "Carrigg", pos: "C", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Baez", pos: "3B", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 1, avg: ".400" },
+        { player: "Trout", pos: "DH", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Freeman", pos: "1B", ab: 5, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".400" },
+        { player: "Taylor", pos: "LF", ab: 5, r: 1, h: 3, rbi: 1, bb: 0, so: 0, avg: ".600" },
+        { player: "Montgomery", pos: "RF", ab: 4, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".500" },
+        { player: "Arroyo", pos: "2B", ab: 4, r: 2, h: 2, rbi: 3, bb: 0, so: 1, avg: ".500" },
+        { player: "Acuna Jr.", pos: "CF", ab: 3, r: 3, h: 3, rbi: 2, bb: 0, so: 0, avg: "1.000" }
+      ]
+    }
+  },
+  {
+    id: 22,
+    series: "Series 5",
+    game: 4,
+    home: "Heat",
+    winner: "Barbaros",
+    barbaros: { runs: 5, hits: 7, errors: 0, hrs: 3, rbi: 5, strikeouts: 6 },
+    heat: { runs: 1, hits: 4, errors: 1, hrs: 1, rbi: 1, strikeouts: 4 },
+    mvp: "Pete Crow-Armstrong",
+    notes: "Barbaros forced Game 5 with a 5-1 win. Crow-Armstrong homered and drove in 3. Tatis Jr. and Emerson also homered.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 1, h: 1, rbi: 3, bb: 0, so: 1, avg: ".250" },
+        { player: "Lindor", pos: "SS", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Judge", pos: "RF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Anthony", pos: "DH", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Freeman", pos: "1B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Tatis Jr.", pos: "LF", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Emerson", pos: "3B", ab: 3, r: 2, h: 2, rbi: 1, bb: 0, so: 0, avg: ".667" },
+        { player: "Doerr", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Mackey", pos: "C", ab: 3, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".333" }
+      ],
+      heat: [
+        { player: "Smith", pos: "SS", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Carrigg", pos: "C", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Baez", pos: "3B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Trout", pos: "DH", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Freeman", pos: "1B", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" },
+        { player: "Taylor", pos: "LF", ab: 3, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".333" },
+        { player: "Montgomery", pos: "RF", ab: 3, r: 0, h: 1, rbi: 1, bb: 0, so: 0, avg: ".333" },
+        { player: "Arroyo", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Acuna Jr.", pos: "CF", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" }
+      ]
+    }
+  },
+  {
+    id: 23,
+    series: "Series 5",
+    game: 5,
+    home: "Barbaros",
+    winner: "Barbaros",
+    barbaros: { runs: 8, hits: 17, errors: 0, hrs: 3, rbi: 8, strikeouts: 4 },
+    heat: { runs: 1, hits: 6, errors: 0, hrs: 1, rbi: 1, strikeouts: 6 },
+    mvp: "Andy Ruiz",
+    notes: "Barbaros won Series 5, 3-2, with an 8-1 Game 5 victory. Ruiz hit two homers and drove in 3. Freeman added a homer and 3 RBI.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 5, r: 1, h: 2, rbi: 0, bb: 0, so: 1, avg: ".400" },
+        { player: "Lindor", pos: "SS", ab: 5, r: 1, h: 2, rbi: 0, bb: 0, so: 1, avg: ".400" },
+        { player: "Ruiz", pos: "RF", ab: 5, r: 2, h: 3, rbi: 3, bb: 0, so: 0, avg: ".600" },
+        { player: "Anthony", pos: "DH", ab: 4, r: 0, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Freeman", pos: "1B", ab: 4, r: 2, h: 3, rbi: 3, bb: 0, so: 0, avg: ".750" },
+        { player: "Tatis Jr.", pos: "LF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Emerson", pos: "3B", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Doerr", pos: "2B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Mackey", pos: "C", ab: 4, r: 1, h: 3, rbi: 1, bb: 0, so: 0, avg: ".750" }
+      ],
+      heat: [
+        { player: "Smith", pos: "SS", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Carrigg", pos: "C", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Baez", pos: "3B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Trout", pos: "DH", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Freeman", pos: "1B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Taylor", pos: "LF", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 1, avg: ".250" },
+        { player: "Montgomery", pos: "RF", ab: 4, r: 0, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Arroyo", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Acuna Jr.", pos: "CF", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+      ]
+    }
+  }
+
+
+];
+
+==================================================
+src/utils/stats.js
+==================================================
+import { statKeys } from "../styles/theme";
+
+export function createEmptyTotals() {
+  return {
+    barbaros: Object.fromEntries(statKeys.map((stat) => [stat, 0])),
+    heat: Object.fromEntries(statKeys.map((stat) => [stat, 0])),
+  };
+}
+
+export function calculateStats(games) {
+  const totals = createEmptyTotals();
+  const series = {};
+  const playerTotals = {};
+  let barbarosWins = 0;
+  let heatWins = 0;
+
+  games.forEach((game) => {
+    if (game.winner === "Barbaros") barbarosWins += 1;
+    if (game.winner === "Heat") heatWins += 1;
+
+    statKeys.forEach((stat) => {
+      totals.barbaros[stat] += game.barbaros[stat];
+      totals.heat[stat] += game.heat[stat];
+    });
+
+    if (!series[game.series]) series[game.series] = { barbaros: 0, heat: 0 };
+    if (game.winner === "Barbaros") series[game.series].barbaros += 1;
+    if (game.winner === "Heat") series[game.series].heat += 1;
+
+    ["barbaros", "heat"].forEach((team) => {
+      game.playerBox[team].forEach((player) => {
+        const key = `${team}-${player.player}`;
+
+        if (!playerTotals[key]) {
+          playerTotals[key] = {
+            team: team === "barbaros" ? "Barbaros" : "Heat",
+            player: player.player,
+            ab: 0,
+            r: 0,
+            h: 0,
+            rbi: 0,
+            bb: 0,
+            so: 0,
+          };
+        }
+
+        playerTotals[key].ab += player.ab;
+        playerTotals[key].r += player.r;
+        playerTotals[key].h += player.h;
+        playerTotals[key].rbi += player.rbi;
+        playerTotals[key].bb += player.bb;
+        playerTotals[key].so += player.so;
+      });
+    });
+  });
+
+  return {
+    barbarosWins,
+    heatWins,
+    totals,
+    series,
+    playerTotals: Object.values(playerTotals),
+  };
+}
+
+export function formatAverage(hits, atBats) {
+  if (!atBats) return ".000";
+  return (hits / atBats).toFixed(3).replace(/^0/, "");
+}
+
+==================================================
+src/components/Hero.jsx
+==================================================
+
+export default function Hero() {
+  return (
+    <section className="hero">
+      <div className="hero__glow" aria-hidden="true" />
+      <h1 className="hero__title">
+  <span className="hero__team">
+    <span className="team-title team-title--barbaros">
+      Barbaros
+    </span>
+  </span>
+
+  <span className="hero__vs">vs</span>
+
+  <span className="hero__team">
+    <span className="team-title team-title--heat">
+      Heat
+    </span>
+  </span>
+</h1>
+      <p className="hero__subtitle">
+        Complete head-to-head results, series records, team totals, and box scores.
+      </p>
+    </section>
+  );
+}
+
+==================================================
+src/components/SeriesCard.jsx
+==================================================
+import TeamLabel from "./TeamLabel";
+import TeamScoreRow from "./TeamScoreRow";
+
+export default function SeriesCard({ seriesName, record }) {
+  const barbarosWon = record.barbaros === 3;
+  const heatWon = record.heat === 3;
+  const winner = barbarosWon ? "Barbaros" : heatWon ? "Heat" : null;
+
+  return (
+    <article className="series-card">
+      <div className="series-card__top">
+        <span className="status-badge">{winner ? "FINAL" : "ACTIVE"}</span>
+        <span className="series-card__name">{seriesName}</span>
+      </div>
+      <TeamScoreRow team="Barbaros" score={record.barbaros} winner={barbarosWon} />
+      <TeamScoreRow team="Heat" score={record.heat} winner={heatWon} />
+      <p className="series-card__status">{winner ? <><TeamLabel team={winner} flagSize={14} /> won</> : "In progress"}</p>
+    </article>
+  );
+}
+
+==================================================
+src/components/StatCard.jsx
+==================================================
+export default function StatCard({ title, value }) {
+  return (
+    <article className="stat-card">
+      <p className="stat-card__title">{title}</p>
+      <p className="stat-card__value">{value}</p>
+    </article>
+  );
+}
+
+==================================================
+src/components/GameCard.jsx
+==================================================
+import TeamLabel from "./TeamLabel";
+import TeamScoreRow from "./TeamScoreRow";
+import { GameTeamTable, PlayerBox } from "./Tables";
+
+export default function GameCard({ game, expanded, onToggle }) {
+  const barbarosWon = game.winner === "Barbaros";
+  const heatWon = game.winner === "Heat";
+
+  return (
+    <article className="game-card">
+      <div className="game-card__header">
+        <div><span className="status-badge">FINAL</span><p className="game-card__meta">{game.series} · Game {game.game}</p></div>
+        <span className="game-card__home">Home: <TeamLabel team={game.home} flagSize={14} /></span>
+      </div>
+      <div className="scoreboard">
+        <TeamScoreRow team="Barbaros" score={game.barbaros.runs} winner={barbarosWon} />
+        <TeamScoreRow team="Heat" score={game.heat.runs} winner={heatWon} />
+      </div>
+      <div className="game-card__info">
+        <span><strong>Winner:</strong> <TeamLabel team={game.winner} flagSize={14} /></span>
+        <span><strong>MVP:</strong> {game.mvp}</span>
+      </div>
+      <div className="table-card table-card--compact"><GameTeamTable game={game} /></div>
+      <button className="box-score-button" onClick={onToggle} aria-expanded={expanded}>
+        {expanded ? "Hide full box score" : "View full box score"}
+      </button>
+      {expanded && <div className="player-box-grid"><PlayerBox team="Barbaros" players={game.playerBox.barbaros} /><PlayerBox team="Heat" players={game.playerBox.heat} /></div>}
+      <p className="game-card__notes">{game.notes}</p>
+    </article>
+  );
+}
+
+==================================================
+src/components/TeamScoreRow.jsx
+==================================================
+import TeamLabel from "./TeamLabel";
+
+export default function TeamScoreRow({ team, score, winner }) {
+  return (
+    <div className="team-score-row">
+      <div className="team-score-row__name-wrap">
+        <span className={`result-dot ${winner ? "result-dot--winner" : "result-dot--loser"}`} />
+        <TeamLabel
+          team={team}
+          flagSize={16}
+          className={winner ? "team-score-row__team team-score-row__team--winner" : "team-score-row__team"}
+        />
+      </div>
+      <span className={winner ? "team-score-row__score team-score-row__score--winner" : "team-score-row__score"}>
+        {score}
+      </span>
+    </div>
+  );
+}
+
+==================================================
+src/components/TeamLabel.jsx
+==================================================
+import { teamTheme } from "../styles/theme";
+
+function normalizeTeam(team) {
+  if (typeof team !== "string") return team;
+  if (team.toLowerCase().startsWith("barbaros")) return "Barbaros";
+  if (team.toLowerCase().startsWith("heat")) return "Heat";
+  return team;
+}
+
+export default function TeamLabel({
+  team,
+  flagPosition = "after",
+  flagSize = 18,
+  className = "",
+  nameClassName = "",
+  showFlag = true,
+}) {
+  const normalizedTeam = normalizeTeam(team);
+  const config = teamTheme[normalizedTeam];
+
+  if (!config) return <span className={className}>{team}</span>;
+
+  const flag = showFlag ? (
+    <img
+      className="team-label__flag"
+      src={config.flagUrl}
+      alt={`${config.country} flag`}
+      width={flagSize}
+      height={flagSize}
+      loading="lazy"
+    />
+  ) : null;
+
+  return (
+    <span className={`team-label ${className}`.trim()}>
+      {flagPosition === "before" && flag}
+      <span className={nameClassName}>{normalizedTeam}</span>
+      {flagPosition === "after" && flag}
+    </span>
+  );
+}
+
+==================================================
+src/components/Tables.jsx
+==================================================
+import TeamLabel from "./TeamLabel";
+import { formatAverage } from "../utils/stats";
+
+const headers = ["Runs", "Hits", "Errors", "HR", "RBI", "Strikeouts"];
+
+function TeamStatsRow({ team, stats }) {
+  return (
+    <tr>
+      <td className="table__left table__team-cell"><TeamLabel team={team} flagSize={17} /></td>
+      <td>{stats.runs}</td><td>{stats.hits}</td><td>{stats.errors}</td>
+      <td>{stats.hrs}</td><td>{stats.rbi}</td><td>{stats.strikeouts}</td>
+    </tr>
+  );
+}
+
+export function TeamTable({ stats }) {
+  return (
+    <table className="data-table">
+      <thead><tr><th className="table__left">Team</th>{headers.map((header) => <th key={header}>{header}</th>)}</tr></thead>
+      <tbody>
+        <TeamStatsRow team="Barbaros" stats={stats.barbaros} />
+        <TeamStatsRow team="Heat" stats={stats.heat} />
+      </tbody>
+    </table>
+  );
+}
+
+export function GameTeamTable({ game }) {
+  return <TeamTable stats={{ barbaros: game.barbaros, heat: game.heat }} />;
+}
+
+export function PlayerTotals({ players }) {
+  const sorted = [...players].sort((a, b) => {
+    const averageDifference = (b.ab ? b.h / b.ab : 0) - (a.ab ? a.h / a.ab : 0);
+    return averageDifference || b.h - a.h;
+  });
+
+  return (
+    <table className="data-table">
+      <thead><tr><th className="table__left">Team</th><th className="table__left">Player</th><th>AB</th><th>R</th><th>H</th><th>RBI</th><th>BB</th><th>SO</th><th>AVG</th></tr></thead>
+      <tbody>{sorted.map((player) => (
+        <tr key={`${player.team}-${player.player}`}>
+          <td className="table__left"><TeamLabel team={player.team} flagSize={15} /></td>
+          <td className="table__left table__player-cell">{player.player}</td>
+          <td>{player.ab}</td><td>{player.r}</td><td>{player.h}</td><td>{player.rbi}</td>
+          <td>{player.bb}</td><td>{player.so}</td><td>{formatAverage(player.h, player.ab)}</td>
+        </tr>
+      ))}</tbody>
+    </table>
+  );
+}
+
+export function PlayerBox({ team, players }) {
+  return (
+    <section className="player-box">
+      <h4 className="player-box__title"><TeamLabel team={team} flagSize={16} /> Batting</h4>
+      <table className="data-table data-table--small">
+        <thead><tr><th className="table__left">Player</th><th>POS</th><th>AB</th><th>R</th><th>H</th><th>RBI</th><th>BB</th><th>SO</th><th>AVG</th></tr></thead>
+        <tbody>{players.map((player, index) => (
+          <tr key={`${player.player}-${player.pos}-${index}`}>
+            <td className="table__left table__player-cell">{player.player}</td><td>{player.pos}</td>
+            <td>{player.ab}</td><td>{player.r}</td><td>{player.h}</td><td>{player.rbi}</td>
+            <td>{player.bb}</td><td>{player.so}</td><td>{player.avg}</td>
+          </tr>
+        ))}</tbody>
+      </table>
+    </section>
+  );
+}
+
+==================================================
+src/components/TopBar.jsx
+==================================================
+import TeamLabel from "./TeamLabel";
+
+export default function TopBar({ barbarosWins, heatWins }) {
+  return (
+    <header className="top-bar">
+      <div className="top-bar__inner">
+        <div className="top-bar__brand">RIVALRY TRACKER</div>
+        <div className="top-bar__record">
+          <span className="top-bar__team-record"><TeamLabel team="Barbaros" flagSize={14} /> {barbarosWins}</span>
+          <span className="top-bar__divider">–</span>
+          <span className="top-bar__team-record">{heatWins} <TeamLabel team="Heat" flagSize={14} /></span>
+        </div>
+      </div>
+    </header>
+  );
+}

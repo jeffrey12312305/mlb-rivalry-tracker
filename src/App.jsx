@@ -11,13 +11,54 @@ import { PlayerTotals, TeamTable } from "./components/Tables";
 import "./styles/global.css";
 
 export default function App() {
+  const [selectedTournament, setSelectedTournament] = useState("overall");
   const [selectedSeries, setSelectedSeries] = useState("All");
   const [expandedGameId, setExpandedGameId] = useState(23);
   const [showPlayerTotals, setShowPlayerTotals] = useState(false);
 
-  const stats = useMemo(() => calculateStats(games), []);
+  const overallStats = useMemo(
+  () => calculateStats(games),
+  []
+);
+
+const tournament1Games = useMemo(
+  () => games.filter((game) => game.id <= 18),
+  []
+);
+
+const tournament2Games = useMemo(
+  () => games.filter((game) => game.id >= 19),
+  []
+);
+
+const tournament1Stats = useMemo(
+  () => calculateStats(tournament1Games),
+  [tournament1Games]
+);
+
+const tournament2Stats = useMemo(
+  () => calculateStats(tournament2Games),
+  [tournament2Games]
+);
+
+const stats =
+  selectedTournament === "overall"
+    ? overallStats
+    : selectedTournament === 1
+      ? tournament1Stats
+      : tournament2Stats;
   const seriesNames = useMemo(() => Object.keys(stats.series), [stats.series]);
-  const filteredGames = selectedSeries === "All" ? games : games.filter((game) => game.series === selectedSeries);
+  const currentGames =
+  selectedTournament === "overall"
+    ? games
+    : selectedTournament === 1
+      ? tournament1Games
+      : tournament2Games;
+
+const filteredGames =
+  selectedSeries === "All"
+    ? currentGames
+    : currentGames.filter((game) => game.series === selectedSeries);
   const runDifferential = stats.totals.barbaros.runs - stats.totals.heat.runs;
 
   return (
@@ -33,6 +74,72 @@ export default function App() {
           <StatCard title={<><TeamLabel team="Heat" flagSize={13} /> Runs</>} value={stats.totals.heat.runs} />
         </section>
 
+<section className="tournament-selector">
+
+  <button
+    className={`tournament-pill ${selectedTournament === "overall" ? "active" : ""}`}
+    onClick={() => {
+      setSelectedTournament("overall");
+      setSelectedSeries("All");
+    }}
+  >
+    <span className="tournament-pill__label">
+      Overall Rivalry
+    </span>
+
+    <span className="tournament-pill__subtitle">
+      All Games
+    </span>
+
+    <span className="tournament-pill__record">
+      {overallStats.barbarosWins}-{overallStats.heatWins}
+    </span>
+
+  </button>
+
+  <button
+    className={`tournament-pill ${selectedTournament === 1 ? "active" : ""}`}
+    onClick={() => {
+      setSelectedTournament(1);
+      setSelectedSeries("All");
+    }}
+  >
+    <span className="tournament-pill__label">
+      🏆 Tournament One
+    </span>
+
+    <span className="tournament-pill__subtitle">
+      Heat Champions
+    </span>
+
+    <span className="tournament-pill__record">
+      {tournament1Stats.barbarosWins}-{tournament1Stats.heatWins}
+    </span>
+
+  </button>
+
+  <button
+    className={`tournament-pill ${selectedTournament === 2 ? "active" : ""}`}
+    onClick={() => {
+      setSelectedTournament(2);
+      setSelectedSeries("All");
+    }}
+  >
+    <span className="tournament-pill__label">
+      ⚾ Tournament Two
+    </span>
+
+    <span className="tournament-pill__subtitle">
+      In Progress
+    </span>
+
+    <span className="tournament-pill__record">
+      {tournament2Stats.barbarosWins}-{tournament2Stats.heatWins}
+    </span>
+
+  </button>
+
+</section>
         <section className="content-section">
           <div className="section-header"><div><p className="section-eyebrow">HEAD-TO-HEAD</p><h2 className="section-title">Series Results</h2></div></div>
           <div className="series-grid">{Object.entries(stats.series).map(([name, record]) => <SeriesCard key={name} seriesName={name} record={record} />)}</div>
