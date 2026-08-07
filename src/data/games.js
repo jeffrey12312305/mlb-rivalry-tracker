@@ -815,7 +815,56 @@ export const games = [
         { player: "Acuna Jr.", pos: "CF", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
       ]
     }
+  },
+  {
+    id: 24,
+    series: "Series 6",
+    game: 1,
+    home: "Barbaros",
+    winner: "Heat",
+    barbaros: {
+      runs: 3,
+      hits: 3,
+      errors: 0,
+      hrs: 1,
+      rbi: 3,
+      strikeouts: 6
+    },
+    heat: {
+      runs: 4,
+      hits: 5,
+      errors: 0,
+      hrs: 3,
+      rbi: 4,
+      strikeouts: 7
+    },
+    mvp: "Pete Crow-Armstrong",
+    notes: "Heat opened Series 6 with a 4-3 win in 10 innings. Heat scored twice in the top of the 10th, and Barbaros answered with one run in the bottom half. Crow-Armstrong homered, scored twice, and stole a base. Felix Hernandez earned the win after pitching 9.1 innings.",
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Ruiz", pos: "SS", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Lara", pos: "RF", ab: 4, r: 1, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Walker", pos: "DH", ab: 4, r: 1, h: 1, rbi: 2, bb: 0, so: 1, avg: ".250" },
+        { player: "Anthony", pos: "LF", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Griffin", pos: "PH", ab: 0, r: 0, h: 0, rbi: 1, bb: 0, so: 0, avg: ".000" },
+        { player: "Freeman", pos: "1B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Carrigg", pos: "PH", ab: 1, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Arenado", pos: "3B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+        { player: "Nunez", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Mackey", pos: "C", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" }
+      ],
+      heat: [
+        { player: "Lara", pos: "RF", ab: 5, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Arroyo", pos: "2B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Baez", pos: "3B", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Acuna Jr.", pos: "DH", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 3, avg: ".000" },
+        { player: "Anthony", pos: "LF", ab: 3, r: 0, h: 1, rbi: 0, bb: 1, so: 1, avg: ".333" },
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 2, h: 2, rbi: 1, bb: 0, so: 1, avg: ".500" },
+        { player: "Lombard Jr.", pos: "SS", ab: 3, r: 1, h: 1, rbi: 2, bb: 1, so: 0, avg: ".333" },
+        { player: "Freeman", pos: "1B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Carrigg", pos: "C", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+      ]
+    }
   }
-
-
 ];
