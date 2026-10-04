@@ -866,5 +866,320 @@ export const games = [
         { player: "Carrigg", pos: "C", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
       ]
     }
+  },
+
+  // =========================================
+  // SERIES 6 — GAME 2
+  // Barbaros 3, Heat 2
+  // =========================================
+  {
+    id: 25,
+    series: "Series 6",
+    game: 2,
+    date: "2026-10-04",
+    home: "Barbaros",
+    winner: "Barbaros",
+
+    barbaros: {
+      runs: 3,
+      hits: 10,
+      errors: 0,
+      hrs: 1,
+      rbi: 3,
+      strikeouts: 8
+    },
+
+    heat: {
+      runs: 2,
+      hits: 8,
+      errors: 0,
+      hrs: 1,
+      rbi: 2,
+      strikeouts: 5
+    },
+
+    mvp: "Aiden Ruiz",
+
+    notes:
+      "Barbaros evened Series 6 with a 3-2 win. Aiden Ruiz homered and drove in all three Barbaros runs. Freddie Freeman and Nolan Arenado doubled. Pete Crow-Armstrong homered and drove in both Heat runs. Justin Wrobleski earned the win, Aroldis Chapman recorded the save, and Felix Hernandez took the loss.",
+
+    playerBox: {
+      barbaros: [
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Ruiz", pos: "SS", ab: 4, r: 1, h: 2, rbi: 3, bb: 0, so: 0, avg: ".500" },
+        { player: "Lara", pos: "RF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Walker", pos: "DH", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Anthony", pos: "LF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Freeman", pos: "1B", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Arenado", pos: "3B", ab: 4, r: 1, h: 2, rbi: 0, bb: 0, so: 1, avg: ".500" },
+        { player: "Nunez", pos: "2B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Mackey", pos: "C", ab: 4, r: 0, h: 0, rbi: 0, bb: 1, so: 1, avg: ".000" }
+      ],
+
+      heat: [
+        { player: "Lara", pos: "RF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Arroyo", pos: "2B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Baez", pos: "3B", ab: 4, r: 0, h: 2, rbi: 0, bb: 0, so: 1, avg: ".500" },
+        { player: "Acuna Jr.", pos: "DH", ab: 4, r: 0, h: 0, rbi: 0, bb: 1, so: 1, avg: ".000" },
+        { player: "Anthony", pos: "LF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 1, h: 1, rbi: 2, bb: 0, so: 1, avg: ".250" },
+        { player: "Lombard Jr.", pos: "SS", ab: 3, r: 0, h: 0, rbi: 0, bb: 1, so: 0, avg: ".000" },
+        { player: "Freeman", pos: "1B", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" },
+        { player: "Carrigg", pos: "C", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" }
+      ]
+    }
+  },
+
+  // =========================================
+  // SERIES 6 — GAME 3
+  // Heat 5, Barbaros 1
+  // =========================================
+  {
+    id: 26,
+    series: "Series 6",
+    game: 3,
+    date: "2026-10-04",
+    home: "Barbaros",
+    winner: "Heat",
+
+    barbaros: {
+      runs: 1,
+      hits: 8,
+      errors: 0,
+      hrs: 0,
+      rbi: 1,
+      strikeouts: 6
+    },
+
+    heat: {
+      runs: 5,
+      hits: 12,
+      errors: 0,
+      hrs: 2,
+      rbi: 5,
+      strikeouts: 7
+    },
+
+    mvp: "Pete Crow-Armstrong",
+
+    notes:
+      "Heat won Game 3 of Series 6 by a 5-1 score to take a 2-1 series lead. Pete Crow-Armstrong and Ronald Acuna Jr. homered and each drove in two runs. Jake McCarthy, Freddie Freeman, and Jac Caglianone doubled. George Lombard Jr. drove in the lone Barbaros run. Felix Hernandez earned the win and Nolan McLean took the loss.",
+
+    playerBox: {
+      barbaros: [
+        { player: "Simpson", pos: "LF", ab: 4, r: 0, h: 3, rbi: 0, bb: 0, so: 0, avg: ".750" },
+        { player: "Lombard Jr.", pos: "SS", ab: 3, r: 0, h: 3, rbi: 1, bb: 0, so: 0, avg: "1.000" },
+        { player: "Walker", pos: "DH", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Freeman", pos: "1B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Jones", pos: "CF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Beltre", pos: "3B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Carrigg", pos: "RF", ab: 3, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" },
+        { player: "Nunez", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Mackey", pos: "C", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" }
+      ],
+
+      heat: [
+        { player: "McCarthy", pos: "RF", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".400" },
+        { player: "Arroyo", pos: "2B", ab: 5, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Baez", pos: "3B", ab: 5, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Acuna Jr.", pos: "DH", ab: 4, r: 1, h: 1, rbi: 2, bb: 0, so: 2, avg: ".250" },
+        { player: "Caglianone", pos: "LF", ab: 4, r: 1, h: 2, rbi: 0, bb: 0, so: 1, avg: ".500" },
+        { player: "Crow-Armstrong", pos: "CF", ab: 4, r: 1, h: 2, rbi: 2, bb: 0, so: 1, avg: ".500" },
+        { player: "Lombard Jr.", pos: "SS", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Freeman", pos: "1B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Carrigg", pos: "C", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" }
+      ]
+    }
+  },
+
+  // =========================================
+  // SERIES 6 — GAME 4
+  // Heat 2, Barbaros 1
+  // Heat wins Series 6, 3-1
+  // =========================================
+  {
+    id: 27,
+    series: "Series 6",
+    game: 4,
+    date: "2026-10-04",
+    home: "Barbaros",
+    winner: "Heat",
+
+    barbaros: {
+      runs: 1,
+      hits: 8,
+      errors: 0,
+      hrs: 1,
+      rbi: 1,
+      strikeouts: 5
+    },
+
+    heat: {
+      runs: 2,
+      hits: 5,
+      errors: 0,
+      hrs: 1,
+      rbi: 2,
+      strikeouts: 3
+    },
+
+    mvp: "Felix Hernandez",
+
+    notes:
+      "Heat won Game 4 by a 2-1 score to close Series 6 with a 3-1 series victory. Jordan Walker homered for Heat. Alan Trammell and Javier Baez doubled, with Baez driving in the other Heat run. Andruw Jones homered for the lone Barbaros run. Felix Hernandez earned the win, CC Sabathia took the loss, and Gabriel Hughes recorded the save.",
+
+    playerBox: {
+      barbaros: [
+        { player: "Simpson", pos: "LF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Gonzalez", pos: "2B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Soriano", pos: "RF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Walker", pos: "DH", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Pujols", pos: "1B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Jones", pos: "CF", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Tulowitzki", pos: "SS", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Beltre", pos: "3B", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".333" },
+        { player: "Salas", pos: "C", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" }
+      ],
+
+      heat: [
+        { player: "Keaschall", pos: "RF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Trammell", pos: "SS", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Baez", pos: "LF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Jones", pos: "CF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Walker", pos: "DH", ab: 3, r: 1, h: 1, rbi: 1, bb: 1, so: 0, avg: ".333" },
+        { player: "Baez", pos: "3B", ab: 4, r: 0, h: 1, rbi: 1, bb: 0, so: 1, avg: ".250" },
+        { player: "Freeman", pos: "1B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Kinsler", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Carrigg", pos: "C", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" }
+      ]
+    }
+  },
+
+  // =========================================
+  // SERIES 7 — GAME 1
+  // Heat 9, Barbaros 1
+  // =========================================
+  {
+    id: 28,
+    series: "Series 7",
+    game: 1,
+    date: "2026-10-04",
+    home: "Barbaros",
+    winner: "Heat",
+
+    barbaros: {
+      runs: 1,
+      hits: 8,
+      errors: 0,
+      hrs: 0,
+      rbi: 1,
+      strikeouts: 3
+    },
+
+    heat: {
+      runs: 9,
+      hits: 15,
+      errors: 0,
+      hrs: 5,
+      rbi: 9,
+      strikeouts: 7
+    },
+
+    mvp: "Dave Roberts",
+
+    notes:
+      "Heat opened Series 7 with a 9-1 win. Dave Roberts went 3-for-5 with three home runs, five RBI, and three runs scored. Andruw Jones added a home run and three RBI, and Jordan Walker also homered. Troy Tulowitzki drove in the lone Barbaros run.",
+
+    playerBox: {
+      barbaros: [
+        { player: "Gillen", pos: "LF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Gonzalez", pos: "2B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Soriano", pos: "RF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Walker", pos: "DH", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Roberts", pos: "PR", ab: 0, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Pujols", pos: "1B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Carrigg", pos: "PR", ab: 0, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Jones", pos: "CF", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Tulowitzki", pos: "SS", ab: 3, r: 0, h: 3, rbi: 1, bb: 0, so: 0, avg: "1.000" },
+        { player: "Beltre", pos: "3B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Salas", pos: "C", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".333" }
+      ],
+
+      heat: [
+        { player: "Keaschall", pos: "RF", ab: 5, r: 1, h: 2, rbi: 0, bb: 0, so: 1, avg: ".400" },
+        { player: "Tulowitzki", pos: "SS", ab: 5, r: 2, h: 3, rbi: 0, bb: 0, so: 0, avg: ".600" },
+        { player: "Jones", pos: "CF", ab: 4, r: 2, h: 2, rbi: 3, bb: 0, so: 1, avg: ".500" },
+        { player: "Roberts", pos: "LF", ab: 5, r: 3, h: 3, rbi: 5, bb: 0, so: 0, avg: ".600" },
+        { player: "Walker", pos: "DH", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".400" },
+        { player: "Baez", pos: "3B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Pujols", pos: "1B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Kinsler", pos: "2B", ab: 4, r: 0, h: 2, rbi: 0, bb: 0, so: 2, avg: ".500" },
+        { player: "Carrigg", pos: "C", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" }
+      ]
+    }
+  },
+
+  // =========================================
+  // SERIES 7 — GAME 2
+  // Barbaros 6, Heat 5
+  // =========================================
+  {
+    id: 29,
+    series: "Series 7",
+    game: 2,
+    date: "2026-10-04",
+    home: "Barbaros",
+    winner: "Barbaros",
+
+    barbaros: {
+      runs: 6,
+      hits: 9,
+      errors: 0,
+      hrs: 2,
+      rbi: 6,
+      strikeouts: 9
+    },
+
+    heat: {
+      runs: 5,
+      hits: 15,
+      errors: 1,
+      hrs: 3,
+      rbi: 5,
+      strikeouts: 3
+    },
+
+    mvp: "Theo Gillen",
+
+    notes:
+      "Barbaros rallied from a 5-0 deficit to win 6-5 and even Series 7 at 1-1. Barbaros scored once in the sixth, three times in the seventh, and twice in the eighth. Theo Gillen went 3-for-5 with a home run, two RBI, and two stolen bases. Andruw Jones also homered. Tejay Antone earned the win and Keith Foulke recorded the save.",
+
+    playerBox: {
+      barbaros: [
+        { player: "Gillen", pos: "LF", ab: 5, r: 1, h: 3, rbi: 2, bb: 0, so: 0, avg: ".600" },
+        { player: "Gonzalez", pos: "2B", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Soriano", pos: "RF", ab: 3, r: 0, h: 0, rbi: 1, bb: 0, so: 3, avg: ".000" },
+        { player: "Walker", pos: "DH", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" },
+        { player: "Roberts", pos: "PR-DH", ab: 1, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: "1.000" },
+        { player: "Pujols", pos: "1B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+        { player: "Jones", pos: "CF", ab: 4, r: 2, h: 2, rbi: 2, bb: 0, so: 1, avg: ".500" },
+        { player: "Tulowitzki", pos: "SS", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Beltre", pos: "3B", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Salas", pos: "C", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" }
+      ],
+
+      heat: [
+        { player: "Keaschall", pos: "RF", ab: 5, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".200" },
+        { player: "Tulowitzki", pos: "SS", ab: 5, r: 1, h: 2, rbi: 2, bb: 0, so: 1, avg: ".400" },
+        { player: "Roberts", pos: "LF", ab: 4, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" },
+        { player: "Jones", pos: "CF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Walker", pos: "DH", ab: 4, r: 1, h: 3, rbi: 0, bb: 0, so: 0, avg: ".750" },
+        { player: "Baez", pos: "3B", ab: 4, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".500" },
+        { player: "Pujols", pos: "1B", ab: 4, r: 0, h: 4, rbi: 0, bb: 0, so: 0, avg: "1.000" },
+        { player: "Kinsler", pos: "2B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Carrigg", pos: "C", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" }
+      ]
+    }
   }
+
 ];
