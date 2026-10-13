@@ -1180,6 +1180,197 @@ export const games = [
         { player: "Carrigg", pos: "C", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" }
       ]
     }
+  },
+
+  // =========================================
+  // SERIES 7 — GAME 3
+  // Heat 11, Barbaros 7
+  // =========================================
+  {
+    id: 30,
+    series: "Series 7",
+    game: 3,
+    date: "2026-10-12",
+    home: "Barbaros",
+    winner: "Heat",
+
+    barbaros: {
+      runs: 7,
+      hits: 8,
+      errors: 0,
+      hrs: 4,
+      rbi: 7,
+      strikeouts: 6
+    },
+
+    heat: {
+      runs: 11,
+      hits: 18,
+      errors: 0,
+      hrs: 2,
+      rbi: 11,
+      strikeouts: 5
+    },
+
+    mvp: "Dave Roberts",
+
+    notes:
+      "Heat defeated Barbaros 11-7 to take a 2-1 Series 7 lead. Dave Roberts and Ian Kinsler homered for Heat. Roberts drove in three runs, while Kinsler collected three hits and three RBI. Barbaros hit four home runs from Jordan Walker, Albert Pujols, Andruw Jones, and Ethan Salas. Barbaros scored three runs in the ninth but fell short. Felix Hernandez earned the win and Justin Wrobleski took the loss.",
+
+    playerBox: {
+      barbaros: [
+        { player: "Gillen", pos: "LF", ab: 4, r: 0, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Gonzalez", pos: "2B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Soriano", pos: "RF", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Walker", pos: "DH", ab: 4, r: 2, h: 2, rbi: 2, bb: 0, so: 1, avg: ".500" },
+        { player: "Pujols", pos: "1B", ab: 4, r: 1, h: 1, rbi: 2, bb: 0, so: 1, avg: ".250" },
+        { player: "Jones", pos: "CF", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Tulowitzki", pos: "SS", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Beltre", pos: "3B", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 2, avg: ".250" },
+        { player: "Salas", pos: "C", ab: 3, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".333" }
+      ],
+
+      heat: [
+        { player: "Clemente", pos: "RF", ab: 5, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".200" },
+        { player: "Tulowitzki", pos: "SS", ab: 4, r: 1, h: 2, rbi: 0, bb: 1, so: 1, avg: ".500" },
+        { player: "Roberts", pos: "LF", ab: 5, r: 1, h: 2, rbi: 3, bb: 0, so: 1, avg: ".400" },
+        { player: "Jones", pos: "CF", ab: 5, r: 1, h: 2, rbi: 0, bb: 0, so: 0, avg: ".400" },
+        { player: "Walker", pos: "DH", ab: 5, r: 2, h: 2, rbi: 1, bb: 0, so: 2, avg: ".400" },
+        { player: "Baez", pos: "3B", ab: 5, r: 2, h: 2, rbi: 2, bb: 0, so: 1, avg: ".400" },
+        { player: "Pujols", pos: "1B", ab: 5, r: 1, h: 2, rbi: 2, bb: 0, so: 0, avg: ".400" },
+        { player: "Kinsler", pos: "2B", ab: 4, r: 1, h: 3, rbi: 3, bb: 0, so: 0, avg: ".750" },
+        { player: "Carrigg", pos: "C", ab: 4, r: 1, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" }
+      ]
+    }
+  },
+
+  // =========================================
+  // SERIES 7 — GAME 4
+  // Heat 2, Barbaros 1
+  // Heat wins Series 7, 3-1
+  // =========================================
+  {
+    id: 31,
+    series: "Series 7",
+    game: 4,
+    date: "2026-10-12",
+    home: "Barbaros",
+    winner: "Heat",
+
+    barbaros: {
+      runs: 1,
+      hits: 7,
+      errors: 0,
+      hrs: 1,
+      rbi: 1,
+      strikeouts: 6
+    },
+
+    heat: {
+      runs: 2,
+      hits: 5,
+      errors: 0,
+      hrs: 1,
+      rbi: 2,
+      strikeouts: 9
+    },
+
+    mvp: "Felix Hernandez",
+
+    notes:
+      "Heat won 2-1 to clinch Series 7, three games to one. Troy Tulowitzki homered and Dave Roberts drove in the other Heat run. Alfonso Soriano homered for Barbaros in the first inning. Both teams were held scoreless after the third inning. Felix Hernandez earned the win for Heat, Felix Hernandez took the loss for Barbaros, and Gabriel Hughes recorded the save.",
+
+    playerBox: {
+      barbaros: [
+        { player: "Gillen", pos: "LF", ab: 4, r: 0, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Gonzalez", pos: "2B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Soriano", pos: "RF", ab: 4, r: 1, h: 2, rbi: 1, bb: 0, so: 2, avg: ".500" },
+        { player: "Walker", pos: "DH", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+        { player: "Roberts", pos: "PH-DH", ab: 1, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Pujols", pos: "1B", ab: 3, r: 0, h: 2, rbi: 0, bb: 0, so: 0, avg: ".667" },
+        { player: "Carrigg", pos: "PR-1B", ab: 0, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Jones", pos: "CF", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Tulowitzki", pos: "SS", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".333" },
+        { player: "Beltre", pos: "3B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Salas", pos: "C", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" }
+      ],
+
+      heat: [
+        { player: "Clemente", pos: "RF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 2, avg: ".250" },
+        { player: "Tulowitzki", pos: "SS", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 1, avg: ".250" },
+        { player: "Roberts", pos: "LF", ab: 4, r: 0, h: 1, rbi: 1, bb: 0, so: 1, avg: ".250" },
+        { player: "Jones", pos: "CF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Walker", pos: "DH", ab: 3, r: 0, h: 0, rbi: 0, bb: 1, so: 1, avg: ".000" },
+        { player: "Baez", pos: "3B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+        { player: "Pujols", pos: "1B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Kinsler", pos: "2B", ab: 2, r: 1, h: 1, rbi: 0, bb: 1, so: 0, avg: ".500" },
+        { player: "Carrigg", pos: "C", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" }
+      ]
+    }
+  },
+
+  // =========================================
+  // SERIES 8 — GAME 1
+  // Barbaros 4, Heat 3
+  // =========================================
+  {
+    id: 32,
+    series: "Series 8",
+    game: 1,
+    date: "2026-10-12",
+    home: "Heat",
+    winner: "Barbaros",
+
+    barbaros: {
+      runs: 4,
+      hits: 7,
+      errors: 1,
+      hrs: 2,
+      rbi: 4,
+      strikeouts: 6
+    },
+
+    heat: {
+      runs: 3,
+      hits: 7,
+      errors: 0,
+      hrs: 1,
+      rbi: 3,
+      strikeouts: 6
+    },
+
+    mvp: "Alfonso Soriano",
+
+    notes:
+      "Barbaros opened Series 8 with a 4-3 road win. Alfonso Soriano went 3-for-4 with a home run, triple, and RBI. Theo Gillen also homered. Barbaros scored in the fourth, fifth, and sixth innings before Heat tied the game with three runs in the seventh. Barbaros regained the lead with a run in the ninth. Javier Baez drove in all three Heat runs with a home run and triple. Tyler Rogers earned the win and Gabriel Hughes took the loss.",
+
+    playerBox: {
+      barbaros: [
+        { player: "Gillen", pos: "LF", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 1, avg: ".250" },
+        { player: "Gonzalez", pos: "2B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Soriano", pos: "RF", ab: 4, r: 2, h: 3, rbi: 1, bb: 0, so: 0, avg: ".750" },
+        { player: "Walker", pos: "DH", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Roberts", pos: "PH-DH", ab: 0, r: 0, h: 0, rbi: 1, bb: 0, so: 0, avg: ".000" },
+        { player: "Pujols", pos: "1B", ab: 2, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Carrigg", pos: "PR-1B", ab: 2, r: 1, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+        { player: "Jones", pos: "CF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Tulowitzki", pos: "SS", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" },
+        { player: "Beltre", pos: "3B", ab: 2, r: 0, h: 0, rbi: 1, bb: 0, so: 1, avg: ".000" },
+        { player: "Salas", pos: "C", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".333" }
+      ],
+
+      heat: [
+        { player: "Clemente", pos: "RF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Tulowitzki", pos: "SS", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Roberts", pos: "LF", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Jones", pos: "CF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+        { player: "Walker", pos: "DH", ab: 4, r: 1, h: 3, rbi: 0, bb: 0, so: 1, avg: ".750" },
+        { player: "Baez", pos: "3B", ab: 4, r: 1, h: 2, rbi: 3, bb: 0, so: 0, avg: ".500" },
+        { player: "Pujols", pos: "1B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Kinsler", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Carrigg", pos: "C", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".333" }
+      ]
+    }
   }
 
 ];
