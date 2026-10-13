@@ -1462,3 +1462,35 @@ body::before {
   transition: background 0.15s ease;
 }
 
+
+/* =========================================
+   SERIES DROPDOWN FIX
+========================================= */
+
+/* Closed dropdown */
+.series-select {
+  background: #173150;
+  color: #ffffff;
+  border: 1px solid #456b9f;
+  color-scheme: dark;
+  cursor: pointer;
+}
+
+/* Open dropdown options */
+.series-select option {
+  background-color: #173150;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Currently selected option */
+.series-select option:checked {
+  background-color: #2164c4;
+  color: #ffffff;
+}
+
+/* Keyboard focus */
+.series-select:focus-visible {
+  outline: 2px solid #72aaff;
+  outline-offset: 2px;
+}
