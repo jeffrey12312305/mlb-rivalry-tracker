@@ -1326,3 +1326,139 @@ body::before {
     min-height: 190px;
   }
 }
+
+
+/* =========================================
+   TOURNAMENT SERIES RECORD SUMMARY
+========================================= */
+
+.tournament-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin: 10px auto 32px;
+  padding: 18px 12px;
+  text-align: center;
+}
+
+.tournament-summary-label {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.tournament-series-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 3vw, 36px);
+  flex-wrap: wrap;
+}
+
+.tournament-team {
+  font-size: clamp(1rem, 2.4vw, 1.55rem);
+  font-weight: 900;
+}
+
+.tournament-team.barbaros {
+  color: #ef6570;
+}
+
+.tournament-team.heat {
+  color: #72aaff;
+}
+
+.tournament-record {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+
+.tournament-record-divider {
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 400;
+}
+
+.tournament-in-progress {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.82rem;
+}
+
+@media (max-width: 600px) {
+  .tournament-summary {
+    margin-bottom: 24px;
+  }
+
+  .tournament-series-score {
+    gap: 12px;
+  }
+
+  .tournament-record {
+    gap: 7px;
+  }
+}
+
+
+/* =========================================
+   GAME CARD DATES
+========================================= */
+
+.game-card__date {
+  margin: 5px 0 0;
+  color: #a9bdd8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  line-height: 1.4;
+}
+
+/* =========================================
+   DARK THEME READABILITY FIXES
+========================================= */
+
+.game-card__info {
+  color: #c4d3e7;
+}
+
+.game-card__meta {
+  color: #a9bdd8;
+}
+
+.game-card__notes {
+  color: #b3c4da;
+}
+
+.game-card__home {
+  color: #a9bdd8;
+}
+
+/* =========================================
+   BUTTON AND TABLE TRANSITIONS
+========================================= */
+
+.secondary-button {
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.box-score-button {
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.data-table tbody tr {
+  transition: background 0.15s ease;
+}
+
