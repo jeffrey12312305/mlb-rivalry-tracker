@@ -1636,4 +1636,120 @@ export const games = [
       }
     ]
   }
-}];
+},
+
+// Series 8 - Game 3: Barbaros clinch Series 8, 3-0.
+  {
+    id: 34,
+    series: "Series 8",
+    game: 3,
+    home: "Heat",
+    winner: "Barbaros",
+    barbaros: { runs: 10, hits: 14, errors: 0, hrs: 2, rbi: 9, strikeouts: 6 },
+    heat: { runs: 7, hits: 10, errors: 0, hrs: 4, rbi: 7, strikeouts: 3 },
+    mvp: "Mickey Mantle",
+    notes: "Barbaros won 10-7 and swept Series 8, 3-0. Mickey Mantle had 4 RBI, Honus Wagner had 3 RBI, and both homered. Gavin Williams earned the win and Tyler Rogers recorded the save. Heat hit four home runs.",
+    playerBox: {
+      barbaros: [
+        { player: "Gillen", pos: "LF", ab: 5, r: 2, h: 3, rbi: 0, bb: 0, so: 0, avg: ".600" },
+        { player: "Biggio", pos: "2B", ab: 5, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Mantle", pos: "RF", ab: 4, r: 1, h: 1, rbi: 4, bb: 0, so: 0, avg: ".250" },
+        { player: "Noel", pos: "DH", ab: 5, r: 2, h: 3, rbi: 0, bb: 0, so: 2, avg: ".600" },
+        { player: "Pujols", pos: "1B", ab: 3, r: 1, h: 0, rbi: 0, bb: 2, so: 1, avg: ".000" },
+        { player: "Jones", pos: "CF", ab: 5, r: 1, h: 2, rbi: 1, bb: 0, so: 1, avg: ".400" },
+        { player: "Wagner", pos: "SS", ab: 5, r: 1, h: 2, rbi: 3, bb: 0, so: 0, avg: ".400" },
+        { player: "Beltre", pos: "3B", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 1, avg: ".250" },
+        { player: "Salas", pos: "C", ab: 0, r: 0, h: 0, rbi: 0, bb: 1, so: 0, avg: ".000" },
+        { player: "Carrigg", pos: "PR-C", ab: 3, r: 1, h: 2, rbi: 0, bb: 0, so: 1, avg: ".667" }
+      ],
+      heat: [
+        { player: "Clemente", pos: "RF", ab: 5, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".200" },
+        { player: "Tulowitzki", pos: "SS", ab: 4, r: 1, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" },
+        { player: "Roberts", pos: "DH", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Jones", pos: "CF", ab: 3, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".333" },
+        { player: "Bateman", pos: "LF", ab: 4, r: 2, h: 2, rbi: 0, bb: 0, so: 0, avg: ".500" },
+        { player: "Figgins", pos: "3B", ab: 4, r: 1, h: 1, rbi: 2, bb: 0, so: 0, avg: ".250" },
+        { player: "Pujols", pos: "1B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 2, avg: ".250" },
+        { player: "Wagner", pos: "2B", ab: 4, r: 1, h: 1, rbi: 2, bb: 0, so: 0, avg: ".250" },
+        { player: "Carrigg", pos: "C", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" }
+      ]
+    },
+    battingNotes: {
+      barbaros: "2B: T. Gillen, J. Noel. HR: M. Mantle, H. Wagner. SACF: M. Mantle. SB: T. Gillen, A. Jones, H. Wagner, A. Beltre, C. Carrigg (3). CS: M. Mantle.",
+      heat: "3B: B. Bateman. HR: R. Clemente, T. Tulowitzki, A. Jones, H. Wagner. HBP: A. Jones."
+    },
+    pitchingBox: {
+      barbaros: [
+        { player: "Arrieta", ip: "0.2", h: 1, r: 1, er: 1, bb: 0, so: 1 },
+        { player: "Williams (W)", ip: "3.1", h: 1, r: 1, er: 1, bb: 0, so: 1 },
+        { player: "Antone (H)", ip: "4.2", h: 8, r: 5, er: 5, bb: 0, so: 1 },
+        { player: "Rogers (S)", ip: "0.1", h: 0, r: 0, er: 0, bb: 0, so: 0 }
+      ],
+      heat: [
+        { player: "Hernandez", ip: "2.0", h: 1, r: 1, er: 1, bb: 2, so: 1 },
+        { player: "Hughes (L)", ip: "0.1", h: 3, r: 4, er: 4, bb: 0, so: 0 },
+        { player: "Misiorowski", ip: "2.0", h: 3, r: 2, er: 2, bb: 1, so: 2 },
+        { player: "R. Kerr", ip: "0.1", h: 3, r: 2, er: 2, bb: 0, so: 1 },
+        { player: "W. Dion", ip: "2.1", h: 2, r: 1, er: 1, bb: 0, so: 2 },
+        { player: "Phillips", ip: "1.2", h: 2, r: 0, er: 0, bb: 0, so: 0 },
+        { player: "Iglesias", ip: "0.1", h: 0, r: 0, er: 0, bb: 0, so: 0 }
+      ]
+    }
+  },
+  // Series 9 - Game 1: Heat take a 1-0 lead in the Tournament 2 final.
+  {
+    id: 35,
+    series: "Series 9",
+    game: 1,
+    home: "Barbaros",
+    winner: "Heat",
+    barbaros: { runs: 1, hits: 5, errors: 0, hrs: 1, rbi: 1, strikeouts: 6 },
+    heat: { runs: 2, hits: 5, errors: 0, hrs: 1, rbi: 2, strikeouts: 7 },
+    mvp: "Carson Carrigg",
+    notes: "Heat beat Barbaros 2-1 in 10 innings to open Series 9. Albert Pujols homered and Carson Carrigg drove in the other Heat run. Theo Gillen homered for Barbaros. Matt Strahm got the win, Tyler Rogers took the loss, and Darren O'Day recorded the save.",
+    playerBox: {
+      barbaros: [
+        { player: "Gillen", pos: "LF", ab: 4, r: 1, h: 2, rbi: 1, bb: 0, so: 1, avg: ".500" },
+        { player: "Biggio", pos: "2B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Mantle", pos: "RF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Noel", pos: "DH", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Roberts", pos: "PH-DH", ab: 1, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Pujols", pos: "1B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Carrigg", pos: "PR", ab: 0, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Jones", pos: "CF", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".250" },
+        { player: "Wagner", pos: "SS", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 0, avg: ".000" },
+        { player: "Beltre", pos: "3B", ab: 4, r: 0, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Salas", pos: "C", ab: 3, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" }
+      ],
+      heat: [
+        { player: "Clemente", pos: "RF", ab: 5, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Tulowitzki", pos: "SS", ab: 3, r: 0, h: 1, rbi: 0, bb: 1, so: 0, avg: ".333" },
+        { player: "Roberts", pos: "DH", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 2, avg: ".000" },
+        { player: "Jones", pos: "CF", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 3, avg: ".000" },
+        { player: "Bateman", pos: "LF", ab: 4, r: 1, h: 1, rbi: 0, bb: 0, so: 0, avg: ".250" },
+        { player: "Figgins", pos: "3B", ab: 4, r: 0, h: 0, rbi: 0, bb: 0, so: 1, avg: ".000" },
+        { player: "Pujols", pos: "1B", ab: 4, r: 1, h: 1, rbi: 1, bb: 0, so: 0, avg: ".250" },
+        { player: "Wagner", pos: "2B", ab: 3, r: 0, h: 0, rbi: 0, bb: 1, so: 0, avg: ".000" },
+        { player: "Carrigg", pos: "C", ab: 4, r: 0, h: 2, rbi: 1, bb: 0, so: 0, avg: ".500" }
+      ]
+    },
+    battingNotes: {
+      barbaros: "2B: T. Gillen. HR: T. Gillen.",
+      heat: "HR: A. Pujols. RBI: A. Pujols, C. Carrigg."
+    },
+    pitchingBox: {
+      barbaros: [
+        { player: "Williams", ip: "7.0", h: 4, r: 1, er: 1, bb: 1, so: 7 },
+        { player: "Rogers (L)", ip: "2.1", h: 0, r: 1, er: 0, bb: 0, so: 0 },
+        { player: "Blackburn", ip: "0.1", h: 1, r: 0, er: 0, bb: 1, so: 0 },
+        { player: "Franco", ip: "0.1", h: 0, r: 0, er: 0, bb: 0, so: 0 }
+      ],
+      heat: [
+        { player: "G. Cole", ip: "5.0", h: 3, r: 1, er: 1, bb: 0, so: 1 },
+        { player: "Hughes", ip: "2.0", h: 2, r: 0, er: 0, bb: 0, so: 1 },
+        { player: "Strahm (W)", ip: "2.1", h: 0, r: 0, er: 0, bb: 0, so: 4 },
+        { player: "O'Day (S)", ip: "0.2", h: 0, r: 0, er: 0, bb: 0, so: 0 }
+      ]
+    }
+  }
+];
