@@ -1028,3 +1028,125 @@
     transition: none;
   }
 }
+
+
+/* ==============================================
+   REAL RURAL BASEBALL FIELD BACKGROUND
+   MANGU O MOFONGO — PHOTO EDITION
+============================================== */
+
+.postseason-board {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  background-color: #10243b;
+
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(3, 12, 28, 0.46) 0%,
+      rgba(3, 12, 28, 0.56) 35%,
+      rgba(3, 12, 28, 0.66) 70%,
+      rgba(3, 12, 28, 0.72) 100%
+    ),
+    url("https://www.traveliowa.com/userdocs/modulepage/ogimages/nostalgicbaseball.jpg");
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  border: 2px solid var(--postseason-accent);
+  border-radius: 18px;
+
+  box-shadow:
+    0 0 24px var(--postseason-glow),
+    0 25px 65px rgba(0, 0, 0, 0.48),
+    inset 0 0 75px rgba(0, 0, 0, 0.24);
+}
+
+/* Remove the old artificial fence and grass.
+   The photograph now provides those elements. */
+
+.postseason-board::before,
+.postseason-board::after {
+  display: none;
+}
+
+/* Keep bracket content above the background. */
+
+.postseason-board__heading,
+.postseason-bracket,
+.postseason-board__note {
+  position: relative;
+  z-index: 1;
+}
+
+/* Stronger scoreboard cards against the photo. */
+
+.postseason-match {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 21, 39, 0.96),
+      rgba(2, 10, 25, 0.97)
+    );
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 0 13px var(--postseason-glow),
+    0 12px 30px rgba(0, 0, 0, 0.55);
+}
+
+/* Make the championship panel stand out. */
+
+.postseason-final {
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(218, 167, 65, 0.13),
+      transparent 60%
+    ),
+    rgba(3, 12, 27, 0.96);
+
+  backdrop-filter: blur(12px);
+}
+
+/* Tournament 2 keeps its blue finish. */
+
+.postseason-board--2 .postseason-final {
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(37, 151, 255, 0.18),
+      transparent 60%
+    ),
+    rgba(3, 15, 35, 0.96);
+}
+
+/* Bright bracket connectors remain visible. */
+
+.postseason-connections path {
+  stroke: var(--postseason-accent);
+  stroke-width: 3.5;
+
+  filter:
+    drop-shadow(0 0 5px var(--postseason-accent))
+    drop-shadow(0 0 10px var(--postseason-glow));
+}
+
+/* Responsive photo cropping. */
+
+@media (max-width: 720px) {
+  .postseason-board {
+    background-position: center center;
+  }
+}
+
+@media (max-width: 520px) {
+  .postseason-board {
+    background-position: 50% center;
+    background-attachment: scroll;
+  }
+}
