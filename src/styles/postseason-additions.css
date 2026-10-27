@@ -609,3 +609,422 @@
     transition: none;
   }
 }
+
+
+/* ==============================================
+   MANGU O MOFONGO — VISUAL POLISH V2
+   Add to END of postseason-additions.css
+============================================== */
+
+/* MAIN TITLE — MORE COMPACT */
+
+.rivalry-masthead {
+  padding: 28px 18px 18px;
+}
+
+.rivalry-masthead h1 {
+  margin: 8px auto 6px;
+  font-size: clamp(2rem, 5.2vw, 4.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  font-weight: 1000;
+
+  color: #f6f9ff;
+
+  text-shadow:
+    0 2px 0 #8b9fb7,
+    0 5px 0 #243954,
+    0 10px 18px rgba(0, 0, 0, 0.65),
+    0 0 35px rgba(128, 180, 255, 0.13);
+}
+
+.rivalry-masthead__subtitle {
+  margin-top: 13px;
+  font-size: clamp(0.7rem, 1.3vw, 0.95rem);
+  letter-spacing: 0.32em;
+  color: #b7ddff;
+  text-shadow: 0 2px 12px #06101f;
+}
+
+/* TOURNAMENT TABS */
+
+.postseason-tabs {
+  max-width: 790px;
+  gap: 7px;
+  margin-top: 16px;
+}
+
+.postseason-tabs button {
+  padding: 14px 12px;
+  font-size: clamp(0.85rem, 1.6vw, 1.08rem);
+  letter-spacing: 0.08em;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(30, 51, 77, 0.98),
+      rgba(7, 18, 33, 0.99)
+    );
+
+  border-color: rgba(129, 165, 207, 0.42);
+
+  text-shadow: 0 2px 7px rgba(0, 0, 0, 0.4);
+}
+
+.postseason-tabs button.is-active {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(124, 83, 25, 0.98),
+      rgba(53, 39, 23, 0.98) 60%,
+      rgba(20, 28, 42, 0.99)
+    );
+
+  color: #fff6d9;
+  border-color: #ffd77e;
+
+  box-shadow:
+    inset 0 2px 0 rgba(255, 238, 178, 0.48),
+    0 0 25px rgba(255, 188, 66, 0.24);
+}
+
+/* RURAL BALLPARK — DEEPER SUNSET LIGHTING */
+
+.postseason-board {
+  min-height: 610px;
+  border-radius: 18px;
+
+  background:
+    /* Dark transparent overlay for readable scores */
+    linear-gradient(
+      180deg,
+      rgba(4, 12, 26, 0.40) 0%,
+      rgba(5, 18, 30, 0.40) 29%,
+      rgba(5, 25, 26, 0.30) 59%,
+      rgba(8, 25, 16, 0.18) 100%
+    ),
+
+    /* Warm evening sun on horizon */
+    radial-gradient(
+      ellipse at 77% 39%,
+      rgba(255, 192, 99, 0.48),
+      transparent 33%
+    ),
+
+    /* Soft atmospheric blue light */
+    radial-gradient(
+      ellipse at 14% 12%,
+      rgba(105, 168, 231, 0.38),
+      transparent 42%
+    ),
+
+    /* Countryside and outfield */
+    linear-gradient(
+      180deg,
+      #244669 0%,
+      #527a91 20%,
+      #c2a17c 42%,
+      #3c644b 56%,
+      #174832 67%,
+      #9a7453 71%,
+      #714e34 76%,
+      #345d2c 79%,
+      #153c23 100%
+    );
+
+  box-shadow:
+    0 0 24px var(--postseason-glow),
+    0 25px 60px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 0 100px rgba(3, 11, 23, 0.25);
+}
+
+/* Outfield fence */
+
+.postseason-board::before {
+  opacity: 0.78;
+  border-bottom-color: rgba(13, 36, 25, 0.88);
+}
+
+/* Cut grass and dirt baseline */
+
+.postseason-board::after {
+  background:
+    repeating-linear-gradient(
+      108deg,
+      #254923 0 48px,
+      #35602d 48px 96px
+    );
+
+  border-top: 11px solid #bc8b5e;
+
+  box-shadow:
+    0 -10px 30px rgba(8, 36, 20, 0.42),
+    inset 0 28px 35px rgba(2, 19, 11, 0.14);
+}
+
+/* SMALLER TOURNAMENT HEADING */
+
+.postseason-board__heading {
+  margin-bottom: 25px;
+}
+
+.postseason-board__heading p {
+  font-size: 10px;
+  letter-spacing: 0.23em;
+  color: #e3f0ff;
+}
+
+.postseason-board__heading h2 {
+  margin: 5px 0 9px;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  letter-spacing: 0.015em;
+  font-weight: 950;
+
+  text-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.6),
+    0 6px 18px rgba(0, 0, 0, 0.5),
+    0 0 26px var(--postseason-glow);
+}
+
+.postseason-board__heading > span {
+  color: #e2edfb;
+  font-size: 11px;
+  font-weight: 800;
+  text-shadow: 0 2px 8px #07101c;
+}
+
+/* MATCHUP CARDS — BROADCAST SCOREBOARD LOOK */
+
+.postseason-match {
+  padding: 11px 12px;
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.055),
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(10, 24, 44, 0.98),
+      rgba(2, 12, 26, 0.98)
+    );
+
+  border: 1px solid var(--postseason-accent);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 11px var(--postseason-glow),
+    0 12px 28px rgba(0, 0, 0, 0.42);
+}
+
+.postseason-match__heading {
+  margin-bottom: 8px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  font-weight: 950;
+}
+
+.postseason-match__state {
+  color: #b5c6dc;
+  letter-spacing: 0.08em;
+}
+
+/* Team score rows */
+
+.postseason-team-line {
+  min-height: 29px;
+  padding: 4px 9px;
+
+  background: rgba(19, 35, 56, 0.78);
+
+  font-weight: 750;
+  font-size: clamp(12px, 1.35vw, 14px);
+}
+
+.postseason-team-line + .postseason-team-line {
+  margin-top: 4px;
+}
+
+.postseason-team-line--barbaros.is-winner {
+  background: linear-gradient(
+    90deg,
+    rgba(177, 20, 43, 0.83),
+    rgba(55, 16, 33, 0.65)
+  );
+}
+
+.postseason-team-line--heat.is-winner {
+  background: linear-gradient(
+    90deg,
+    rgba(14, 86, 210, 0.87),
+    rgba(10, 39, 91, 0.7)
+  );
+}
+
+.postseason-team-line strong {
+  font-size: 21px;
+  font-weight: 950;
+  color: #fff;
+  text-shadow: 0 2px 5px #000;
+}
+
+/* Brighter postseason paths */
+
+.postseason-connections path {
+  stroke-width: 3.5;
+  stroke-linecap: square;
+
+  filter:
+    drop-shadow(0 0 5px var(--postseason-accent))
+    drop-shadow(0 0 11px var(--postseason-glow));
+}
+
+/* CHAMPIONSHIP — CENTERPIECE */
+
+.postseason-final {
+  border-width: 2px;
+  border-radius: 13px;
+  padding: 23px 18px 22px;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(205, 155, 62, 0.14),
+      transparent 58%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(8, 21, 39, 0.99),
+      rgba(2, 10, 23, 0.99)
+    );
+
+  box-shadow:
+    0 0 13px var(--postseason-accent),
+    0 0 34px var(--postseason-glow),
+    0 18px 44px rgba(0, 0, 0, 0.56),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.postseason-final__trophy {
+  font-size: 39px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 14px var(--postseason-glow));
+}
+
+.postseason-final__round {
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0.075em;
+}
+
+.postseason-final__winner {
+  margin-top: 19px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(243, 213, 142, 0.35);
+}
+
+.postseason-final__winner > strong {
+  font-size: clamp(1.3rem, 2.6vw, 2rem);
+  letter-spacing: 0.04em;
+  text-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.8),
+    0 0 17px var(--postseason-glow);
+}
+
+/* TOURNAMENT 2 — BLUE CHAMPIONSHIP THEME */
+
+.postseason-board--2 .postseason-final {
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(29, 149, 255, 0.2),
+      transparent 60%
+    ),
+    linear-gradient(
+      145deg,
+      #0b233e,
+      #041326
+    );
+}
+
+/* CLICK INTERACTIONS */
+
+.postseason-clickable {
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.postseason-clickable:hover {
+  transform: translateY(-4px) scale(1.012);
+  border-color: #fff5d4;
+  filter: brightness(1.12);
+
+  box-shadow:
+    0 0 19px var(--postseason-accent),
+    0 0 34px var(--postseason-glow),
+    0 17px 37px rgba(0, 0, 0, 0.58);
+}
+
+.postseason-clickable:active {
+  transform: translateY(-1px) scale(0.995);
+}
+
+/* RESPONSIVENESS */
+
+@media (max-width: 720px) {
+  .postseason-board__heading h2 {
+    font-size: clamp(1.35rem, 3.8vw, 1.8rem);
+  }
+
+  .postseason-match {
+    padding: 8px;
+  }
+
+  .postseason-team-line {
+    padding: 4px;
+  }
+
+  .postseason-final {
+    padding: 14px 9px;
+  }
+}
+
+@media (max-width: 520px) {
+  .rivalry-masthead {
+    padding: 23px 8px 15px;
+  }
+
+  .rivalry-masthead h1 {
+    font-size: clamp(1.85rem, 8vw, 2.65rem);
+  }
+
+  .rivalry-masthead__subtitle {
+    font-size: 0.67rem;
+    letter-spacing: 0.15em;
+  }
+
+  .postseason-board {
+    min-height: auto;
+    padding: 25px 12px;
+  }
+
+  .postseason-board__heading h2 {
+    font-size: 1.65rem;
+  }
+
+  .postseason-clickable:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .postseason-clickable {
+    transition: none;
+  }
+}
