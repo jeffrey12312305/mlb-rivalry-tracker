@@ -118,11 +118,15 @@ function FinalMatch({ result, tournament, onSelect }) {
 
       {isPlayed ? (
         <div className="postseason-final__lines">
-          <TeamLine
-            team="Barbaros"
-            wins={result.wins.Barbaros}
-            champion={result.winner === "Barbaros"}
-          />
+<TeamLine
+  team="Barbaros"
+  wins={
+    tournament === 1
+      ? 1
+      : result.wins.Barbaros
+  }
+  champion={result.winner === "Barbaros"}
+/>
           <TeamLine
             team="Heat"
             wins={result.wins.Heat}
@@ -190,15 +194,7 @@ export default function PostseasonBracket({
       className={`postseason-board postseason-board--${tournament}`}
       aria-label={`Tournament ${tournament} postseason bracket`}
     >
-      <div className="postseason-board__heading">
-        <p>ROAD TO THE TITLE</p>
-        <h2>TOURNAMENT {tournament}</h2>
-        <span>
-          SERIES {firstSeries}–{firstSeries + 3}
-          {" · SERIES RECORD: BARBAROS "}
-          {record.Barbaros}–{record.Heat} HEAT
-        </span>
-      </div>
+
 
       <div className="postseason-bracket">
         <div className="postseason-series-stack">

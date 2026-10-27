@@ -1150,3 +1150,78 @@
     background-attachment: scroll;
   }
 }
+
+
+/* =========================================
+   RED / WHITE / BLUE METALLIC TITLE
+========================================= */
+
+.rivalry-masthead h1 {
+  background: linear-gradient(
+    110deg,
+    #ce1126 0%,
+    #f33748 13%,
+    #ffffff 29%,
+    #ffffff 43%,
+    #0038a8 58%,
+    #4d9bff 70%,
+    #ffffff 83%,
+    #ce1126 100%
+  );
+
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0;
+
+  filter:
+    drop-shadow(0 3px 0 rgba(0, 0, 0, 0.6))
+    drop-shadow(0 8px 14px rgba(0, 0, 0, 0.45));
+
+  animation: rivalry-title-shimmer 8s ease-in-out infinite;
+}
+
+@keyframes rivalry-title-shimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rivalry-masthead h1 {
+    animation: none;
+  }
+}
+
+
+/* =========================================
+   COMPACT BRACKET LAYOUT
+========================================= */
+
+.postseason-board {
+  min-height: 0;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.postseason-bracket {
+  margin-top: 0;
+}
+
+.postseason-series-stack {
+  gap: 14px;
+}
+
+@media (max-width: 520px) {
+  .postseason-board {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+}
