@@ -1371,6 +1371,269 @@ export const games = [
         { player: "Carrigg", pos: "C", ab: 3, r: 0, h: 1, rbi: 0, bb: 0, so: 1, avg: ".333" }
       ]
     }
-  }
+  },
 
-];
+{
+  id: 33,
+  series: "Series 8",
+  game: 2,
+  date: "2026-10-26",
+  home: "Heat",
+  winner: "Barbaros",
+
+  barbaros: {
+    runs: 4,
+    hits: 10,
+    errors: 0,
+    hrs: 1,
+    rbi: 4,
+    strikeouts: 8
+  },
+
+  heat: {
+    runs: 3,
+    hits: 3,
+    errors: 0,
+    hrs: 2,
+    rbi: 3,
+    strikeouts: 9
+  },
+
+  mvp: "Adrian Beltre",
+
+  notes:
+    "Barbaros defeat Heat 4-3 in 11 innings to take a 2-0 series lead. " +
+    "Adrian Beltre homered and drove in two runs, Ethan Salas added an RBI, " +
+    "and Dave Roberts contributed a sacrifice fly. " +
+    "Tyler Rogers earned the win, Tejay Antone recorded the save, " +
+    "and Keith Foulke took the loss. " +
+    "Heat's Dave Roberts drove in two runs and Chone Figgins hit a solo home run.",
+
+  playerBox: {
+    barbaros: [
+      {
+        player: "Gillen",
+        pos: "LF",
+        ab: 5,
+        r: 0,
+        h: 0,
+        rbi: 0,
+        bb: 0,
+        so: 1,
+        avg: ".000"
+      },
+      {
+        player: "Gonzalez",
+        pos: "2B",
+        ab: 5,
+        r: 1,
+        h: 1,
+        rbi: 0,
+        bb: 0,
+        so: 0,
+        avg: ".200"
+      },
+      {
+        player: "Soriano",
+        pos: "RF",
+        ab: 5,
+        r: 0,
+        h: 2,
+        rbi: 0,
+        bb: 0,
+        so: 1,
+        avg: ".400"
+      },
+      {
+        player: "Walker",
+        pos: "DH",
+        ab: 4,
+        r: 0,
+        h: 0,
+        rbi: 0,
+        bb: 0,
+        so: 4,
+        avg: ".000"
+      },
+      {
+        player: "Roberts",
+        pos: "PH-DH",
+        ab: 0,
+        r: 0,
+        h: 0,
+        rbi: 1,
+        bb: 0,
+        so: 0,
+        avg: ".000"
+      },
+      {
+        player: "Pujols",
+        pos: "1B",
+        ab: 5,
+        r: 0,
+        h: 1,
+        rbi: 0,
+        bb: 0,
+        so: 0,
+        avg: ".200"
+      },
+      {
+        player: "Jones",
+        pos: "CF",
+        ab: 5,
+        r: 0,
+        h: 0,
+        rbi: 0,
+        bb: 0,
+        so: 0,
+        avg: ".000"
+      },
+      {
+        player: "Tulowitzki",
+        pos: "SS",
+        ab: 4,
+        r: 2,
+        h: 3,
+        rbi: 0,
+        bb: 0,
+        so: 0,
+        avg: ".750"
+      },
+      {
+        player: "Beltre",
+        pos: "3B",
+        ab: 4,
+        r: 1,
+        h: 1,
+        rbi: 2,
+        bb: 0,
+        so: 1,
+        avg: ".250"
+      },
+      {
+        player: "Salas",
+        pos: "C",
+        ab: 4,
+        r: 0,
+        h: 2,
+        rbi: 1,
+        bb: 0,
+        so: 1,
+        avg: ".500"
+      }
+    ],
+
+    heat: [
+      {
+        player: "Clemente",
+        pos: "RF",
+        ab: 5,
+        r: 0,
+        h: 0,
+        rbi: 0,
+        bb: 0,
+        so: 3,
+        avg: ".000"
+      },
+      {
+        player: "Tulowitzki",
+        pos: "SS",
+        ab: 5,
+        r: 0,
+        h: 0,
+        rbi: 0,
+        bb: 0,
+        so: 0,
+        avg: ".000"
+      },
+      {
+        player: "Bateman",
+        pos: "LF",
+        ab: 4,
+        r: 1,
+        h: 0,
+        rbi: 0,
+        bb: 0,
+        so: 1,
+        avg: ".000"
+      },
+      {
+        player: "Roberts",
+        pos: "DH",
+        ab: 4,
+        r: 1,
+        h: 1,
+        rbi: 2,
+        bb: 0,
+        so: 2,
+        avg: ".250"
+      },
+      {
+        player: "Jones",
+        pos: "CF",
+        ab: 4,
+        r: 0,
+        h: 0,
+        rbi: 0,
+        bb: 0,
+        so: 1,
+        avg: ".000"
+      },
+      {
+        player: "Figgins",
+        pos: "3B",
+        ab: 4,
+        r: 1,
+        h: 1,
+        rbi: 1,
+        bb: 0,
+        so: 0,
+        avg: ".250"
+      },
+      {
+        player: "Pujols",
+        pos: "1B",
+        ab: 3,
+        r: 0,
+        h: 0,
+        rbi: 0,
+        bb: 1,
+        so: 1,
+        avg: ".000"
+      },
+      {
+        player: "Crow-Armstrong",
+        pos: "PR",
+        ab: 0,
+        r: 0,
+        h: 0,
+        rbi: 0,
+        bb: 0,
+        so: 0,
+        avg: ".000"
+      },
+      {
+        player: "Lowe",
+        pos: "2B",
+        ab: 4,
+        r: 0,
+        h: 1,
+        rbi: 0,
+        bb: 0,
+        so: 0,
+        avg: ".250"
+      },
+      {
+        player: "Carrigg",
+        pos: "C",
+        ab: 4,
+        r: 0,
+        h: 0,
+        rbi: 0,
+        bb: 0,
+        so: 1,
+        avg: ".000"
+      }
+    ]
+  }
+}];
