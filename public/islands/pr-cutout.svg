@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 160 84">
+  <defs>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff718f"/>
+      <stop offset=".55" stop-color="#ed315a"/>
+      <stop offset="1" stop-color="#a81642"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Stylized Puerto Rico silhouette -->
+  <path
+    d="M12 37
+       L21 32 33 31 43 28 53 30
+       66 27 78 29 91 27
+       103 30 115 29 126 32
+       137 35 146 39 143 45
+       132 48 121 50 110 49
+       100 53 89 51 77 54
+       65 52 53 55 42 51
+       31 52 22 48 14 45 Z"
+    fill="url(#red)"
+    stroke="#ff9aaf"
+    stroke-width="1.2"
+    stroke-linejoin="round"
+  />
+
+  <!-- Vieques and Culebra -->
+  <path
+    d="M107 65 L122 62 135 64 125 68 112 68 Z"
+    fill="#ec315a"
+  />
+  <path
+    d="M133 21 L140 19 145 22 138 25 Z"
+    fill="#ec315a"
+  />
+</svg>

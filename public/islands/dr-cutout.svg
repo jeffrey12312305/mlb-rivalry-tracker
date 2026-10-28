@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 160 84">
+  <defs>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#24baff"/>
+      <stop offset=".55" stop-color="#0089e8"/>
+      <stop offset="1" stop-color="#004ba8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Stylized Dominican Republic silhouette -->
+  <path
+    d="M13 37
+       L22 34 28 27 39 29 46 24
+       56 28 64 20 73 23 80 19
+       89 24 98 22 106 28 116 26
+       123 31 134 30 141 36 134 42
+       139 46 130 50 125 57
+       116 55 110 62 101 60
+       93 65 85 61 76 63
+       68 57 59 60 51 55
+       43 58 36 53 28 54
+       25 47 17 46 21 41 Z"
+    fill="url(#blue)"
+    stroke="#61d8ff"
+    stroke-width="1.2"
+    stroke-linejoin="round"
+  />
+
+  <!-- Small offshore island -->
+  <path
+    d="M126 65 L135 62 143 64 137 68 129 68 Z"
+    fill="#0089e8"
+  />
+</svg>
