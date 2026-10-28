@@ -327,11 +327,11 @@ export default function PostseasonBracket({
   );
 
   
-  // Keep Series 12 in tournament calculations,
+  // Keep Series 13 in tournament calculations,
   // but hide its card to match Tournament 1's layout.
   const middleSeries = data.closing.filter(
     (result) =>
-      !(tournament === 2 && result.number === 12)
+      !(tournament === 2 && result.number === 13)
   );
 
   const hasThreeMiddle = middleSeries.length === 3;
