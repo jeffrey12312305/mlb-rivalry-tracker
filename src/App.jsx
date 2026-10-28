@@ -22,7 +22,9 @@ export default function App() {
   const overallStats = useMemo(() => calculateStats(games), []);
   const currentGames = useMemo(() => games.filter((game) => {
     const number = getSeriesNumber(game);
-    return selectedTournament === 1 ? number >= 1 && number <= 4 : number >= 5 && number <= 9;
+    return selectedTournament === 1
+      ? number >= 1 && number <= 6
+      : number >= 7;
   }), [selectedTournament]);
   const stats = useMemo(() => calculateStats(currentGames), [currentGames]);
   const seriesNames = useMemo(() => Object.keys(stats.series).sort((a, b) => Number(a.match(/\d+/)?.[0] || 0) - Number(b.match(/\d+/)?.[0] || 0)), [stats.series]);
