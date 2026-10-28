@@ -1751,5 +1751,331 @@ export const games = [
         { player: "O'Day (S)", ip: "0.2", h: 0, r: 0, er: 0, bb: 0, so: 0 }
       ]
     }
+  },
+
+// =========================================
+  // SERIES 9 - GAME 2
+  // BARBAROS 2, HEAT 1
+  // SERIES TIED 1-1
+  // =========================================
+  {
+    id: 36,
+    series: "Series 9",
+    game: 2,
+    home: "Barbaros",
+    winner: "Barbaros",
+
+    barbaros: {
+      runs: 2,
+      hits: 8,
+      errors: 0,
+      hrs: 1,
+      rbi: 2,
+      strikeouts: 2
+    },
+
+    heat: {
+      runs: 1,
+      hits: 2,
+      errors: 0,
+      hrs: 1,
+      rbi: 1,
+      strikeouts: 7
+    },
+
+    mvp: "Craig Biggio",
+
+    notes:
+      "Barbaros defeat Heat 2-1 in a walk-off victory to tie " +
+      "the Tournament 2 championship series at 1-1. " +
+      "Craig Biggio went 2-for-4 with a home run, two runs " +
+      "scored, and an RBI. Jhonkensy Noel drove in the " +
+      "winning run with a sacrifice fly. Theo Gillen added " +
+      "two hits and a triple. Honus Wagner hit a solo home " +
+      "run for Heat. Gavin Williams held Heat to one hit " +
+      "over 6.2 scoreless innings. Keith Foulke was charged " +
+      "with a blown save. Tyler Rogers earned the win " +
+      "and Gabriel Hughes took the loss.",
+
+    playerBox: {
+      barbaros: [
+        {
+          player: "Gillen",
+          pos: "LF",
+          ab: 4,
+          r: 0,
+          h: 2,
+          rbi: 0,
+          bb: 0,
+          so: 0,
+          avg: ".500"
+        },
+        {
+          player: "Biggio",
+          pos: "2B",
+          ab: 4,
+          r: 2,
+          h: 2,
+          rbi: 1,
+          bb: 0,
+          so: 0,
+          avg: ".500"
+        },
+        {
+          player: "Mantle",
+          pos: "RF",
+          ab: 4,
+          r: 0,
+          h: 1,
+          rbi: 0,
+          bb: 0,
+          so: 0,
+          avg: ".250"
+        },
+        {
+          player: "Noel",
+          pos: "DH",
+          ab: 3,
+          r: 0,
+          h: 1,
+          rbi: 1,
+          bb: 0,
+          so: 1,
+          avg: ".333"
+        },
+        {
+          player: "Pujols",
+          pos: "1B",
+          ab: 3,
+          r: 0,
+          h: 0,
+          rbi: 0,
+          bb: 0,
+          so: 0,
+          avg: ".000"
+        },
+        {
+          player: "Jones",
+          pos: "CF",
+          ab: 3,
+          r: 0,
+          h: 1,
+          rbi: 0,
+          bb: 0,
+          so: 0,
+          avg: ".333"
+        },
+        {
+          player: "Wagner",
+          pos: "SS",
+          ab: 3,
+          r: 0,
+          h: 0,
+          rbi: 0,
+          bb: 0,
+          so: 0,
+          avg: ".000"
+        },
+        {
+          player: "Beltre",
+          pos: "3B",
+          ab: 3,
+          r: 0,
+          h: 1,
+          rbi: 0,
+          bb: 0,
+          so: 0,
+          avg: ".333"
+        },
+        {
+          player: "Salas",
+          pos: "C",
+          ab: 3,
+          r: 0,
+          h: 0,
+          rbi: 0,
+          bb: 0,
+          so: 1,
+          avg: ".000"
+        }
+      ],
+
+      heat: [
+        {
+          player: "Clemente",
+          pos: "RF",
+          ab: 4,
+          r: 0,
+          h: 0,
+          rbi: 0,
+          bb: 0,
+          so: 1,
+          avg: ".000"
+        },
+        {
+          player: "Tulowitzki",
+          pos: "SS",
+          ab: 4,
+          r: 0,
+          h: 0,
+          rbi: 0,
+          bb: 0,
+          so: 1,
+          avg: ".000"
+        },
+        {
+          player: "Roberts",
+          pos: "DH",
+          ab: 3,
+          r: 0,
+          h: 0,
+          rbi: 0,
+          bb: 0,
+          so: 1,
+          avg: ".000"
+        },
+        {
+          player: "Jones",
+          pos: "CF",
+          ab: 3,
+          r: 0,
+          h: 0,
+          rbi: 0,
+          bb: 0,
+          so: 2,
+          avg: ".000"
+        },
+        {
+          player: "Bateman",
+          pos: "LF",
+          ab: 3,
+          r: 0,
+          h: 1,
+          rbi: 0,
+          bb: 0,
+          so: 0,
+          avg: ".333"
+        },
+        {
+          player: "Figgins",
+          pos: "3B",
+          ab: 3,
+          r: 0,
+          h: 0,
+          rbi: 0,
+          bb: 0,
+          so: 0,
+          avg: ".000"
+        },
+        {
+          player: "Pujols",
+          pos: "1B",
+          ab: 3,
+          r: 0,
+          h: 0,
+          rbi: 0,
+          bb: 0,
+          so: 2,
+          avg: ".000"
+        },
+        {
+          player: "Wagner",
+          pos: "2B",
+          ab: 3,
+          r: 1,
+          h: 1,
+          rbi: 1,
+          bb: 0,
+          so: 0,
+          avg: ".333"
+        },
+        {
+          player: "Carrigg",
+          pos: "C",
+          ab: 2,
+          r: 0,
+          h: 0,
+          rbi: 0,
+          bb: 1,
+          so: 0,
+          avg: ".000"
+        }
+      ]
+    },
+
+    pitchingBox: {
+      barbaros: [
+        {
+          player: "Williams",
+          ip: "6.2",
+          h: 1,
+          r: 0,
+          er: 0,
+          bb: 1,
+          so: 4
+        },
+        {
+          player: "Foulke",
+          ip: "1.1",
+          h: 1,
+          r: 1,
+          er: 1,
+          bb: 0,
+          so: 2,
+          decision: "BS"
+        },
+        {
+          player: "Rogers",
+          ip: "1.0",
+          h: 0,
+          r: 0,
+          er: 0,
+          bb: 0,
+          so: 1,
+          decision: "W"
+        }
+      ],
+
+      heat: [
+        {
+          player: "Misiorowski",
+          ip: "2.1",
+          h: 2,
+          r: 1,
+          er: 1,
+          bb: 0,
+          so: 0
+        },
+        {
+          player: "Kerr",
+          ip: "3.2",
+          h: 3,
+          r: 0,
+          er: 0,
+          bb: 0,
+          so: 2
+        },
+        {
+          player: "Hughes",
+          ip: "2.0",
+          h: 2,
+          r: 1,
+          er: 1,
+          bb: 0,
+          so: 0,
+          decision: "L"
+        },
+        {
+          player: "Strahm",
+          ip: "0.1",
+          h: 1,
+          r: 0,
+          er: 0,
+          bb: 0,
+          so: 0
+        }
+      ]
+    }
   }
 ];
+
