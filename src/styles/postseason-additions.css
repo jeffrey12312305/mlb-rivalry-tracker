@@ -1869,3 +1869,626 @@
     display: none;
   }
 }
+
+/* MANGU BRACKET MOCKUP V2 START */
+
+/*
+  MANGU O MOFONGO?
+  FIVE-COLUMN CHAMPIONSHIP BRACKET
+
+  LEFT:    FOUR OPENING SERIES
+  CENTER:  TWO OR THREE LATER SERIES
+  RIGHT:   TOURNAMENT CHAMPION
+
+  All cards remain clickable React components.
+*/
+
+/* Tournament 1: Gold */
+.postseason-board--1 {
+  --bracket-gold: #ffc344;
+  --bracket-glow: rgba(255, 180, 36, .42);
+  --bracket-border: #f8c34b;
+}
+
+/* Tournament 2: Cyan/Blue */
+.postseason-board--2 {
+  --bracket-gold: #51d9ff;
+  --bracket-glow: rgba(72, 203, 255, .38);
+  --bracket-border: #53d9fa;
+}
+
+/* A real scenic baseball-field background. */
+.postseason-board {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  padding: 30px 26px 24px;
+
+  border: 2px solid var(--bracket-border);
+  border-radius: 20px;
+
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(10, 20, 35, .25) 0%,
+      rgba(6, 12, 23, .25) 42%,
+      rgba(4, 11, 22, .57) 100%
+    ),
+    url("https://www.traveliowa.com/userdocs/modulepage/ogimages/nostalgicbaseball.jpg");
+
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  box-shadow:
+    0 0 14px var(--bracket-glow),
+    inset 0 0 36px rgba(0, 0, 0, .25),
+    0 20px 45px rgba(0, 0, 0, .30);
+
+  overflow: hidden;
+}
+
+/* EXACT STRUCTURE: 4 left, 2 middle, 1 final. */
+.postseason-board .postseason-bracket {
+  position: relative;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.08fr)
+    8.5%
+    minmax(0, 1fr)
+    8.5%
+    minmax(0, 1.08fr);
+
+  align-items: center;
+  gap: 0;
+
+  width: 100%;
+  max-width: 1190px;
+  margin: 0 auto;
+
+  min-height: 506px;
+}
+
+/* FOUR EVENLY SPACED OPENING SERIES */
+.postseason-board .postseason-series-stack {
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: repeat(4, 110px);
+
+  align-content: start;
+  align-items: start;
+
+  gap: 22px;
+
+  width: 100%;
+  height: 506px;
+
+  min-height: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* TWO MIDDLE SERIES */
+.postseason-middle-stack {
+  position: relative;
+  z-index: 2;
+
+  height: 506px;
+  min-height: 506px;
+  width: 100%;
+}
+
+/*
+  Series 5 is centered between Series 1 and 2.
+  Series 6 is centered between Series 3 and 4.
+*/
+.postseason-middle-stack > .postseason-match {
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+}
+
+.postseason-middle-stack > .postseason-match:first-child {
+  top: 66px;
+}
+
+.postseason-middle-stack > .postseason-match:nth-child(2) {
+  top: 330px;
+}
+
+/* Seven-series tournaments can show an extra decider. */
+.postseason-middle-stack.has-three
+  > .postseason-match:first-child {
+  top: 66px;
+}
+
+.postseason-middle-stack.has-three
+  > .postseason-match:nth-child(2) {
+  top: 198px;
+}
+
+.postseason-middle-stack.has-three
+  > .postseason-match:nth-child(3) {
+  top: 330px;
+}
+
+/* THICK CONNECTING LINES FROM THE MOCKUP */
+.postseason-board .postseason-connector {
+  display: block;
+  position: relative;
+
+  width: 100%;
+  height: 506px;
+  min-height: 506px;
+  overflow: visible;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+.postseason-board .postseason-connector path {
+  fill: none;
+
+  stroke: var(--bracket-gold);
+  stroke-width: 5.5;
+
+  stroke-linecap: square;
+  stroke-linejoin: bevel;
+
+  filter:
+    drop-shadow(0 0 3px var(--bracket-gold))
+    drop-shadow(0 0 9px var(--bracket-glow));
+}
+
+/* GLOSSY SERIES CARDS */
+.postseason-board .postseason-match {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  width: 100%;
+  height: 110px;
+  min-height: 110px;
+  max-height: 110px;
+
+  margin: 0;
+  padding: 10px 12px;
+
+  border: 2px solid var(--bracket-border);
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      155deg,
+      rgba(13, 23, 40, .99),
+      rgba(3, 8, 18, .98)
+    );
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, .55),
+    0 0 8px var(--bracket-glow);
+
+  color: #ffffff;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease;
+}
+
+/* SERIES NUMBER AND BEST-OF-FIVE ON THE SAME LINE */
+.postseason-board .postseason-match__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 5px;
+
+  width: 100%;
+  min-height: 24px;
+
+  margin: 0 0 7px;
+
+  white-space: nowrap;
+}
+
+.postseason-board .postseason-match__title {
+  color: var(--bracket-gold);
+
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: clamp(15px, 1.55vw, 20px);
+  font-weight: 800;
+
+  line-height: 1;
+  letter-spacing: .2px;
+}
+
+.postseason-board .postseason-match__format {
+  color: #f7f7f7;
+
+  font-size: clamp(9px, .9vw, 13px);
+  font-weight: 900;
+  letter-spacing: .4px;
+  line-height: 1;
+
+  flex-shrink: 0;
+}
+
+/* TWO STRONG TEAM ROWS */
+.postseason-board .postseason-team-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+
+  width: 100%;
+  min-height: 29px;
+
+  margin: 0;
+  padding: 4px 9px;
+
+  border-radius: 5px;
+
+  background: #18283c;
+  color: #ffffff;
+
+  font-weight: 750;
+  font-size: 13px;
+  line-height: 1.1;
+}
+
+.postseason-board .postseason-team-line + .postseason-team-line {
+  margin-top: 4px;
+}
+
+.postseason-board .postseason-team-line.is-winner {
+  background:
+    linear-gradient(
+      90deg,
+      #124aaf,
+      #0e368a
+    );
+}
+
+.postseason-board .postseason-team-line--barbaros.is-winner {
+  background:
+    linear-gradient(
+      90deg,
+      #8e152f,
+      #570d25
+    );
+}
+
+.postseason-board .postseason-team-line strong {
+  flex-shrink: 0;
+
+  color: #ffffff;
+  font-family: Impact, "Arial Black", sans-serif;
+
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* LARGE CHAMPIONSHIP CARD ON THE RIGHT */
+.postseason-board .postseason-final {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+
+  box-sizing: border-box;
+
+  width: 100%;
+  min-width: 0;
+
+  height: auto;
+  min-height: 310px;
+
+  padding: 20px 17px;
+
+  border: 3px solid var(--bracket-gold);
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      155deg,
+      rgba(13, 20, 35, .99),
+      rgba(2, 8, 17, .99)
+    );
+
+  box-shadow:
+    0 0 10px var(--bracket-gold),
+    0 0 26px var(--bracket-glow),
+    0 15px 30px rgba(0, 0, 0, .45);
+
+  text-align: center;
+  color: white;
+
+  cursor: pointer;
+}
+
+.postseason-board .postseason-final__trophy {
+  font-size: 53px;
+  line-height: 1.1;
+  margin-bottom: 8px;
+
+  filter:
+    drop-shadow(0 0 9px rgba(255, 200, 59, .7));
+}
+
+.postseason-championship-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 3px;
+
+  margin-bottom: 13px;
+}
+
+.postseason-championship-heading > span {
+  color: var(--bracket-gold);
+
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.postseason-championship-heading > small {
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+/* THE RIGHT CARD COUNTS SERIES WINS */
+.postseason-board .postseason-final__lines {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  width: 100%;
+
+  margin: 0 0 15px;
+}
+
+.postseason-board .postseason-final__lines
+  .postseason-team-line {
+  min-height: 40px;
+  padding: 8px 10px;
+}
+
+.postseason-board .postseason-final__lines
+  .postseason-team-line strong {
+  font-size: 27px;
+}
+
+/* CHAMPION NAME BELOW A GOLD DIVIDER */
+.postseason-board .postseason-final__winner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 8px;
+
+  padding-top: 16px;
+
+  border-top:
+    1px solid rgba(255, 208, 88, .6);
+}
+
+.postseason-board .postseason-final__winner > span {
+  color: var(--bracket-gold);
+
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .6px;
+  text-align: center;
+}
+
+.postseason-board .postseason-final__winner strong {
+  color: #ffffff;
+
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: clamp(19px, 2.4vw, 29px);
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.postseason-championship-detail {
+  color: #aebcd0;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: .7px;
+
+  margin: 12px 0 0;
+  text-align: center;
+}
+
+/* HOVER AND KEYBOARD FOCUS */
+.postseason-board .postseason-clickable:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 14px var(--bracket-gold),
+    0 10px 25px rgba(0, 0, 0, .45);
+}
+
+.postseason-board .postseason-clickable:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+}
+
+.postseason-board .postseason-board__note {
+  margin: 18px auto 0;
+  max-width: 850px;
+
+  color: #e0e5eb;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.5;
+
+  text-align: center;
+
+  text-shadow: 0 2px 5px #000;
+}
+
+/* KEEP THE EXISTING HEADER, MAKE IT CHROME-LIKE */
+.rivalry-masthead h1 {
+  background-image:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #ffffff 16%,
+      #bfd5ed 34%,
+      #ffffff 48%,
+      #8c9daf 51%,
+      #ffffff 71%,
+      #d4e5fa 86%,
+      #ffffff 100%
+    );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  -webkit-text-stroke: 1px #1e2534;
+
+  text-shadow: none;
+  filter: drop-shadow(3px 4px 0 #050a14);
+
+  animation: none;
+}
+
+/* SMALLER DESKTOPS / TABLETS */
+@media (max-width: 1050px) {
+  .postseason-board {
+    padding: 23px 14px;
+  }
+
+  .postseason-board .postseason-bracket {
+    grid-template-columns:
+      minmax(0, 1fr)
+      6.5%
+      minmax(0, .95fr)
+      6.5%
+      minmax(0, 1.08fr);
+  }
+
+  .postseason-board .postseason-match {
+    padding: 8px;
+  }
+
+  .postseason-board .postseason-team-line {
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 11px;
+  }
+
+  .postseason-board .postseason-final {
+    padding: 15px 10px;
+  }
+}
+
+/* MOBILE: ALL CARDS READABLE AND CLICKABLE */
+@media (max-width: 740px) {
+  .postseason-board {
+    padding: 16px 13px;
+
+    border-radius: 13px;
+  }
+
+  .postseason-board .postseason-bracket {
+    display: flex;
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 14px;
+
+    width: 100%;
+    min-height: 0;
+  }
+
+  .postseason-board .postseason-series-stack {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+
+    height: auto;
+    min-height: 0;
+
+    gap: 10px;
+  }
+
+  .postseason-middle-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 100%;
+    height: auto;
+    min-height: 0;
+  }
+
+  .postseason-middle-stack > .postseason-match,
+  .postseason-middle-stack.has-three
+    > .postseason-match {
+    position: static;
+    top: auto;
+
+    width: 100%;
+  }
+
+  .postseason-board .postseason-connector {
+    display: none;
+  }
+
+  .postseason-board .postseason-match {
+    width: 100%;
+    height: 100px;
+    min-height: 100px;
+    max-height: none;
+  }
+
+  .postseason-board .postseason-match__title {
+    font-size: 20px;
+  }
+
+  .postseason-board .postseason-match__format {
+    font-size: 13px;
+  }
+
+  .postseason-board .postseason-final {
+    min-height: 280px;
+    width: 100%;
+  }
+}
+
+/* MANGU BRACKET MOCKUP V2 END */
