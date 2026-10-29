@@ -1374,6 +1374,7 @@ export const games = [
   },
 
 {
+  showGameId: "1846898355",
   id: 33,
   series: "Series 8",
   game: 2,
@@ -1640,6 +1641,7 @@ export const games = [
 
 // Series 8 - Game 3: Barbaros clinch Series 8, 3-0.
   {
+    showGameId: "1875870225",
     id: 34,
     series: "Series 8",
     game: 3,
@@ -1698,6 +1700,7 @@ export const games = [
   },
   // Series 9 - Game 1: Heat take a 1-0 lead in the Tournament 2 final.
   {
+    showGameId: "1875944614",
     id: 35,
     series: "Series 9",
     game: 1,
@@ -1759,6 +1762,7 @@ export const games = [
   // SERIES TIED 1-1
   // =========================================
   {
+    showGameId: "1878508116",
     id: 36,
     series: "Series 9",
     game: 2,
