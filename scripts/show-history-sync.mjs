@@ -5,7 +5,7 @@ const DEFAULT_JSON =
   "data/show-history-page1-populated.json";
 
 const USERNAME = "X_CallMeDirty";
-const OPPONENT = "xRomanx";
+const OPPONENT = "x-_BlackDemon_-";
 
 const args = process.argv.slice(2);
 
@@ -48,7 +48,7 @@ function isRivalry(game) {
   return (
     teams.includes("barbaros") &&
     teams.includes("heat") &&
-    players.includes(normalize(OPPONENT))
+    ["xRomanx", OPPONENT].some(alias => players.includes(normalize(alias)))
   );
 }
 

@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { validateExport } from "./lib/validate-show-export.mjs";
 
 const normalize = value =>
   String(value ?? "")
@@ -7,6 +8,9 @@ const normalize = value =>
     .replace(/[^a-z0-9]/g, "");
 
 function asNumber(value) {
+  if (value === undefined || value === null || String(value).trim() === "") {
+    throw new Error("Missing statistic; refusing to assume zero.");
+  }
   const number = Number(value);
 
   if (!Number.isFinite(number)) {
@@ -87,6 +91,7 @@ function totals(table, type) {
 }
 
 async function main() {
+  await fs.mkdir("data", { recursive: true });
   const files = await fs.readdir("data");
 
   const candidates = files.filter(file =>
@@ -118,6 +123,7 @@ async function main() {
   const exportData = JSON.parse(
     await fs.readFile(input, "utf8")
   );
+  validateExport(exportData);
 
   if (
     exportData.schema !== "mlb-show-web-gamelog-v1"
@@ -155,10 +161,10 @@ async function main() {
 
   if (
     ![...away, ...home].some(
-      value => normalize(value) === "xromanx"
+      value => ["xromanx", "xblackdemon"].includes(normalize(value))
     )
   ) {
-    throw new Error("Expected opponent xRomanx not found.");
+    throw new Error("Expected opponent xRomanx or x-_BlackDemon_- not found.");
   }
 
   const battingTables = tables.filter(table => {
