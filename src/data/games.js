@@ -3910,6 +3910,356 @@ export const games = [
         "inning": 4
       }
     ]
+  },
+  {
+    "showGameId": "1928946868",
+    "id": 42,
+    "series": "Series 10",
+    "game": 3,
+    "home": "Heat",
+    "winner": "Heat",
+    "barbaros": {
+      "runs": 1,
+      "hits": 8,
+      "errors": 0,
+      "hrs": 0,
+      "rbi": 0,
+      "strikeouts": 6
+    },
+    "heat": {
+      "runs": 7,
+      "hits": 13,
+      "errors": 1,
+      "hrs": 4,
+      "rbi": 7,
+      "strikeouts": 4
+    },
+    "mvp": "Pending review",
+    "notes": "Imported from MLB The Show game page. MVP and narrative pending review.",
+    "playerBox": {
+      "barbaros": [
+        {
+          "player": "Tatis Jr.",
+          "pos": "RF",
+          "ab": 4,
+          "r": 0,
+          "h": 1,
+          "rbi": 0,
+          "bb": 0,
+          "so": 2,
+          "avg": ".250"
+        },
+        {
+          "player": "Biggio",
+          "pos": "2B",
+          "ab": 4,
+          "r": 0,
+          "h": 0,
+          "rbi": 0,
+          "bb": 0,
+          "so": 1,
+          "avg": ".000"
+        },
+        {
+          "player": "Mantle",
+          "pos": "LF",
+          "ab": 4,
+          "r": 0,
+          "h": 3,
+          "rbi": 0,
+          "bb": 0,
+          "so": 1,
+          "avg": ".750"
+        },
+        {
+          "player": "McCarthy",
+          "pos": "DH",
+          "ab": 4,
+          "r": 0,
+          "h": 0,
+          "rbi": 0,
+          "bb": 0,
+          "so": 2,
+          "avg": ".000"
+        },
+        {
+          "player": "Pujols",
+          "pos": "1B",
+          "ab": 1,
+          "r": 0,
+          "h": 1,
+          "rbi": 0,
+          "bb": 0,
+          "so": 0,
+          "avg": "1.000"
+        },
+        {
+          "player": "1-Robinson",
+          "pos": "PR-1B",
+          "ab": 3,
+          "r": 1,
+          "h": 1,
+          "rbi": 0,
+          "bb": 0,
+          "so": 0,
+          "avg": ".333"
+        },
+        {
+          "player": "Crow-Armstrong",
+          "pos": "CF",
+          "ab": 4,
+          "r": 0,
+          "h": 0,
+          "rbi": 0,
+          "bb": 0,
+          "so": 0,
+          "avg": ".000"
+        },
+        {
+          "player": "Wagner",
+          "pos": "SS",
+          "ab": 4,
+          "r": 0,
+          "h": 1,
+          "rbi": 0,
+          "bb": 0,
+          "so": 0,
+          "avg": ".250"
+        },
+        {
+          "player": "Beltre",
+          "pos": "3B",
+          "ab": 4,
+          "r": 0,
+          "h": 0,
+          "rbi": 0,
+          "bb": 0,
+          "so": 0,
+          "avg": ".000"
+        },
+        {
+          "player": "Salas",
+          "pos": "C",
+          "ab": 3,
+          "r": 0,
+          "h": 1,
+          "rbi": 0,
+          "bb": 0,
+          "so": 0,
+          "avg": ".333"
+        }
+      ],
+      "heat": [
+        {
+          "player": "Carroll",
+          "pos": "LF",
+          "ab": 4,
+          "r": 1,
+          "h": 1,
+          "rbi": 1,
+          "bb": 0,
+          "so": 1,
+          "avg": ".250"
+        },
+        {
+          "player": "Crow-Armstrong",
+          "pos": "CF",
+          "ab": 4,
+          "r": 0,
+          "h": 0,
+          "rbi": 0,
+          "bb": 0,
+          "so": 0,
+          "avg": ".000"
+        },
+        {
+          "player": "Tatis Jr.",
+          "pos": "RF",
+          "ab": 4,
+          "r": 1,
+          "h": 1,
+          "rbi": 1,
+          "bb": 0,
+          "so": 0,
+          "avg": ".250"
+        },
+        {
+          "player": "Alvarez",
+          "pos": "DH",
+          "ab": 4,
+          "r": 1,
+          "h": 1,
+          "rbi": 0,
+          "bb": 0,
+          "so": 0,
+          "avg": ".250"
+        },
+        {
+          "player": "Rafaela",
+          "pos": "2B",
+          "ab": 4,
+          "r": 2,
+          "h": 3,
+          "rbi": 2,
+          "bb": 0,
+          "so": 0,
+          "avg": ".750"
+        },
+        {
+          "player": "Contreras",
+          "pos": "C",
+          "ab": 4,
+          "r": 2,
+          "h": 3,
+          "rbi": 1,
+          "bb": 0,
+          "so": 1,
+          "avg": ".750"
+        },
+        {
+          "player": "Clemens",
+          "pos": "1B",
+          "ab": 3,
+          "r": 0,
+          "h": 2,
+          "rbi": 1,
+          "bb": 0,
+          "so": 0,
+          "avg": ".667"
+        },
+        {
+          "player": "Figgins",
+          "pos": "3B",
+          "ab": 4,
+          "r": 0,
+          "h": 0,
+          "rbi": 0,
+          "bb": 0,
+          "so": 2,
+          "avg": ".000"
+        },
+        {
+          "player": "Tulowitzki",
+          "pos": "SS",
+          "ab": 4,
+          "r": 0,
+          "h": 2,
+          "rbi": 1,
+          "bb": 0,
+          "so": 0,
+          "avg": ".500"
+        }
+      ]
+    },
+    "pitchingBox": {
+      "barbaros": [
+        {
+          "player": "Scherzer",
+          "ip": "2.1",
+          "h": 9,
+          "r": 6,
+          "er": 6,
+          "bb": 0,
+          "so": 1,
+          "decision": "L"
+        },
+        {
+          "player": "Antone",
+          "ip": "5.1",
+          "h": 4,
+          "r": 1,
+          "er": 1,
+          "bb": 0,
+          "so": 3
+        },
+        {
+          "player": "Chapman",
+          "ip": "0.1",
+          "h": 0,
+          "r": 0,
+          "er": 0,
+          "bb": 0,
+          "so": 0
+        }
+      ],
+      "heat": [
+        {
+          "player": "Hernandez",
+          "ip": "7.0",
+          "h": 6,
+          "r": 1,
+          "er": 1,
+          "bb": 0,
+          "so": 5,
+          "decision": "W"
+        },
+        {
+          "player": "Bell",
+          "ip": "2.0",
+          "h": 2,
+          "r": 0,
+          "er": 0,
+          "bb": 0,
+          "so": 1
+        }
+      ]
+    },
+    "specialPlays": [
+      {
+        "team": "heat",
+        "player": "Carroll",
+        "type": "HR",
+        "inning": 1
+      },
+      {
+        "team": "barbaros",
+        "player": "Pujols",
+        "type": "2B",
+        "inning": 2
+      },
+      {
+        "team": "heat",
+        "player": "Rafaela",
+        "type": "HR",
+        "inning": 2
+      },
+      {
+        "team": "heat",
+        "player": "Tatis Jr.",
+        "type": "HR",
+        "inning": 3
+      },
+      {
+        "team": "heat",
+        "player": "Alvarez",
+        "type": "2B",
+        "inning": 3
+      },
+      {
+        "team": "heat",
+        "player": "Rafaela",
+        "type": "2B",
+        "inning": 3
+      },
+      {
+        "team": "heat",
+        "player": "Contreras",
+        "type": "2B",
+        "inning": 3
+      },
+      {
+        "team": "heat",
+        "player": "Clemens",
+        "type": "SF",
+        "inning": 3
+      },
+      {
+        "team": "heat",
+        "player": "Contreras",
+        "type": "HR",
+        "inning": 8
+      }
+    ]
   }
 ];
 
